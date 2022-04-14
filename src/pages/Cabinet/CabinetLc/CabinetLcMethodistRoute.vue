@@ -1,0 +1,1490 @@
+<template>
+  <main class="content content_cabinet">
+    <section class="page__section">
+      <!-- <ul class="breadcrumbs page__breadcrumbs">
+				<li class="breadcrumbs__item">
+					<a href="#" class="breadcrumbs__link">мероприятия</a>
+				</li>
+				<li class="breadcrumbs__item">
+					<a href="#" class="breadcrumbs__link">мои мероприятия</a>
+				</li>
+				<li class="breadcrumbs__item">
+					<span href="#" class="breadcrumbs__link breadcrumbs__link_current">«Мастер-класс как эффективная форма повышения профессионального мастерства педагогов»</span>
+				</li>
+			</ul>		 -->
+      <h1 class="section-title mb-50">Образовательные маршруты</h1>
+      <div class="content-inner">
+        <div class="content__right content__right-polls events-content">
+          <h3 class="events-content__title events__title">
+            Предметные компетентности
+          </h3>
+          <div class="content__right-wr content__right-wr--pr">
+            <div class="content__right-wr-height list-scrollbar">
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+                <a href="#" class="events-content__add thing__add"
+                  >+ добавить материал</a
+                >
+              </div>
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div
+                    class="
+                      events-content__subtitle events-content__subtitle-icon
+                    "
+                  >
+                    завершенные
+                  </div>
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="events-content__title events__title">
+            Методические компетентности
+          </h3>
+          <div class="content__right-wr content__right-wr--pr">
+            <div class="content__right-wr-height list-scrollbar">
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="table-input-wr">
+                        <input
+                          type="date"
+                          class="table-input table-input--w110"
+                        />
+                        <input
+                          type="text"
+                          class="table-input table-input--w545"
+                        />
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="events-content__btn icon-checkandclose">
+                  <button class="icon-check-green">
+                    <svg
+                      width="18"
+                      height="13"
+                      viewBox="0 0 18 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17 1L6 12L1 7"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <button class="icon-check-clouse">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M18 6L6 18"
+                        stroke="#BDBDBD"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6 6L18 18"
+                        stroke="#BDBDBD"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div
+                    class="
+                      events-content__subtitle events-content__subtitle-icon
+                    "
+                  >
+                    завершенные
+                  </div>
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="events-content__title events__title">
+            Психолого-педагогические компетентности
+          </h3>
+          <div class="content__right-wr content__right-wr--pr">
+            <div class="content__right-wr-height list-scrollbar">
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+                <a href="#" class="events-content__add thing__add"
+                  >+ добавить материал</a
+                >
+              </div>
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div
+                    class="
+                      events-content__subtitle events-content__subtitle-icon
+                    "
+                  >
+                    завершенные
+                  </div>
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="events-content__title events__title">
+            ИКТ-компетентности
+          </h3>
+          <div class="content__right-wr content__right-wr--pr">
+            <div class="content__right-wr-height list-scrollbar">
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span class="text-radio events-title"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+                <a href="#" class="events-content__add thing__add"
+                  >+ добавить материал</a
+                >
+              </div>
+              <div class="content__right-block">
+                <div class="events-content__col">
+                  <div
+                    class="
+                      events-content__subtitle events-content__subtitle-icon
+                    "
+                  >
+                    завершенные
+                  </div>
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span class="events-content__date-icon calender-icon">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="events-content__date-num">СБ, 10 марта</span>
+                  </div>
+                </div>
+                <div class="events-content__col">
+                  <div class="events-content__row">
+                    <label class="wr-radio wr-radio--flex">
+                      <input
+                        type="radio"
+                        name="Вопрос 2"
+                        value="Вариант 3"
+                        class="real-radio"
+                      />
+                      <span class="custom-radio"></span>
+                      <span
+                        class="text-radio events-title events-title--crossed"
+                        >Курсы повышения квалификации по предмету математика
+                        «Курс подготовки к ОГЭ по математике для 8 класса»
+                        (Фоксфорд- 36 ч)</span
+                      >
+                    </label>
+                    <div class="events-content__row-icon-close icon-close">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="events-content__date">
+                    <span
+                      class="
+                        events-content__date-icon
+                        calender-icon calender-icon--red
+                      "
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 13 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.625 3.16602C1.625 2.61373 2.07272 2.16602 2.625 2.16602H10.375C10.9273 2.16602 11.375 2.61373 11.375 3.16602V10.916C11.375 11.4683 10.9273 11.916 10.375 11.916H2.625C2.07272 11.916 1.625 11.4683 1.625 10.916V3.16602Z"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.66602 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.33398 1.08398V3.25065"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1.625 5.41602H11.375"
+                          stroke="#EB5757"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="
+                        events-content__date-num events-content__date-num--red
+                      "
+                      >СБ, 10 марта</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</template>
+

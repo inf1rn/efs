@@ -1,0 +1,61 @@
+{
+  "scripts": {
+    "serve": "vue-cli-service serve --mode prod -o",
+    "build": "vue-cli-service build --mode prod",
+    "lint": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vue/cli": "^4.5.15",
+    "@vuelidate/core": "^2.0.0-alpha.39",
+    "@vuelidate/validators": "^2.0.0-alpha.28",
+    "@vueup/vue-quill": "^1.0.0-beta.7",
+    "axios": "^0.24.0",
+    "core-js": "^3.6.5",
+    "maska": "^1.5.0",
+    "swiper": "^6.8.4",
+    "v-mask": "^2.3.0",
+    "vue": "^3.2.26",
+    "vue-router": "^4.0.12",
+    "vue-tippy": "^6.0.0-alpha.39",
+    "vueditor": "^0.3.1",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/no-multiple-template-root": 0,
+      "no-unused-vars": "off",
+      "vue/valid-template-root": 0,
+      "no-debugger": 0
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "description": "fd",
+  "main": "fd",
+  "repository": "fd",
+  "author": "fd",
+  "license": "f"
+}
