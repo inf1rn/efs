@@ -2,10 +2,31 @@
   <div class="tabs__body _tabs-block">
     <div class="admin_mailings__row row-inputs">
       <div class="admin_mailings__inp input-date">
-        <label for="adminSubjectDate" class="form__label">Датa</label>
+        <label for="adminSubjectDate" class="form__label">Датa от</label>
         <input
-          :value="filters.date"
-          @change="(e) => setFiltersDate(e.target.value)"
+          :value="filters.dateAt"
+          @change="
+            (e) => {
+              setFiltersDateAt(e.target.value);
+              fetchNotifications();
+            }
+          "
+          type="date"
+          name="date-from"
+          class="form__input-edit form__input-edit_el_date-from"
+          id="date-from"
+        />
+      </div>
+      <div class="admin_mailings__inp input-date">
+        <label for="adminSubjectDate" class="form__label">Датa по</label>
+        <input
+          :value="filters.dateTo"
+          @change="
+            (e) => {
+              setFiltersDateTo(e.target.value);
+              fetchNotifications();
+            }
+          "
           type="date"
           name="date-from"
           class="form__input-edit form__input-edit_el_date-from"
@@ -32,7 +53,7 @@
           @change="(e) => setFiltersRegionId(e.target.value)"
           class="form__select form__select_theme_white"
         >
-          <option value="" hidden>Выберите регион</option>
+          <option value="">Вcе</option>
           <option v-for="region in regions" :value="region.id" :key="region.id">
             {{ region.title }}
           </option>
@@ -89,10 +110,14 @@
                   .slice(0, 10)
               }}
             </td>
-            <td class="table__cell">{{ notification.status.title }}</td>
-            <td class="table__cell">{{ notification.role.title }}</td>
-            <td class="table__cell">{{ notification.region.title }}</td>
-            <td class="table__cell">4567</td>
+            <td class="table__cell">{{ notification.status?.title }}</td>
+            <td class="table__cell">
+              {{ notification.role?.title || "Все роли" }}
+            </td>
+            <td class="table__cell">
+              {{ notification.region?.title || "Все" }}
+            </td>
+            <td class="table__cell">{{ notification.linked_mailing_id }}</td>
             <td class="table__cell">
               <button
                 @click.stop="deleteHandler(notification.id)"
@@ -169,14 +194,17 @@ export default {
     ...mapActionsNotifications([
       "fetchNotifications",
       "setFiltersRoleId",
-      "setFiltersDate",
       "setFiltersRegionId",
       "clearFilters",
       "setPrevPage",
       "setNextPage",
       "deleteNotification",
     ]),
-    ...mapMutationsNotifications(["setRemovableNotificationId"]),
+    ...mapMutationsNotifications([
+      "setRemovableNotificationId",
+      "setFiltersDateAt",
+      "setFiltersDateTo",
+    ]),
     deleteHandler(id) {
       this.setRemovableNotificationId(id);
       this.deleteNotification(id);

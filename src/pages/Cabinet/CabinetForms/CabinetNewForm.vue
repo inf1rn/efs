@@ -7,16 +7,22 @@
         <input
           :value="name"
           @input="(e) => setName(e.target.value)"
+          @change="v$.name.$touch()"
           type="text"
           name="Periodicity"
           class="form__input-edit"
+          :class="{
+            invalid: v$.name.$error,
+          }"
           id="FormName"
           placeholder="Введите имя формы"
         />
       </div>
       <div class="form-detail__row row-period d-flex">
         <div class="form-detail__row-period">
-          <label for="Periodicity" class="form__label">Периодичность заполнения</label>
+          <label for="Periodicity" class="form__label"
+            >Периодичность заполнения</label
+          >
           <select
             name="Periodicity"
             class="form__input-edit"
@@ -28,10 +34,16 @@
             <option value="daily">Ежедневно</option>
             <option value="monthly">Ежемесячно</option>
             <option value="quarterly">Ежеквартально</option>
+            <option value="half-year">Раз в полугодие</option>
             <option value="yearly">Ежегодно</option>
           </select>
         </div>
-
+        <div class="form-detail__row-period">
+          <label for="Periodicity" class="form__label"
+            >Предназначение формы</label
+          >
+          <select class="form__input-edit" placeholder="1 раз в год"></select>
+        </div>
         <div class="form-detail__dates">
           <label for="formDetailDateFrom" class="form__label"
             >Период действия</label
@@ -80,13 +92,17 @@
         <button
           type="submit"
           @click="setNewEmptyField()"
-          class="button button_theme_green button_border_small form__submit mr-5"
+          class="
+            button button_theme_green button_border_small
+            form__submit
+            mr-5
+          "
         >
           Добавить поле
         </button>
         <button
           type="submit"
-          @click="saveForm()"
+          @click="submitButton()"
           class="button button_theme_green button_border_small form__submit"
         >
           Создать форму
@@ -96,15 +112,29 @@
   </main>
 </template>
 <script>
+import useVuelidate from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
+
 import CabinetFormField from "@/components/Cabinet/CabinetForms/CabinetFormField.vue";
 import { createNamespacedHelpers } from "vuex";
 
-const { mapState, mapMutations, mapActions } = createNamespacedHelpers("forms/newForm");
+const { mapState, mapMutations, mapActions } =
+  createNamespacedHelpers("forms/newForm");
 
 export default {
   name: "cabinet-new-form",
   title: "Новая форма",
   components: { CabinetFormField },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
+  validations() {
+    return {
+      name: { required, $lazy: true },
+    };
+  },
   computed: {
     ...mapState({
       name: (state) => state.name,
@@ -129,7 +159,37 @@ export default {
       "deleteField",
       "toggleEnabledField",
     ]),
-    ...mapActions(["saveForm"])
+    ...mapActions(["saveForm"]),
+    async submitButton() {
+      console.log("fields");
+      console.log(this.fields);
+      let isFieldsValid = true;
+      this.fields.map((field) => {
+        if (!field.description || !field.title) {
+          isFieldsValid = false;
+        }
+      });
+
+      if (!isFieldsValid) {
+        alert("Не заполнены все данные полей");
+        return;
+      }
+      this.v$.name.$touch();
+      if (this.v$.name.$error) {
+        alert("Имя формы не может быть пустым");
+        return;
+      }
+      const isFieldsEmpty = this.fields.length === 0;
+      if (isFieldsEmpty) {
+        alert("Нельзя создать форму без полей");
+      } else {
+        try {
+          await this.saveForm();
+        } catch (e) {
+          alert("Ошибка при отправке формы");
+        }
+      }
+    },
   },
 };
 </script>

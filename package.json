@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "serve": "vue-cli-service serve --mode prod -o",
+    "serve": "vue-cli-service serve --mode prod --open",
     "build": "vue-cli-service build --mode prod",
     "lint": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint"
   },
@@ -13,7 +13,6 @@
     "core-js": "^3.6.5",
     "maska": "^1.5.0",
     "swiper": "^6.8.4",
-    "v-mask": "^2.3.0",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12",
     "vue-tippy": "^6.0.0-alpha.39",

@@ -6,7 +6,7 @@
       class="news-card__cover"
     />
     <p class="news-card__date">
-      {{ new Date(postData.published_at).toLocaleDateString("ru-RU") }}
+      {{ formateDate(postData.published_at) }}
     </p>
     <router-link :to="'/news/' + postData.slug" :event="$off" class="card-title news-card__card-title">{{
       postData.title

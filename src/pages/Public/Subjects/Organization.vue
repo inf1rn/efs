@@ -154,7 +154,7 @@
           v-for="educationProgram in organization?.education_programs"
           :key="educationProgram.id"
         >
-          <a href="#" class="program-list__link">{{
+          <a :href="educationProgram.link" class="program-list__link">{{
             educationProgram.title
           }}</a>
         </li>

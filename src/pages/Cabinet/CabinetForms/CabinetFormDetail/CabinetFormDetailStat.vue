@@ -10,30 +10,45 @@
               class="form__select form__select_theme_white"
               id="form-detailStatus"
               placeholder="Введите статус"
-              :value="filters.isPublished"
+              :value="filters.statusId"
               @change="
                 (e) => {
-                  setFormStatFiltersIsPublished(e.target.value);
+                  setFiltersStatusId(e.target.value);
                   fetchFormStatResults();
                 }
               "
             >
               <option value="">Все</option>
-              <option value="1">Согласована</option>
-              <option value="0">Не согласована</option>
-              <option value="draft">Черновик</option>
+              <option value="1">Закрыта</option>
+              <option value="2">Открыта</option>
             </select>
           </div>
           <div class="form__item">
-            <label for="form-detailDate" class="form__label">Дата</label>
+            <label for="form-detailDate" class="form__label">Дата от</label>
             <input
               @change="
                 (e) => {
-                  setFormStatFiltersCreatedAt(e.target.value);
+                  setFormStatFiltersDateAt(e.target.value);
                   fetchFormStatResults();
                 }
               "
-              :value="filters.createdAt"
+              :value="filters.dateAt"
+              type="date"
+              name="form-detailDate"
+              class="form__input-edit"
+              id="detailDate"
+            />
+          </div>
+          <div class="form__item">
+            <label for="form-detailDate" class="form__label">Дата по</label>
+            <input
+              @change="
+                (e) => {
+                  setFormStatFiltersDateTo(e.target.value);
+                  fetchFormStatResults();
+                }
+              "
+              :value="filters.dateTo"
               type="date"
               name="form-detailDate"
               class="form__input-edit"
@@ -42,7 +57,7 @@
           </div>
           <div class="form__item">
             <a
-              @click="
+              @click.prevent="
                 (e) => {
                   clearFormStatFilters();
                   fetchFormStatResults();
@@ -79,12 +94,12 @@
                 {{ statResult.created_by.city.title }}
               </td>
               <td class="table__cell">
-                {{
-                  new Date(statResult.created_at).toLocaleDateString("ru-RU")
-                }}
+                {{ formateDate(statResult.created_at) }}
               </td>
-              <td class="table__cell">да</td>
-              <td class="table__cell">заполнена</td>
+              <td class="table__cell">
+                {{ statResult.accepted_by ? "заполнена" : "не заполнена" }}
+              </td>
+              <td class="table__cell">{{ statResult.form.status.title }}</td>
               <td class="table__cell">
                 <button class="table__cell-users_row-more">
                   <img src="@/assets/images/more_dots.svg" alt="more" />
@@ -108,15 +123,18 @@ export default {
     ...mapActions(["fetchFormStatResults"]),
     ...mapMutations([
       "setFormId",
-      "setFormStatFiltersCreatedAt",
+      "setFormStatFiltersDateAt",
+      "setFormStatFiltersDateTo",
       "setFormStatFiltersIsPublished",
       "clearFormStatFilters",
+      "setFiltersStatusId",
     ]),
   },
   computed: {
     ...mapState({
       statResults: (state) => state.statResults,
       filters: (state) => state.formStatFilters,
+      formEditableData: (state) => state.formEditableData,
     }),
   },
   created() {

@@ -63,11 +63,15 @@ export const reportsAllModule = {
         }
     },
     actions: {
-        async fetchReports({ state, commit }) {
+        async fetchReports({ state, commit, rootState }) {
+            if (rootState.account.userData?.roles[0].name === "regional_minister") {
+                commit("setFiltersRegionId", rootState.account.userData.region.id)
+            }
+
             const { formId, regionId, dateAt, dateTo } = state.filters
             const { data: { data: { results: reports, fields } } } = await formsAPI.fetchFormResults(formId, { regionId, dateAt, dateTo })
-            const { data: { data: { url: csvUrl } } } = await formsAPI.fetchFormResultsExport(formId, { type: "xlsx", regionId, dateAt, dateTo })
-            const { data: { data: { url: xlsxUrl } } } = await formsAPI.fetchFormResultsExport(formId, { type: "csv", regionId, dateAt, dateTo })
+            const { data: { data: { url: xlsxUrl } } } = await formsAPI.fetchFormResultsExport(formId, { type: "xlsx", regionId, dateAt, dateTo })
+            const { data: { data: { url: csvUrl } } } = await formsAPI.fetchFormResultsExport(formId, { type: "csv", regionId, dateAt, dateTo })
 
             commit("setCSVUrl", csvUrl)
             commit("setXLSXUrl", xlsxUrl)

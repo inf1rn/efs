@@ -10,6 +10,9 @@ export const regionInfoModule = {
             regionId: null,
             region: null,
             formDescription: null,
+            filters: {
+                title: ""
+            },
             removableOrganizationId: null
         }
     },
@@ -26,6 +29,11 @@ export const regionInfoModule = {
         setRegion(state, region) {
             state.region = region
         },
+        setFiltersTitle(state, title) {
+            state.filters = {
+                ...state.filters, title
+            }
+        },
         setFormDescription(state, description) {
             state.formDescription = description
         },
@@ -35,7 +43,7 @@ export const regionInfoModule = {
     },
     actions: {
         async getOrganizations({ commit, state }, withEmployees) {
-            let { data: { data: { organizations } } } = await regionsAPI.fetchOrganizationsByRegionId(state.regionId)
+            let { data: { data: { data: organizations } } } = await organizationsAPI.fetchOrganizations({ regionId: state.regionId, title: state.filters.title })
             if (withEmployees) {
                 await Promise.all(organizations.map(async organization => {
                     const { data: { data: { data: allEmployees } } } = await organizationsAPI.fetchOrganizationEmployees(organization.id)
@@ -47,24 +55,7 @@ export const regionInfoModule = {
             commit("setOrganizations", organizations)
         },
         async getRegionStat({ commit, state }) {
-            const sortData = [
-                "Учителей",
-                "Слушатели Академии ",
-                "Слушатели ЦНППМ",
-                "Тьюторов Нацпроекта",
-                "Организаций ДПО в Федеральном реестре",
-                "Программы ДПО, поданные в Федеральный реестр",
-                "Программ ДПО в Федеральном реестре",
-                "Федеральных экспертов"
-            ]
-
             const { data: { data: regionStat } } = await regionsAPI.fetchRegionStat(state.regionId)
-            // const newRegionStat = sortData.map(title => (
-            //     {
-            //         title,
-            //         value: regionStat.find(statPart => statPart.title == title)?.value,
-            //         code: regionStat.find(statPart => statPart.title == title)?.code
-            //     }))
             commit("setRegionStat", regionStat)
         },
         async getRegion({ commit, state }) {
@@ -76,6 +67,7 @@ export const regionInfoModule = {
             const region = cloneDeep(state.region)
             region.description = state.formDescription
             const { data: { data: updatedRegion } } = await regionsAPI.updateRegion(state.regionId, region)
+            alert("Обновлено")
             commit("setRegion", updatedRegion)
             commit("setFormDescription", updatedRegion.description)
         },

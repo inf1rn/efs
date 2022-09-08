@@ -3,8 +3,9 @@
     <section class="interactive-map page__section page__section_margin-top-s">
       <h1 class="section-title">создать пользователя</h1>
       <small style="color: red"
-        >При создании пользователя, пароль должен быть длиннее 7 символов, а так
-        же содержать заглавную, строчную буквы и цифры</small
+        >При создании пользователя, пароль должен быть длиннее
+        {{ v$.password.minLength.$params.min }} символов, а так же содержать
+        заглавную, строчную буквы и цифры</small
       >
       <div class="filter interactive-map__filter">
         <form
@@ -20,8 +21,16 @@
                   >
                   <input
                     type="text"
-                    :value="secondName"
-                    @input="(e) => setNewUserSecondName(e.target.value)"
+                    v-model="secondName"
+                    v-maska="{
+                      mask: 'К*',
+                      tokens: {
+                        К: { pattern: /[а-яА-Я]/ },
+                      },
+                    }"
+                    :class="{
+                      invalid: v$.secondName.$dirty && v$.secondName.$error,
+                    }"
                     class="form__input-edit form__input-edit_width_full"
                     id="accountSecondName"
                     placeholder="Ваша фамилия"
@@ -30,8 +39,16 @@
                 <div class="form__item">
                   <label for="accountFirstName" class="form__label">Имя</label>
                   <input
-                    :value="firstName"
-                    @input="(e) => setNewUserFirstName(e.target.value)"
+                    v-model="firstName"
+                    v-maska="{
+                      mask: 'К*',
+                      tokens: {
+                        К: { pattern: /[а-яА-Я]/ },
+                      },
+                    }"
+                    :class="{
+                      invalid: v$.firstName.$dirty && v$.firstName.$error,
+                    }"
                     type="text"
                     class="form__input-edit form__input-edit_width_full"
                     id="accountFirstName"
@@ -43,12 +60,20 @@
                     >Отчество</label
                   >
                   <input
-                    :value="lastName"
-                    @input="(e) => setNewUserLastName(e.target.value)"
+                    v-model="lastName"
+                    v-maska="{
+                      mask: 'К*',
+                      tokens: {
+                        К: { pattern: /[а-яА-Я]/ },
+                      },
+                    }"
+                    :class="{
+                      invalid: v$.lastName.$dirty && v$.lastName.$error,
+                    }"
                     type="text"
                     class="form__input-edit form__input-edit_width_full"
                     id="accountFirstName"
-                    placeholder="Ваше имя"
+                    placeholder="Ваше отчество"
                   />
                 </div>
                 <div class="form__item form-add_photo">
@@ -57,7 +82,7 @@
                     for="downoloadInput"
                     class="filter__add-link"
                     >{{
-                      image ? "добавить другое фото" : "добавить фото"
+                      newUser.image ? "добавить другое фото" : "добавить фото"
                     }}</label
                   >
                   <input
@@ -73,8 +98,10 @@
                 <div class="form__item">
                   <label for="newUserMail" class="form__label">Email</label>
                   <input
-                    :value="email"
-                    @input="(e) => setNewUserEmail(e.target.value)"
+                    v-model="email"
+                    :class="{
+                      invalid: v$.email.$dirty && v$.email.$error,
+                    }"
                     class="form__input-edit form__input-edit_width_full"
                     id="newUserMail"
                     placeholder="Email пользователя"
@@ -84,8 +111,10 @@
                 <div class="form__item">
                   <label for="accountRole" class="form__label">Роль</label>
                   <select
-                    :value="newUserRole"
-                    @change="(e) => setNewUserRole(e.target.value)"
+                    v-model="role"
+                    :class="{
+                      invalid: v$.role.$error,
+                    }"
                     name="accountJob"
                     class="form__select form__select_theme_white"
                   >
@@ -106,8 +135,10 @@
                 <div class="form__item">
                   <label for="accountRegion" class="form__label">Регион</label>
                   <select
-                    :value="regionId"
-                    @change="(e) => setNewUserRegionId(e.target.value)"
+                    v-model="regionId"
+                    :class="{
+                      invalid: v$.regionId.$error,
+                    }"
                     name="accountRegion"
                     class="form__select form__select_theme_white"
                   >
@@ -126,8 +157,10 @@
                 <div class="form__item">
                   <label for="accountCity" class="form__label">Город</label>
                   <select
-                    :value="cityId"
-                    @change="(e) => setNewUserCityId(e.target.value)"
+                    v-model="cityId"
+                    :class="{
+                      invalid: v$.cityId.$error,
+                    }"
                     name="accountCity"
                     class="form__select form__select_theme_white"
                   >
@@ -150,8 +183,10 @@
                     >Место работы</label
                   >
                   <select
-                    :value="organizationId"
-                    @change="(e) => setNewUserOrganizationId(e.target.value)"
+                    v-model="organizationId"
+                    :class="{
+                      invalid: v$.organizationId.$error,
+                    }"
                     name="accountJob"
                     class="form__select form__select_theme_white"
                   >
@@ -172,8 +207,10 @@
                     >Должность</label
                   >
                   <select
-                    :value="positionId"
-                    @change="(e) => setNewUserPositionId(e.target.value)"
+                    v-model="positionId"
+                    :class="{
+                      invalid: v$.positionId.$error,
+                    }"
                     name="accountPosition"
                     class="form__select form__select_theme_white"
                   >
@@ -196,7 +233,11 @@
                     >Пароль</label
                   >
                   <input
-                    @input="(e) => setNewUserPassword(e.target.value)"
+                    v-model="password"
+                    type="password"
+                    :class="{
+                      invalid: v$.password.$dirty && v$.password.$error,
+                    }"
                     class="form__input-edit form__input-edit_width_full"
                     id="newUserPassword"
                     placeholder="Введите пароль"
@@ -210,7 +251,12 @@
                     >Повторите пароль</label
                   >
                   <input
-                    @input="(e) => setNewUserPasswordConfirm(e.target.value)"
+                    v-model="passwordConfirm"
+                    type="password"
+                    :class="{
+                      invalid:
+                        v$.passwordConfirm.$dirty && v$.passwordConfirm.$error,
+                    }"
                     class="form__input-edit form__input-edit_width_full"
                     id="accountPasswordRepeat"
                     placeholder="Повторите пароль"
@@ -224,7 +270,7 @@
               <input
                 type="checkbox"
                 @input="(e) => setNewUserSendNotification(e.target.checked)"
-                :checked="sendNotification"
+                :checked="newUser.sendNotification"
                 id="chk"
               />
               <label for="chk"
@@ -238,7 +284,7 @@
                   button button_theme_green button_border_small
                   form__submit
                 "
-                @click="saveUser()"
+                @click="saveUserHandler()"
               >
                 Создать пользователя
               </button>
@@ -250,7 +296,9 @@
   </main>
 </template>
 <script>
+import useVuelidate from "@vuelidate/core";
 import { createNamespacedHelpers } from "vuex";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
 
 const {
   mapState: mapStateNewUser,
@@ -267,19 +315,7 @@ export default {
   title: "Новый пользователь",
   computed: {
     ...mapStateNewUser({
-      firstName: (state) => state.newUser.firstName,
-      lastName: (state) => state.newUser.lastName,
-      secondName: (state) => state.newUser.secondName,
-      email: (state) => state.newUser.email,
-      image: (state) => state.newUser.image,
-      newUserRole: (state) => state.newUser.role,
-      regionId: (state) => state.newUser.regionId,
-      cityId: (state) => state.newUser.cityId,
-      organizationId: (state) => state.newUser.organizationId,
-      positionId: (state) => state.newUser.positionId,
-      password: (state) => state.newUser.password,
-      passwordConfirm: (state) => state.newUser.passwordConfirm,
-      sendNotification: (state) => state.newUser.sendNotification,
+      newUser: (state) => state.newUser,
     }),
     ...mapStateLocation({
       regions: (state) => state.regions,
@@ -292,6 +328,140 @@ export default {
     ...mapStateAccount({
       roles: (state) => state.roles,
     }),
+    firstName: {
+      get() {
+        return this.newUser.firstName;
+      },
+      set(val) {
+        this.v$.firstName.$touch();
+        this.setNewUserFirstName(val);
+      },
+    },
+    secondName: {
+      get() {
+        return this.newUser.secondName;
+      },
+      set(val) {
+        this.v$.secondName.$touch();
+        this.setNewUserSecondName(val);
+      },
+    },
+    role: {
+      get() {
+        return this.newUser.role;
+      },
+      set(val) {
+        this.v$.lastName.$touch();
+        this.setNewUserRole(val);
+      },
+    },
+    regionId: {
+      get() {
+        return this.newUser.regionId;
+      },
+      set(val) {
+        this.v$.lastName.$touch();
+        this.setNewUserRegionId(val);
+      },
+    },
+    cityId: {
+      get() {
+        return this.newUser.cityId;
+      },
+      set(val) {
+        this.v$.lastName.$touch();
+        this.setNewUserCityId(val);
+      },
+    },
+    organizationId: {
+      get() {
+        return this.newUser.organizationId;
+      },
+      set(val) {
+        this.v$.lastName.$touch();
+        this.setNewUserOrganizationId(val);
+      },
+    },
+    positionId: {
+      get() {
+        return this.newUser.positionId;
+      },
+      set(val) {
+        this.v$.lastName.$touch();
+        this.setNewUserPositionId(val);
+      },
+    },
+    lastName: {
+      get() {
+        return this.newUser.lastName;
+      },
+      set(val) {
+        this.v$.lastName.$touch();
+        this.setNewUserLastName(val);
+      },
+    },
+    email: {
+      get() {
+        return this.newUser.email;
+      },
+      set(val) {
+        this.v$.email.$touch();
+        this.setNewUserEmail(val);
+      },
+    },
+    password: {
+      get() {
+        return this.newUser.password;
+      },
+      set(val) {
+        this.v$.password.$touch();
+        this.v$.passwordConfirm.$touch();
+        this.setNewUserPassword(val);
+      },
+    },
+    passwordConfirm: {
+      get() {
+        return this.newUser.passwordConfirm;
+      },
+      set(val) {
+        this.v$.passwordConfirm.$touch();
+        this.setNewUserPasswordConfirm(val);
+      },
+    },
+  },
+  validations() {
+    return {
+      firstName: { required, $lazy: true },
+      secondName: { required, $lazy: true },
+      lastName: { required, $lazy: true },
+      email: { required, email, $lazy: true },
+      password: {
+        required,
+        minLength: minLength(7),
+        $lazy: true,
+        valid: function (value) {
+          const containsUppercase = /[A-Z]/.test(value);
+          const containsLowercase = /[a-z]/.test(value);
+          const containsNumber = /[0-9]/.test(value);
+          return containsUppercase && containsLowercase && containsNumber;
+        },
+      },
+      passwordConfirm: {
+        required,
+        $lazy: true,
+        sameAsPassword: sameAs(this.password),
+      },
+      regionId: { required },
+      positionId: { required },
+      cityId: { required },
+      role: { required },
+      organizationId: { required },
+    };
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   methods: {
     ...mapMutationsNewUser([
@@ -310,6 +480,13 @@ export default {
       "setNewUserSendNotification",
     ]),
     ...mapActionsNewUser(["saveUser"]),
+    async saveUserHandler() {
+      const isFormCorrect = await this.v$.$validate();
+
+      if (!isFormCorrect) return;
+
+      this.saveUser();
+    },
   },
 };
 </script>

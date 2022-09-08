@@ -63,6 +63,7 @@
 <script>
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import TechnicalSupportPopup from "@/components/TechnicalSupportPopup";
+import avatar from "@/assets/images/avatar.jpg"
 
 export default {
   name: "CabinetHeader",
@@ -104,7 +105,8 @@ export default {
       );
     },
     imageSrc: function () {
-      return this.userData?.image;
+      const image = this.userData?.image;
+      return image && image !== 'null' ? image : avatar;
     },
     userId: function () {
       return this.userData?.id;

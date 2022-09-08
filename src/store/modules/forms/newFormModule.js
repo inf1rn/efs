@@ -96,11 +96,13 @@ export const newFormModule = {
             await formsAPI.createForm({
                 name: state.name,
                 fields: changedFields,
+                status_id: 1,
                 activeDateBefore: state.activeDateBefore,
                 activeDateFrom: state.activeDateFrom,
                 frequency: state.frequency
             })
             commit("clearNewForm")
+            alert("Создано")
         }
     },
     namespaced: true

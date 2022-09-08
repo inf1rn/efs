@@ -212,20 +212,27 @@ export const currentUserModule = {
                 region_id: currentUserData.regionId,
                 city_id: currentUserData.cityId,
                 email: currentUserData.email,
-                roles: [currentUserData.roles]
+                roles: currentUserData.roles,
+                organization_id: currentUserData.organizationId,
+                position_id: currentUserData.positionId
             }
 
             if (typeof currentUserData.image === "object") {
                 userData.image = currentUserData.image
             }
 
-            await usersAPI.updateUser(userData, userId)
+            const response = await usersAPI.updateUser(userData, userId)
             dispatch("users/usersAll/getUsers", {}, { root: true })
             if (userId === rootState.account.userData.id) {
                 dispatch("account/getUser", {}, { root: true })
             }
             commit("setIsModalActive", false)
             commit("clearCurrentUser")
+            if (response.status == 200 && response.data && response.data.message === "Пользователь обновлен") {
+              setTimeout(() => {
+                alert("Данные изменены")
+              }, 200)
+            }
         },
         async saveUserPassword({ commit, state, dispatch, rootState }) {
             const userId = state.currentUser.userData.id

@@ -2,8 +2,6 @@
   <svg
     :focusable="false"
     class="map-regions__svg map-regions__map"
-    width="1324"
-    height="691"
     viewBox="0 0 1324 691"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -1414,17 +1412,17 @@ export default {
     },
     handlerClickMap(e) {
       if (e.path[0] === e.target.closest("path")) {
+        console.log("click!1");
         const title = e.target.closest("g").getAttribute("title");
         this.triggerRegion(title, true);
       }
     },
     async triggerRegion(regionName, isTriggeredByClick = false) {
-      if (
-        (!this.regionNameInput.length && !isTriggeredByClick) ||
-        this.regionNameMap === regionName
-      ) {
+      if (!this.regionNameInput.length && !isTriggeredByClick) {
         return;
       }
+      console.log("click!2");
+
       console.log(this.currentPopup);
       if (this.currentPopup) {
         this.destroyPopup();
@@ -1476,6 +1474,11 @@ export default {
 
       const { id: regionId, title } = region;
 
+      if (this.regionNameMap === title) {
+        this.regionNameMap = null;
+        return;
+      }
+
       this.setCurrentRegionId(regionId);
       this.regionNameMap = title;
 
@@ -1488,7 +1491,6 @@ export default {
           ...this.regionStat,
         }),
         trigger: "focus",
-        arrow: "large",
         theme: "light",
       });
 

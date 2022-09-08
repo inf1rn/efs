@@ -12,14 +12,20 @@
                 >
                 <select
                   @change="(e) => setNewsType(e.target.value)"
+                  @input="v$.newsType.$touch()"
                   :value="newsType"
                   class="form__select form__select_theme_white"
+                  :class="{
+                    invalid: v$.newsType.$error,
+                  }"
                   id="addNewsType"
                 >
                   <option class="select__option" value="" hidden>
                     Выберите тип новости
                   </option>
-                  <option class="select__option" value="general">Общая</option>
+                  <option class="select__option" value="general">
+                    Общая
+                  </option>
                   <option class="select__option" value="regional">
                     Региональная
                   </option>
@@ -55,18 +61,26 @@
             >
             <input
               @input="(e) => setNewsTitle(e.target.value)"
+              @change="v$.newsTitle.$touch"
               :value="newsTitle"
               type="text"
               class="form__input-edit form__input-edit_width_full"
+              :class="{
+                invalid: v$.newsTitle.$error,
+              }"
               id="addNewsTheme"
-              placeholder="Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней"
+              placeholder="Заголовок новости"
             />
           </div>
           <div class="add-news__line form__item">
             <label for="addNewsImage" class="add-news__caption form__label"
               >Фото превью</label
             >
-            <a @click="$refs.downoloadImageInput.click()" href="#">
+            <a @click="$refs.downoloadImageInput.click();v$.newsPreviewImage.$touch()" href="#"
+              :class="{
+                invalid: v$.newsPreviewImage.$error,
+              }"
+            >
               <img src="@/assets/images/add-news__downoload-image.png" />
             </a>
             <input
@@ -93,11 +107,19 @@
               :value="newsDate"
               type="date"
               class="form__input-edit add-news__form_date"
+              :class="{
+                invalid: v$.newsDate.$error,
+              }"
+              @change="v$.newsDate.$touch()"
               id="addNewsDate"
               placeholder="31.10.2020"
             />
           </div>
-          <div class="add-news__line form__item">
+          <div class="add-news__line form__item"
+            :class="{
+              invalid: v$.newsContentHTML.$error,
+            }"
+          >
             <label for="addNewsText" class="add-news__caption form__label"
               >Текст статьи
             </label>
@@ -173,9 +195,26 @@ const {
 } = createNamespacedHelpers("news/addNews");
 const { mapState: mapStateLocation } = createNamespacedHelpers("location");
 
+import useVuelidate from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
+
 export default {
   name: "cabinet-add-news-page",
   title: "Создать новость",
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
+  validations() {
+    return {
+      newsTitle: { required, $lazy: true },
+      newsDate: { required, $lazy: true },
+      newsType: { required, $lazy: true },
+      newsPreviewImage: { required, $lazy: true },
+      newsContentHTML: { required, $lazy: true },
+    }
+  },
   computed: {
     ...mapStateAddNews({
       newsContentHTML: (state) => state.news.contentHTML,
@@ -199,6 +238,11 @@ export default {
       return this.newsPreviewImage;
     },
   },
+  watch: {
+    newsContentHTML() {
+      this.v$.newsContentHTML.$touch()
+    }
+  },
   methods: {
     ...mapMutationsAddNews([
       "setNewsContentHTML",
@@ -219,11 +263,52 @@ export default {
       }
       this.setNewsCategory(category);
     },
-    saveNewsHandler() {
-      this.saveNews();
-      this.clearNews();
-      this.$refs.editor.setContents("");
+    newsFormValidate() {
+      if (!this.v$.newsTitle.$error
+        && !this.v$.newsDate.$error
+        && !this.v$.newsType.$error
+        && !this.v$.newsPreviewImage.$error
+        && !this.v$.newsContentHTML.$error) {
+        return true
+      }
+      return false
+    },
+    async saveNewsHandler() {
+      try {
+        await this.v$.newsTitle.$touch()
+        await this.v$.newsDate.$touch()
+        await this.v$.newsType.$touch()
+        await this.v$.newsPreviewImage.$touch()
+        await this.v$.newsContentHTML.$touch()
+        const isValid = this.newsFormValidate()
+        if (isValid) {
+          const response = await this.saveNews()
+          this.clearNews();
+          this.$refs.editor.setContents("");
+          this.$nextTick(() => {
+            this.v$.newsTitle.$reset()
+            this.v$.newsDate.$reset()
+            this.v$.newsType.$reset()
+            this.v$.newsPreviewImage.$reset()
+            this.v$.newsContentHTML.$reset()
+          })
+        } else {
+          alert('Ошибка при заполении полей')
+        }
+      } catch (e) {
+        console.log(e)
+        alert('Ошибка при заполении полей')
+      }
     },
   }
 };
 </script>
+
+<style>
+a.invalid img {
+  outline: 2px solid red;
+}
+.form__item.invalid {
+  outline: 2px solid red;
+}
+</style>

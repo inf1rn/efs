@@ -76,6 +76,8 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState, mapMutations, mapActions } =
   createNamespacedHelpers("users/currentUser");
 
+import avatar from "@/assets/images/avatar.jpg"
+
 export default {
   name: "cabinet-users-popup-edit-user-password",
   computed: {
@@ -87,13 +89,11 @@ export default {
     imageSrc: function () {
       const image = this.userData?.image;
 
-      if (typeof image === "object" && image) {
+      if (typeof image === "object" && image && image !== 'null') {
         return URL.createObjectURL(new Blob([image], { type: "image/*" }));
       }
 
-      return image
-        ? image
-        : require("@/assets/images/user_avatar.png");
+      return image && image !== 'null' ? image : avatar;
     },
   },
   methods: {

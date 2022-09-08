@@ -10,6 +10,8 @@
               :forms="forms"
               :regions="regions"
               :templateData="template"
+              @create="onCreate($event)"
+              @delete="deleteTemplate($event)"
             />
           </div>
         </div>
@@ -25,6 +27,9 @@ const {
 } = createNamespacedHelpers("forms/reports/reportTemplates");
 const { mapState: mapStateLocation } = createNamespacedHelpers("location");
 const { mapState: mapStateReports } = createNamespacedHelpers("forms/reports");
+const { mapMutations: mapMutationsReportsAll } = createNamespacedHelpers(
+  "forms/reports/reportsAll"
+);
 import CabinetReportTemplate from "@/components/Cabinet/CabinetReportTemplate.vue";
 
 export default {
@@ -42,7 +47,21 @@ export default {
     }),
   },
   methods: {
-    ...mapActionsReportTemplates(["fetchReportTemplates"]),
+    onCreate(reportData) {
+      console.log(reportData);
+      this.setFiltersDateAt(reportData.dateStart);
+      this.setFiltersDateTo(reportData.dateEnd);
+      this.setFiltersFormId(reportData.formId);
+      this.setFiltersRegionId(reportData.regionId);
+      this.$router.push("/cabinet/reports/reports-all")
+    },
+    ...mapActionsReportTemplates(["fetchReportTemplates", "deleteTemplate"]),
+    ...mapMutationsReportsAll([
+      "setFiltersDateAt",
+      "setFiltersDateTo",
+      "setFiltersFormId",
+      "setFiltersRegionId",
+    ]),
   },
   created() {
     this.fetchReportTemplates();

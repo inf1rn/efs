@@ -7,20 +7,22 @@ import 'tippy.js/dist/tippy.css'
 import components from "@/components/UI"
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
-import Maska from "maska"
 import title from './plugins/title'
+import { maska } from 'maska'
+import { dateMixin } from '@/mixins/dateMixin'
 
 const app = createApp(App)
+
 components.forEach(component => {
     app.component(component.name, component)
 })
-
-app.use(Maska);
 
 app
     .use(router)
     .use(store)
     .use(title)
+    .mixin(dateMixin)
+    .directive("maska", maska)
     .use(
         VueTippy,
         {

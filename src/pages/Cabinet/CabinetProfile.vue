@@ -4,7 +4,7 @@
       <h1 class="section-title mb-50">профиль</h1>
       <div class="profile__wrapper wrapper-max_width-m">
         <div class="profile__row profile__top top-profile">
-          <div class="top-profile__job">{{ userData?.roles.title }}</div>
+          <div class="top-profile__job">{{ userData?.roles[0]?.title }}</div>
           <div class="top-profile__images">
             <img :src="imageSrc" alt="user-ava" v-if="userData" />
           </div>
@@ -78,8 +78,16 @@
                           type="text"
                           class="form__input-edit form__input-edit_width_full"
                           id="profileTabsSecondName"
-                          :value="userData?.secondName"
-                          @input="(e) => setSecondName(e.target.value)"
+                          v-model="secondName"
+                          :class="{
+                            invalid: v$.userData.secondName.$error,
+                          }"
+                          v-maska="{
+                            mask: 'К*',
+                            tokens: {
+                              К: { pattern: /[а-яА-Я]/ },
+                            },
+                          }"
                           placeholder="Ваша фамилия"
                         />
                       </div>
@@ -91,8 +99,16 @@
                           type="text"
                           class="form__input-edit form__input-edit_width_full"
                           id="profileTabsFirstName"
-                          :value="userData?.firstName"
-                          @input="(e) => setFirstName(e.target.value)"
+                          v-model="firstName"
+                          :class="{
+                            invalid: v$.userData.firstName.$error,
+                          }"
+                          v-maska="{
+                            mask: 'К*',
+                            tokens: {
+                              К: { pattern: /[а-яА-Я]/ },
+                            },
+                          }"
                           placeholder="Ваше имя"
                         />
                       </div>
@@ -104,8 +120,16 @@
                           type="text"
                           class="form__input-edit form__input-edit_width_full"
                           id="profileTabsPatronymic"
-                          :value="userData?.lastName"
-                          @input="(e) => setLastName(e.target.value)"
+                          v-model="lastName"
+                          :class="{
+                            invalid: v$.userData.lastName.$error,
+                          }"
+                          v-maska="{
+                            mask: 'К*',
+                            tokens: {
+                              К: { pattern: /[а-яА-Я]/ },
+                            },
+                          }"
                           placeholder="Ваше отчество"
                         />
                       </div>
@@ -127,7 +151,10 @@
                           type="text"
                           class="form__input-edit form__input-edit_width_full"
                           id="profileTabsJob"
-                          :value="userData?.organizationId"
+                          :value="organizationId"
+                          :class="{
+                            invalid: v$.userData.organizationId.$error,
+                          }"
                           @input="(e) => setOrganizationId(e.target.value)"
                           placeholder="Название организации"
                         >
@@ -147,8 +174,10 @@
                         <select
                           class="form__input-edit form__input-edit_width_full"
                           id="profileTabsPosition"
-                          :value="userData?.positionId"
-                          @input="(e) => setPositionId(e.target.value)"
+                          v-model="positionId"
+                          :class="{
+                            invalid: v$.userData.positionId.$error,
+                          }"
                           placeholder="Выберите должность"
                         >
                           >
@@ -166,7 +195,7 @@
                   <div class="profile_tabs-form__btn">
                     <button
                       type="submit"
-                      @click="saveUserData"
+                      @click="saveUserDataHandler"
                       class="
                         button button_theme_green button_border_small
                         form__submit
@@ -199,8 +228,10 @@
                           type="password"
                           class="form__input-edit form__input-edit_width_full"
                           id="profileTabsPasswordOld"
-                          :value="formPassword.oldPassword"
-                          @input="(e) => setOldPassword(e.target.value)"
+                          v-model="oldPassword"
+                          :class="{
+                            invalid: v$.formPassword.oldPassword.$error,
+                          }"
                           placeholder="Ваш старый пароль"
                         />
                       </div>
@@ -213,8 +244,10 @@
                           class="form__input-edit form__input-edit_width_full"
                           id="profileTabsPasswordNew"
                           placeholder="Ваш новый пароль"
-                          :value="formPassword.newPassword"
-                          @input="(e) => setNewPassword(e.target.value)"
+                          v-model="newPassword"
+                          :class="{
+                            invalid: v$.formPassword.newPassword.$error,
+                          }"
                         />
                       </div>
                       <div class="profile_tabs-form__line form__item">
@@ -226,10 +259,12 @@
                         <input
                           type="password"
                           class="form__input-edit form__input-edit_width_full"
+                          :class="{
+                            invalid: newPasswordConfirm !== newPassword,
+                          }"
                           id="profileTabsPasswordNewRepeat"
                           placeholder="Повторить ваш новый пароль"
-                          :value="formPassword.passwordConfirm"
-                          @input="(e) => setPasswordConfirm(e.target.value)"
+                          v-model="newPasswordConfirm"
                         />
                       </div>
                     </div>
@@ -241,7 +276,7 @@
                         button button_theme_green button_border_small
                         form__submit
                       "
-                      @click="changePassword"
+                      @click="changePasswordHandler"
                     >
                       Сохранить изменения
                     </button>
@@ -256,7 +291,10 @@
   </main>
 </template>
 <script>
+import { minLength, required } from "@vuelidate/validators";
 import { createNamespacedHelpers } from "vuex";
+import useVuelidate from "@vuelidate/core";
+import avatar from "@/assets/images/avatar.jpg"
 
 const {
   mapActions: mapActionsProfile,
@@ -272,6 +310,22 @@ export default {
   data() {
     return {
       activeTab: "userData",
+    };
+  },
+  validations() {
+    return {
+      userData: {
+        firstName: { required, $lazy: true },
+        secondName: { required, $lazy: true },
+        lastName: { required, $lazy: true },
+        positionId: { required },
+        organizationId: { required },
+      },
+      formPassword: {
+        oldPassword: { required },
+        newPassword: this.passwordValidate,
+        newPasswordConfirm: {},
+      },
     };
   },
   methods: {
@@ -297,6 +351,24 @@ export default {
     loadImage() {
       this.$refs.downoloadInput.click();
     },
+    async saveUserDataHandler() {
+      const isFormCorrect = await this.v$.userData.$validate();
+
+      if (!isFormCorrect) return;
+
+      this.saveUserData();
+    },
+    async changePasswordHandler() {
+      try {
+        const isFormCorrect = await this.v$.formPassword.$validate();
+
+        if (!isFormCorrect || !this.newPasswordConfirm) return;
+
+        this.changePassword()
+      } catch (e) {
+        console.log(e)
+      }
+    },
   },
   computed: {
     ...mapStateProfile({
@@ -307,13 +379,104 @@ export default {
       positions: (state) => state.positions,
       organizations: (state) => state.organizations,
     }),
+    passwordValidate() {
+      return {
+        required,
+        minLength: minLength(7),
+        $lazy: true,
+        valid: function (value) {
+          const containsUppercase = /[A-Z]/.test(value);
+          const containsLowercase = /[a-z]/.test(value);
+          const containsNumber = /[0-9]/.test(value);
+          return containsUppercase && containsLowercase && containsNumber;
+        },
+      };
+    },
     title() {
       return this.userData?.firstName + " " + this.userData?.secondName;
     },
     imageSrc: function () {
       const image = this.userData?.image;
-      return image ? image : "@/assets/images/user_avatar.png";
+      return image && image !== 'null' ? image : avatar;
     },
+    oldPassword: {
+      get() {
+        return this.formPassword.oldPassword;
+      },
+      set(val) {
+        this.v$.formPassword.oldPassword.$touch();
+        this.setOldPassword(val);
+      },
+    },
+    newPassword: {
+      get() {
+        return this.formPassword.newPassword;
+      },
+      set(val) {
+        this.v$.formPassword.newPassword.$touch();
+        this.v$.formPassword.newPasswordConfirm.$touch();
+        this.setNewPassword(val);
+      },
+    },
+    newPasswordConfirm: {
+      get() {
+        return this.formPassword.passwordConfirm;
+      },
+      set(val) {
+        this.v$.formPassword.newPasswordConfirm.$touch();
+        this.setPasswordConfirm(val);
+      },
+    },
+    organizationId: {
+      get() {
+        return this.userData?.organizationId;
+      },
+      set(val) {
+        this.v$.userData.lastName.$touch();
+        this.setOrganization(val);
+      },
+    },
+    positionId: {
+      get() {
+        return this.userData?.positionId;
+      },
+      set(val) {
+        this.v$.userData.lastName.$touch();
+        this.setPosition(val);
+      },
+    },
+    lastName: {
+      get() {
+        return this.userData?.lastName;
+      },
+      set(val) {
+        this.v$.userData.lastName.$touch();
+        this.setLastName(val);
+      },
+    },
+    firstName: {
+      get() {
+        return this.userData?.firstName;
+      },
+      set(val) {
+        this.v$.userData.firstName.$touch();
+        this.setFirstName(val);
+      },
+    },
+    secondName: {
+      get() {
+        return this.userData?.secondName;
+      },
+      set(val) {
+        this.v$.userData.secondName.$touch();
+        this.setSecondName(val);
+      },
+    },
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
 };
 </script>

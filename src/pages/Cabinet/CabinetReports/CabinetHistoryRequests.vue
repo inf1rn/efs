@@ -70,7 +70,6 @@
                 <th class="table__header">Отчет</th>
                 <th class="table__header">Регион</th>
                 <th class="table__header">Период</th>
-                <th class="table__header"></th>
               </tr>
               <tr class="table__row" v-for="log in logs" :key="log.id">
                 <td class="table__cell">
@@ -92,7 +91,9 @@
                 </td>
                 <td class="table__cell">
                   {{
-                    log.region_id ? getRegionByRegionId()(log.region_id)?.title : "Все"
+                    log.region_id
+                      ? getRegionByRegionId()(log.region_id)?.title
+                      : "Все"
                   }}
                 </td>
                 <td class="table__cell">
@@ -107,14 +108,10 @@
                     new Date(log.date_end).toLocaleString("ru-RU").slice(0, 10)
                   }}
                 </td>
-                <td class="table__cell">
-                  <button class="table__cell-users_row-more">
-                    <img src="@/assets/images/more_dots.svg" alt="more" />
-                  </button>
-                </td>
               </tr>
             </tbody>
           </table>
+          <pagination :paginationData="pagination" @next="setNextPage()" @prev="setPrevPage()" />
         </div>
       </div>
     </form>
@@ -134,7 +131,7 @@ const { mapGetters: mapGettersReports } =
 export default {
   name: "cabinet-history-requests",
   methods: {
-    ...mapActionsHistoryRequests(["fetchReportLogs"]),
+    ...mapActionsHistoryRequests(["fetchReportLogs", "setNextPage", "setPrevPage"]),
     ...mapMutationsHistoryRequest([
       "clearFilters",
       "setFiltersDateAt",
@@ -147,6 +144,7 @@ export default {
     ...mapStateHistoryRequest({
       logs: (state) => state.logs,
       filters: (state) => state.filters,
+      pagination: state => state.pagination
     }),
   },
   created() {

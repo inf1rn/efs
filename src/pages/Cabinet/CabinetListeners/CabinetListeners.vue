@@ -34,10 +34,15 @@
 
       <div class="listeners__wrapper">
         <form class="form regional-detail__search form-width-m">
-          <input
+          <search-input
             type="text"
             name="search"
-            class="
+            @search="e => {
+              setFiltersKeyword(e)
+              fetchListeners()
+            }"
+            :inputValue="filters.keyword"
+            inputClasses="
               form__input-edit
               form__input-edit_type_search
               form__input-edit_width_full
@@ -47,7 +52,7 @@
         </form>
         <div class="listeners__row">
           <div class="row-table__top">
-            <div class="row-table__found">Найдено {{ listeners.length }}</div>
+            <div class="row-table__found">Найдено {{ pagination?.total }}</div>
           </div>
           <table class="table admin-listeners__table-orgs">
             <tr class="table__row table__row_head">
@@ -58,7 +63,6 @@
               <th class="table__header">Название населенного пункта</th>
               <th class="table__header">Уровень образования</th>
               <th class="table__header">Должность</th>
-              <th class="table__header"></th>
             </tr>
             <tr
               class="table__row"
@@ -72,11 +76,6 @@
               <td class="table__cell">{{ listener.region_name }}</td>
               <td class="table__cell">{{ listener.education_level }}</td>
               <td class="table__cell">{{ listener.position }}</td>
-              <td class="table__cell">
-                <button class="table__cell-users_row-more">
-                  <img src="@/assets/images/more_dots.svg" alt="more" />
-                </button>
-              </td>
             </tr>
           </table>
           <div class="table-pagination">
@@ -123,13 +122,14 @@ export default {
       "setPrevPage",
       "uploadListenersCSV",
     ]),
-    ...mapMutationsListenersAll(["setListenersCSV"]),
+    ...mapMutationsListenersAll(["setListenersCSV", "setFiltersKeyword"]),
   },
   computed: {
     ...mapStateListenersAll({
       listeners: (state) => state.listeners,
       pagination: (state) => state.pagination,
       listenersCSV: (state) => state.listenersCSV,
+      filters: state => state.filters
     }),
     ...mapStateAccount({
       permissions: (state) => state.userData?.permissions,

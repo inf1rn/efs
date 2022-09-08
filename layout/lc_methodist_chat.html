@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>ЛК методисты чат</title>
+</head>
+<body class="page">
+	<header class="header">
+			<div class="header__inner header__inner_page_cabinet">
+			<div class="header__column header__column_direct_row">
+				<a href="/" class="logo logo_page_cabinet"></a>
+				<a href="" class="header__site-link">Перейти на сайт</a>
+			</div>
+			<div class="header__column header__column_direct_row-end">
+				<a href="" class="header__user-link">
+				<img src="upload/avatar_m.jpg" class="header__avatar" alt="Аватар пользователя">
+				<span class="header__username">Иванова С.Г.</span>
+				</a>
+				<div class="header__controls">
+				<a href="#" class="header__control header__control_type_notification" title="Уведомления"></a>
+				<a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+				</div>
+			</div>
+			</div>
+	</header>
+	<div class="page__content-wrapper">
+		<aside class="sidebar sidebar_opened">
+		<button class="sidebar__toggle"></button>
+			<nav class="sidebar__menu">
+				<a href="#" class="sidebar__menu-item">
+				<i class="sidebar__menu-item-icon sidebar__menu-item_icon_users"></i>
+				<span class="sidebar__menu-item-text">Пользователи</span>
+				</a>
+				<a href="#" class="sidebar__menu-item">
+				<i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+				<span class="sidebar__menu-item-text">Формы</span>
+				</a>
+				<a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+				<i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+				<span class="sidebar__menu-item-text">Организации</span>
+				</a>
+				<a href="#" class="sidebar__menu-item">
+				<i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+				<span class="sidebar__menu-item-text">Отчеты</span>
+				</a>
+				<a href="#" class="sidebar__menu-item">
+				<i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+				<span class="sidebar__menu-item-text">Карта</span>
+				</a>
+			</nav>
+		</aside>
+		<main class="content content_cabinet">
+			<section class="users page__section">
+				<!-- <ul class="breadcrumbs page__breadcrumbs">
+				<li class="breadcrumbs__item">
+					<a href="#" class="breadcrumbs__link">Организации</a>
+				</li>
+				<li class="breadcrumbs__item">
+					<a href="#" class="breadcrumbs__link">Регионы</a>
+				</li>
+				<li class="breadcrumbs__item">
+					<span href="#" class="breadcrumbs__link breadcrumbs__link_current">Республика Адыгея (Адыгея)</span>
+				</li>
+				</ul> -->
+				<div class="users__top">
+					<h1 class="section-title">Сообщения</h1>					
+				</div>			
+				<div class="chat chat--flex">
+					<div class="chat-user">
+						<input type="text" name="search" class="form__input-edit form__input-edit--chat form__input-edit_type_search" id="search">						
+						<div class="chat-user__col">
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_1.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Солтыков Владимир Иванович</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">10:24</div>
+									<div class="user__meta-icon user__meta-icon--num">2</div>
+								</div>
+							</div>
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_2.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Крупская Екатерина Валерьевна</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">ПН</div>
+									<div class="user__meta-icon user__meta-icon--read">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.602 13.7576L13.014 15.1696L21.48 6.70356L22.894 8.11756L13.014 17.9976L6.65 11.6336L8.064 10.2196L10.189 12.3446L11.602 13.7566V13.7576ZM11.604 10.9296L16.556 5.97656L17.966 7.38656L13.014 12.3396L11.604 10.9296ZM8.777 16.5846L7.364 17.9976L1 11.6336L2.414 10.2196L3.827 11.6326L3.826 11.6336L8.777 16.5846Z" fill="#99A6B7"/>
+										</svg>											
+									</div>
+								</div>
+							</div>											
+							<div class="chat-user__row chat-user__row--active user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_3.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Солтыков Владимир Иванович</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">10:24</div>
+									<div class="user__meta-icon user__meta-icon--unread">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M20 7L9 18L4 13" stroke="#99A6B7" stroke-width="2" stroke-linecap="square"/>
+										</svg>																					
+									</div>
+								</div>
+							</div>
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_4.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Солтыков Владимир Иванович</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">10:24</div>
+									<div class="user__meta-icon user__meta-icon--num">2</div>
+								</div>
+							</div>
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_2.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Крупская Екатерина Валерьевна</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">ПН</div>
+									<div class="user__meta-icon user__meta-icon--read">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.602 13.7576L13.014 15.1696L21.48 6.70356L22.894 8.11756L13.014 17.9976L6.65 11.6336L8.064 10.2196L10.189 12.3446L11.602 13.7566V13.7576ZM11.604 10.9296L16.556 5.97656L17.966 7.38656L13.014 12.3396L11.604 10.9296ZM8.777 16.5846L7.364 17.9976L1 11.6336L2.414 10.2196L3.827 11.6326L3.826 11.6336L8.777 16.5846Z" fill="#99A6B7"/>
+										</svg>											
+									</div>
+								</div>								
+							</div>
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_3.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Крупская Екатерина Валерьевна</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">ПН</div>
+									<div class="user__meta-icon user__meta-icon--read">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.602 13.7576L13.014 15.1696L21.48 6.70356L22.894 8.11756L13.014 17.9976L6.65 11.6336L8.064 10.2196L10.189 12.3446L11.602 13.7566V13.7576ZM11.604 10.9296L16.556 5.97656L17.966 7.38656L13.014 12.3396L11.604 10.9296ZM8.777 16.5846L7.364 17.9976L1 11.6336L2.414 10.2196L3.827 11.6326L3.826 11.6336L8.777 16.5846Z" fill="#99A6B7"/>
+										</svg>											
+									</div>
+								</div>
+							</div>
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_3.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Крупская Екатерина Валерьевна</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">ПН</div>
+									<div class="user__meta-icon user__meta-icon--read">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.602 13.7576L13.014 15.1696L21.48 6.70356L22.894 8.11756L13.014 17.9976L6.65 11.6336L8.064 10.2196L10.189 12.3446L11.602 13.7566V13.7576ZM11.604 10.9296L16.556 5.97656L17.966 7.38656L13.014 12.3396L11.604 10.9296ZM8.777 16.5846L7.364 17.9976L1 11.6336L2.414 10.2196L3.827 11.6326L3.826 11.6336L8.777 16.5846Z" fill="#99A6B7"/>
+										</svg>											
+									</div>
+								</div>
+							</div>
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_3.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Крупская Екатерина Валерьевна</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">ПН</div>
+									<div class="user__meta-icon user__meta-icon--read">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.602 13.7576L13.014 15.1696L21.48 6.70356L22.894 8.11756L13.014 17.9976L6.65 11.6336L8.064 10.2196L10.189 12.3446L11.602 13.7566V13.7576ZM11.604 10.9296L16.556 5.97656L17.966 7.38656L13.014 12.3396L11.604 10.9296ZM8.777 16.5846L7.364 17.9976L1 11.6336L2.414 10.2196L3.827 11.6326L3.826 11.6336L8.777 16.5846Z" fill="#99A6B7"/>
+										</svg>											
+									</div>
+								</div>
+							</div>
+							<div class="chat-user__row user">
+								<div class="user__avatar"><img loading='lazy' width='70' height='70' src='./upload/icon_user_3.png' alt='аватар пользователя'></div>
+								<div class="user__info">
+									<div class="user__info-name">Крупская Екатерина Валерьевна</div>
+									<div class="user__info-text">Здравствуйте!</div>
+								</div>
+								<div class="user__meta">
+									<div class="user__meta-date">ПН</div>
+									<div class="user__meta-icon user__meta-icon--read">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.602 13.7576L13.014 15.1696L21.48 6.70356L22.894 8.11756L13.014 17.9976L6.65 11.6336L8.064 10.2196L10.189 12.3446L11.602 13.7566V13.7576ZM11.604 10.9296L16.556 5.97656L17.966 7.38656L13.014 12.3396L11.604 10.9296ZM8.777 16.5846L7.364 17.9976L1 11.6336L2.414 10.2196L3.827 11.6326L3.826 11.6336L8.777 16.5846Z" fill="#99A6B7"/>
+										</svg>											
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+					<div class="chat-message">
+						<div class="chat-message__user message-user">
+							<div class="message-user__avatar">
+								<img loading='lazy' width='75' height='75' src='./upload/icon_user_75.png' alt='аватар пользователя'>
+								<div class="message-user__avatar-online"></div>
+							</div>
+							<div class="message-user__info">
+								<div class="message-user__info-name">Крупская Екатерина Валерьевна</div>
+								<div class="message-user__info-text">Online</div>
+							</div>
+							<div class="message-user__icon">
+								<svg width="5" height="25" viewBox="0 0 5 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5C0 3.88071 1.11929 5 2.5 5Z" fill="#303F95"/>
+									<path d="M2.5 15C3.88071 15 5 13.8807 5 12.5C5 11.1193 3.88071 10 2.5 10C1.11929 10 0 11.1193 0 12.5C0 13.8807 1.11929 15 2.5 15Z" fill="#303F95"/>
+									<path d="M2.5 25C3.88071 25 5 23.8807 5 22.5C5 21.1193 3.88071 20 2.5 20C1.11929 20 0 21.1193 0 22.5C0 23.8807 1.11929 25 2.5 25Z" fill="#303F95"/>
+								</svg>									
+							</div>
+						</div>
+						<div class="chat-message__place chat-place">
+							<div class="chat-place__row chat-place__row--left">
+								<div class="chat-place__row-box-message">									
+									<div class="chat-place__row-text">Здравствуйте!</div>
+									<div class="chat-place__row-time">10:24</div>
+								</div>
+							</div>
+							<div class="chat-place__row chat-place__row--left">
+								<div class="chat-place__row-box-message">									
+									<div class="chat-place__row-text">Что с новыми программами?</div>
+									<div class="chat-place__row-time">10:24</div>
+								</div>
+							</div>
+							<div class="chat-place__row chat-place__row--right">
+								<div class="chat-place__row-box-message">									
+									<div class="chat-place__row-text">Добрый день.</div>
+									<div class="chat-place__row-time">10:25</div>
+								</div>								
+							</div>
+							<div class="chat-place__row chat-place__row--right">
+								<div class="chat-place__row-box-message">									
+									<div class="chat-place__row-text">Уже завершаем описание</div>
+									<div class="chat-place__row-time">10:25</div>
+								</div>
+							</div>
+							<div class="chat-place__row chat-place__row--left">
+								<div class="chat-place__row-box-message">									
+									<div class="chat-place__row-text">Отлично! Значит я смогу увидеть результат завтра?</div>
+									<div class="chat-place__row-time">10:26</div>
+								</div>
+							</div>
+							<div class="chat-place__row chat-place__row--right">
+								<div class="chat-place__row-box-message">									
+									<div class="chat-place__row-text">Конечно!</div>
+									<div class="chat-place__row-time">10:27</div>
+								</div>
+							</div>
+						</div>
+						<div class="chat-message__sendler">
+							<textarea class="chat-message__sendler-field"></textarea>
+							<button class="chat-message__sendler-btn">
+								<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M18.1368 4.97811L18.1368 17.9747C18.1368 21.2903 15.449 23.9781 12.1334 23.9781C8.81789 23.9781 6.1301 21.2903 6.1301 17.9747L6.1301 4.97811C6.1301 2.76775 7.92196 0.975889 10.1323 0.975889C12.3427 0.975889 14.1346 2.76775 14.1346 4.97811L14.1275 17.9818C14.1275 19.087 13.2316 19.9829 12.1264 19.9829C11.0212 19.9829 10.1253 19.087 10.1253 17.9818L10.1323 5.98221" stroke="#F2F2F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								<div class="chat-message__sendler-hide">
+									<a href="#" class="chat-message__sendler-hide-text">Файл</a>
+									<a href="#" class="chat-message__sendler-hide-text">Курс</a>
+								</div>									
+							</button>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>		
+	</div>
+  	<script src="js/app.min.js"></script>
+	<footer class="footer footer-no--bg">
+		<div class="footer__inner">
+			© Все права защищены
+		</div>
+	</footer>
+</body>
+</html>

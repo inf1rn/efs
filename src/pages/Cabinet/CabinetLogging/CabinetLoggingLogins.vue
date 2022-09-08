@@ -22,12 +22,14 @@
           <th class="table__header"></th>
         </tr>
         <tr class="table__row" v-for="loginLog in loginLogs" :key="loginLog.id">
-          <td class="table__cell">{{new Date(loginLog.user.last_login).toLocaleDateString("ru-RU")}} {{new Date(loginLog.user.last_login).toISOString().slice(11, 16)}}</td>
+          <td class="table__cell">
+            {{ formateDate(loginLog.user.last_login, true) }}
+          </td>
           <td class="table__cell">
             {{ loginLog.user.second_name }} {{ loginLog.user.first_name }}
             {{ loginLog.user.last_name }}
           </td>
-          <td class="table__cell">региональный</td>
+          <td class="table__cell">{{ loginLog.user.roles[0]?.title }}</td>
           <td class="table__cell">5678</td>
           <td class="table__cell">
             <div class="table__cell-users_row-more">
@@ -37,7 +39,9 @@
         </tr>
       </table>
       <div class="table-pagination">
-        <div class="table-pagination__count">{{firstItemNumber}}-{{lastItemNumber}} из {{pagination?.total}}</div>
+        <div class="table-pagination__count">
+          {{ firstItemNumber }}-{{ lastItemNumber }} из {{ pagination?.total }}
+        </div>
         <div class="table-pagination__bullets">
           <button @click="setPrevPage()" class="bullets-left _disabled">
             <img src="@/assets/images/table-pagination/left.svg" alt="left" />

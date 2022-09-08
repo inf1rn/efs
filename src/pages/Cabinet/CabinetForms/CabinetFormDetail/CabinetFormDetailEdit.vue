@@ -2,14 +2,23 @@
   <div class="tabs__body _tabs-block _active">
     <div class="form-detail__row row-period d-flex">
       <div class="form-detail__row-period">
-        <label for="Periodicity" class="form__label">Период входа</label>
-        <input
+        <label for="Periodicity" class="form__label"
+          >Периодичность заполнения</label
+        >
+        <select
           type="text"
           name="Periodicity"
           class="form__input-edit"
           id="Periodicity"
-          placeholder="1 раз в год"
-        />
+          :value="formEditableData.frequency"
+          @change="(e) => setFrequency(e.target.value)"
+        >
+          <option value="daily">Единоразово</option>
+          <option value="monthly">Ежемесячно</option>
+          <option value="quarterly">Ежеквартально</option>
+          <option value="half-year">Раз в полугодие</option>
+          <option value="yearly">Раз в год</option>
+        </select>
       </div>
 
       <div class="form-detail__dates">
@@ -23,6 +32,8 @@
               name="formDetailDateFrom"
               class="form__input-edit input-edit__form"
               id="dateFrom"
+              :value="formEditableData.activeStart"
+              @change="(e) => setActiveStart(e.target.value)"
             />
             <div class="form-detail__dates-inputs__line"></div>
             <input
@@ -30,6 +41,8 @@
               name="formDetailDateTo"
               class="form__input-edit input-edit__to"
               id="dateTo"
+              :value="formEditableData.activeEnd"
+              @change="(e) => setActiveEnd(e.target.value)"
             />
           </div>
         </div>
@@ -39,7 +52,7 @@
       <div data-spollers class="spollers _spoller-init">
         <cabinet-form-field
           v-for="field in fields"
-          :key="field.id" 
+          :key="field.id"
           :field="field"
           :fieldTitle="
             form.fields.find((immutableField) => immutableField.id == field.id)
@@ -79,6 +92,7 @@ export default {
   props: {
     fields: Array,
     form: Object,
+    formEditableData: Object,
   },
   components: { CabinetFormField },
   name: "cabinet-form-detail-edit",
@@ -88,12 +102,11 @@ export default {
       "setFieldDescription",
       "setFieldType",
       "setFieldRequired",
+      "setFrequency",
+      "setActiveStart",
+      "setActiveEnd",
     ]),
-    ...mapActions([
-      "deleteField",
-      "createField",
-      "toggleEnabledField",
-    ]),
+    ...mapActions(["deleteField", "createField", "toggleEnabledField"]),
   },
 };
 </script>

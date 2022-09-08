@@ -20,13 +20,17 @@
       <div class="users__top">
         <h1 class="section-title">{{ regionName }}</h1>
         <router-link
+          v-if="userData?.permissions.includes('create_organizations')"
           :to="`/cabinet/subjects/${regionId}/new-organization`"
           class="users__add"
           >+ создать организацию</router-link
         >
       </div>
       <div class="spollers _spoller-init mt-4 w-75">
-        <div class="spollers__item">
+        <div
+          class="spollers__item"
+          v-if="userData?.permissions.includes('edit_regions')"
+        >
           <button
             type="button"
             class="spollers__title"
@@ -60,6 +64,25 @@
             </div>
           </div>
         </div>
+        <div
+          class="spollers__item"
+          v-else-if="!userData?.permissions.includes('edit_regions')"
+        >
+          <button
+            type="button"
+            class="spollers__title"
+            :class="isFieldActive ? '_spoller-active' : ''"
+            @click="isFieldActive = !isFieldActive"
+          >
+            <span>Описание региона</span>
+          </button>
+          <div
+            class="spollers__body"
+            :hidden="!isFieldActive"
+            v-if="formDescription !== null"
+            v-html="formDescription"
+          ></div>
+        </div>
       </div>
       <ul class="stat-panels region-detail__stat-panels">
         <data-block
@@ -70,13 +93,20 @@
         />
       </ul>
       <form class="form region-detail__search form-width-m">
-        <input
+        <search-input
           type="text"
           name="search"
-          class="
+          inputClasses="
             form__input-edit
             form__input-edit_type_search
             form__input-edit_width_full
+          "
+          :inputValue="filters.title"
+          @search="
+            (e) => {
+              setFiltersTitle(e);
+              getOrganizations();
+            }
           "
           id="search"
         />
@@ -101,7 +131,9 @@
         >
           <td class="table__cell">{{ organization.title_short }}</td>
           <td class="table__cell">{{ organization.mainEmployee?.name }}</td>
-          <td class="table__cell"></td>
+          <td class="table__cell">
+            {{ organization.education_programs?.length }}
+          </td>
           <td class="table__cell"></td>
           <td class="table__cell"></td>
           <td class="table__cell"></td>
@@ -123,6 +155,7 @@ import { createNamespacedHelpers } from "vuex";
 const { mapActions, mapState, mapMutations } = createNamespacedHelpers(
   "subjects/organizationsRegionInfo"
 );
+const { mapState: mapStateAccount } = createNamespacedHelpers("account");
 
 export default {
   name: "CabinetRegionDetail",
@@ -147,6 +180,7 @@ export default {
       "setRegionId",
       "setFormDescription",
       "setRemovableOrganizationId",
+      "setFiltersTitle",
     ]),
   },
   computed: {
@@ -156,6 +190,10 @@ export default {
       regionId: (state) => state.regionId,
       region: (state) => state.region,
       formDescription: (state) => state.formDescription,
+      filters: (state) => state.filters,
+    }),
+    ...mapStateAccount({
+      userData: (state) => state.userData,
     }),
     title() {
       return this.regionName;

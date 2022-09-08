@@ -67,7 +67,7 @@
                 "
                 :value="filters.roleId"
               >
-                <option value="" hidden>Все роли</option>
+                <option value="">Все роли</option>
                 <option v-for="role in roles" :value="role.name" :key="role.id">
                   {{ role.title }}
                 </option>

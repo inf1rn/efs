@@ -38,7 +38,7 @@
             <div class="body-wrap__line">
               <div class="body-wrap__label">Роль</div>
               <div class="body-wrap__info">
-                {{ userData.roles?.title }}
+                {{ userData.roles[0]?.title }}
               </div>
             </div>
             <div class="body-wrap__line">
@@ -72,6 +72,8 @@ import { createNamespacedHelpers } from "vuex";
 
 const { mapMutations, mapState } = createNamespacedHelpers("users/currentUser");
 
+import avatar from "@/assets/images/avatar.jpg"
+
 export default {
   name: "cabinet-users-popup-user-info",
   methods: {
@@ -83,9 +85,12 @@ export default {
     }),
     imageSrc: function () {
       const image = this.userData?.image;
-      return image
-        ? image
-        : require("@/assets/images/user_avatar.png");
+
+      if (typeof image === "object" && image && image !== 'null') {
+        return URL.createObjectURL(new Blob([image], { type: "image/*" }));
+      }
+
+      return image && image !== 'null' ? image : avatar;
     },
   },
 };

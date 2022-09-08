@@ -8,6 +8,9 @@ export const organizationsModule = {
             organizations: []
         }
     },
+    getters: {
+        getOrganizationById: (state) => id => state.organizations.find(organization => organization.id === id) 
+    },
     mutations: {
         setPositions(state, positions) {
             state.positions = positions
@@ -22,7 +25,7 @@ export const organizationsModule = {
             commit("setPositions", positions)
         },
         async fetchOrganizations({commit}) {
-            const {data: {data: {data: organizations}}} = await organizationsAPI.fetchOrganizations()
+            const {data: {data: {data: organizations}}} = await organizationsAPI.fetchOrganizations({})
             commit("setOrganizations", organizations)
         }
     },

@@ -1,7 +1,7 @@
 <template>
   <main class="content">
     <section class="regions-page page__section page__section_width_content">
-      <h1 class="section-title page__title">Субъекты</h1>
+      <h1 class="section-title page__title">Субъекты РФ</h1>
       <form class="form form-width-m regions-page__search">
         <search-input :inputValue="filters.keyword" @search="handlerSearch" />
       </form>

@@ -26,7 +26,7 @@
           <div class="form__item">
             <label for="auth-password" class="form__label">Пароль</label>
             <input
-              v-model.trim="password"
+              v-model="password"
               type="password"
               name="auth-password"
               class="form__input-edit form__input-edit_el_auth-password _req"
@@ -35,8 +35,11 @@
                 invalid: v$.password.$dirty && v$.password.$error,
               }"
             />
-            <small v-if="v$.login.$dirty && v$.password.$invalid"
-              ><i>Длина пароля должна быть не менее {{v$.password.minLength.$params.min}} символов</i></small
+            <small v-if="v$.password.$dirty && v$.password.$invalid"
+              ><i
+                >Длина пароля должна быть более
+                {{ v$.password.minLength.$params.min - 1 }} символов</i
+              ></small
             >
           </div>
         </fieldset>
@@ -60,7 +63,12 @@
           </router-link>
         </fieldset>
         <div class="form__footer">
-          <a href="#" class="form__oauth-link">Войти с помощью oauth 2.0</a>
+          <a
+            :href="`${baseURL}/auth/yandex`"
+            target="_blank"
+            class="form__oauth-link"
+            >Войти с помощью oauth 2.0</a
+          >
           <p class="form__footer-text">
             Если возникли проблемы со входом обратитесь в
             <a
@@ -79,16 +87,22 @@
 import { createNamespacedHelpers } from "vuex";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
+import { mapMutations as mapMutationsRoot } from "vuex";
 
 const { mapState, mapActions, mapMutations } = createNamespacedHelpers("auth");
 
 export default {
   name: "auth",
   title: "Авторизация",
+  data() {
+    return {
+      baseURL: process.env.VUE_APP_BASE_URL
+    }
+  },
   validations() {
     return {
       login: { required, email, $lazy: true },
-      password: { required, minLength: minLength(6), $lazy: true },
+      password: { required, minLength: minLength(7), $lazy: true },
     };
   },
   computed: {
@@ -117,7 +131,9 @@ export default {
   methods: {
     ...mapMutations({
       setLogin: "setLogin",
-      setPassword: "setPassword",
+      setPassword: "setPassword"
+    }),
+    ...mapMutationsRoot({
       setIsOpened: "technicalSupport/setIsOpened",
     }),
     ...mapActions({

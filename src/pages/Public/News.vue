@@ -76,7 +76,7 @@
         </div>
         <div class="content-sidebar__content">
           <h1 class="section-title page__title">Новости</h1>
-          <form class="form form-width-m news-page__search">
+          <form class="form form-width-m news-page__search" @submit.prevent>
             <search-input :inputValue="filters.keyword" @search="setKeyword($event)" />
           </form>
           <div class="news-list news-page__news-list">
@@ -88,7 +88,7 @@
               />
             </div>
             <button
-              v-if="currentPostsCount !== totalPostsCount"
+              v-if="currentPostsCount !== totalPostsCount && +totalPostsCount > 6"
               class="news-list__loadmore"
               @click="getPosts()"
             >

@@ -80,7 +80,9 @@
               </div>
             </article>
           </div>
-          <button @click="getPosts()" class="news-list__loadmore">
+          <button
+            v-if="currentPostsCount !== totalPostsCount && +totalPostsCount > 6"
+            @click="getPosts()" class="news-list__loadmore">
             Показать еще новости
           </button>
         </div>
@@ -102,13 +104,20 @@ export default {
     ...mapStateNews({
       posts: (state) => state.posts,
       filters: (state) => state.filters,
+      pagination: (state) => state.pagination,
     }),
+    totalPostsCount: function () {
+      return this.pagination.newsTotalCount;
+    },
+    currentPostsCount: function () {
+      return this.pagination.newsCurrentCount;
+    },
   },
   methods: {
     ...mapActionsNews(["getPosts", "setDate", "setKeyword", "clearFilters"]),
   },
   created() {
-    this.getPosts();
+    this.getPosts()
   },
 };
 </script>

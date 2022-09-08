@@ -1,2 +1,78 @@
 @import "./style.min.css";
-@import "./fix.css"
+@import "./fix.css";
+@import "./media.css";
+
+
+
+@media only screen and ( max-width: 554px ) {
+  .programs-section {
+    overflow: hidden;
+    padding: 0;
+  }
+  .program-list__item {
+    width: auto;
+    background-image: none;
+    background-color: #DBE5F3;
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+  }
+  .program-list__item a {
+    border: none;
+    background-image: none;
+    width: auto;
+    height: auto;
+    margin-bottom: 0;
+    padding: 10px 10px !important;
+  }
+
+  .breadcrumbs {
+    flex-wrap: wrap;
+  }
+  .breadcrumbs__item {
+    margin-bottom: 10px;
+  }
+  .org-team-section__inner {
+    overflow: hidden;
+  }
+  .content_cabinet {
+    padding: 25px 25px 0px;
+  }
+}
+
+@media only screen and ( max-width: 400px ) {
+  .header__inner {
+    padding: 19px 104px;
+  }
+  .header__menu-burger-toogle {
+    left: 30px;
+  }
+}
+
+@media only screen and ( max-width: 350px ) {
+  .header__inner {
+    padding: 19px 75px;
+  }
+  .header__menu-burger-toogle {
+    left: 10px;
+  }
+}
+
+article.region-detail {
+  flex-wrap: wrap !important;
+}
+
+@media only screen and ( max-width: 386px ) {
+  .region-detail__statistic {
+    width: 100vw;
+    left: -20px;
+  }
+}
+
+@media only screen and ( max-width: 330px ) {
+  .region-detail__statistic {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}

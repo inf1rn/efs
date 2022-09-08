@@ -29,8 +29,10 @@
                 class="form__input-edit form__input-edit_width_full"
                 id="reportsTabsSecondName"
                 placeholder="Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней"
-                :value="currentNotificationForm?.title"
-                @input="(e) => setTitle(e.target.value)"
+                :class="{
+                  invalid: v$.title.$error,
+                }"
+                v-model="title"
               />
             </div>
             <div class="admin_mailings__inp">
@@ -38,9 +40,11 @@
                 >Тип события</label
               >
               <select
-                :value="currentNotificationForm?.eventTypeId"
                 class="form__select form__select_theme_white"
-                @change="(e) => setEventTypeId(e.target.value)"
+                :class="{
+                  invalid: v$.eventTypeId.$error,
+                }"
+                v-model="typeId"
               >
                 <option
                   v-for="eventType in eventTypes"
@@ -56,19 +60,23 @@
             <div class="admin_mailings__inp inp-full">
               <label for="adminSubjectDate" class="form__label">Тема</label>
               <input
-                @input="(e) => setTheme(e.target.value)"
+                :class="{
+                  invalid: v$.theme.$error,
+                }"
+                v-model="theme"
                 type="text"
                 class="form__input-edit form__input-edit_width_full"
                 id="reportsTabsSecondName"
                 placeholder="Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней"
-                :value="currentNotificationForm?.theme"
               />
             </div>
             <div class="admin_mailings__inp">
               <label for="adminSubjectDate" class="form__label">Роль</label>
               <select
-                @change="(e) => setRoleId(e.target.value)"
-                :value="currentNotificationForm?.roleId"
+                :class="{
+                  invalid: v$.roleId.$error,
+                }"
+                v-model="roleId"
                 class="form__select form__select_theme_white"
               >
                 <option v-for="role in roles" :key="role.id" :value="role.id">
@@ -81,10 +89,13 @@
             <div class="admin_mailings__inp">
               <label for="adminSubjectDate" class="form__label">Регион</label>
               <select
-                @change="(e) => setRegionId(e.target.value)"
-                :value="currentNotificationForm?.regionId"
+                :class="{
+                  invalid: v$.regionId.$error,
+                }"
+                v-model="regoinId"
                 class="form__select form__select_theme_white"
               >
+                <option value="">Все</option>
                 <option
                   v-for="region in regions"
                   :key="region.id"
@@ -99,8 +110,10 @@
                 >Периодичность</label
               >
               <select
-                @change="(e) => setPeriodId(e.target.value)"
-                :value="currentNotificationForm?.periodId"
+                :class="{
+                  invalid: v$.periodId.$error,
+                }"
+                v-model="periodId"
                 class="form__select form__select_theme_white"
               >
                 <option
@@ -117,8 +130,10 @@
                 >Дата отправки</label
               >
               <input
-                @input="(e) => setSendAt(e.target.value)"
-                :value="currentNotificationForm?.sendAt"
+                :class="{
+                  invalid: v$.sendAt.$error,
+                }"
+                v-model="sendAt"
                 type="date"
                 name="date-from"
                 class="form__input-edit form__input-edit_el_date-from"
@@ -132,16 +147,19 @@
             v-if="currentNotificationForm"
           >
             <QuilEditor
-              :content="currentNotificationForm?.body"
+              :content="body"
               contentType="html"
               @textChange="
                 () => {
-                  setBody($refs.editor.getHTML());
+                  body = $refs.editor.getHTML();
                 }
               "
               ref="editor"
               theme="snow"
             />
+            <small v-if="v$.body.$error" style="color: red"
+              >Заполните тело рассылки</small
+            >
           </div>
           <div class="checkbox form-group"></div>
           <div class="admin_mailings__row add-row_btns add-row">
@@ -153,7 +171,7 @@
                 button_border_small
                 form__submit
               "
-              @click="updateNotification()"
+              @click="updateNotificationHandler()"
             >
               Сохранить
             </button>
@@ -163,7 +181,7 @@
               @click="
                 () => {
                   setStatusId(3);
-                  updateNotification();
+                  updateNotificationHandler();
                 }
               "
             >
@@ -177,6 +195,9 @@
 </template>
 <script>
 import { createNamespacedHelpers } from "vuex";
+import { mailingEditorMixin } from "@/mixins/components/mailingEditorMixin";
+import useVuelidate from "@vuelidate/core";
+
 const {
   mapState: mapStateCurrentNotification,
   mapActions: mapActionsCurrentNotification,
@@ -190,6 +211,8 @@ const { mapState: mapStateLocation } = createNamespacedHelpers("location");
 
 export default {
   name: "cabinet-current-notification",
+  mixins: [mailingEditorMixin],
+
   computed: {
     ...mapStateCurrentNotification({
       currentNotification: (state) => state.notification,
@@ -205,8 +228,87 @@ export default {
     ...mapStateLocation({
       regions: (state) => state.regions,
     }),
-    title() {
-      return this.currentNotification?.title;
+    title: {
+      get() {
+        return this.currentNotificationForm?.title;
+      },
+      set(value) {
+        this.setTitle(value);
+        this.v$.title.$touch();
+      },
+    },
+    sendAt: {
+      get() {
+        return this.currentNotificationForm?.sendAt;
+      },
+      set(value) {
+        this.setSendAt(value);
+        this.v$.sendAt.$touch();
+      },
+    },
+    theme: {
+      get() {
+        return this.currentNotificationForm?.theme;
+      },
+
+      set(value) {
+        this.setTheme(value);
+        this.v$.theme.$touch();
+      },
+    },
+    typeId: {
+      get() {
+        return this.currentNotificationForm?.eventTypeId;
+      },
+      set(value) {
+        this.setEventTypeId(value);
+        this.v$.typeId.$touch();
+      },
+    },
+    roleId: {
+      get() {
+        return this.currentNotificationForm?.roleId;
+      },
+      set(value) {
+        this.setRoleId(value);
+        this.v$.roleId.$touch();
+      },
+    },
+    regionId: {
+      get() {
+        return this.currentNotificationForm?.regionId;
+      },
+      set(value) {
+        this.setRegionId(value);
+        this.v$.regionId.$touch();
+      },
+    },
+    periodId: {
+      get() {
+        return this.currentNotificationForm?.periodId;
+      },
+      set(value) {
+        this.setPeriodId(value);
+        this.v$.periodId.$touch();
+      },
+    },
+    eventTypeId: {
+      get() {
+        return this.currentNotificationForm?.eventTypeId;
+      },
+      set(value) {
+        this.setEventTypeId(value);
+        this.v$.eventTypeId.$touch();
+      },
+    },
+    body: {
+      get() {
+        return this.currentNotificationForm?.body;
+      },
+      set(value) {
+        this.setBody(value);
+        this.v$.body.$touch();
+      },
     },
   },
   methods: {
@@ -227,6 +329,21 @@ export default {
       "setBody",
       "setRoleId",
     ]),
+    async updateNotificationHandler() {
+      const isCorrect = await this.v$.$validate();
+
+      if (!isCorrect) {
+        return;
+      }
+      this.updateNotification();
+      this.v$.$reset();
+    },
+  },
+  setup() {
+    return { v$: useVuelidate() };
+  },
+  validations: function () {
+    return this.getValidations();
   },
   created() {
     this.setNotificationId(this.$route.params.notificationId);

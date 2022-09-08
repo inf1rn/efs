@@ -66,7 +66,7 @@
         <div class="admin_subject-edit_tabs-form__line form__item">
           <label for="adminSubjectEditEmail" class="form__label">Email</label>
           <input
-            type="mail"
+            type="email"
             class="spollers-body__input form-input__border"
             id="adminSubjectEditEmail"
             placeholder="sahalineducation@gmail.com"
@@ -108,7 +108,6 @@
   </div>
 </template>
 <script>
-import { maska } from "maska";
 import { createNamespacedHelpers } from "vuex";
 const {
   mapState: mapStateEditOrganization,
@@ -132,7 +131,7 @@ export default {
       "setFormOrganizationTitleShort",
       "setFormOrganizationDescription",
     ]),
-    ...mapActionsEditOrganization(["updateOrganization"])
+    ...mapActionsEditOrganization(["updateOrganization"]),
   },
 };
 </script>

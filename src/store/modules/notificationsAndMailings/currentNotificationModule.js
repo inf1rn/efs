@@ -87,8 +87,13 @@ export const currentNotificationModule = {
             commit("setNotificationForm", convertMailingToForm(notification))
         },
         async updateNotification({ state, commit }) {
-            await mailingsAPI.updateMailing(state.notificationForm)
-            alert("Обновлено!")
+            try {
+                await mailingsAPI.updateMailing(state.notificationForm)
+                alert("Обновлено!")
+            } catch (e) {
+                console.log(e)
+                alert("Ошибка")
+            }
         }
     },
     namespaced: true

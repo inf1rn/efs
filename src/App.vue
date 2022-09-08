@@ -27,9 +27,9 @@ export default {
   async created() {
     if (document.cookie.includes("jwt") && document.cookie.includes("id")) {
       await this.getUser();
-      this.fetchRoles();
       this.fetchMessages();
     }
+    this.fetchRoles();
     this.getRegions();
     this.getCities();
     this.fetchPositions();

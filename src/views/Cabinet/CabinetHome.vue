@@ -37,6 +37,14 @@ export default {
         return;
       }
 
+      if (!store.account.userData.roles.length) {
+        alert(
+          "Ваша учётная запись на модерации, в ближайшее время Администратор рассмотрит Вашу заявку"
+        );
+        vm.$router.push("/");
+        return;
+      }
+
       const { requiredRoles, requiredPermissions, lockedRoles, onlyOwnRegion } =
         to.meta;
       let { roles, permissions, region } = vm.$store.state.account.userData;

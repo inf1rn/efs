@@ -6,7 +6,10 @@ export const listenersAllModule = {
             listeners: [],
             pagination: null,
             currentPage: 1,
-            listenersCSV: null
+            listenersCSV: null,
+            filters: {
+                keyword: ""
+            }
         }
     },
     mutations: {
@@ -19,6 +22,12 @@ export const listenersAllModule = {
         setNextPage(state) {
             state.currentPage += 1
         },
+        setFiltersKeyword(state, keyword) {
+            state.filters = {
+                ...state.filters,
+                keyword
+            }
+        },
         setPrevPage(state) {
             state.currentPage -= 1
         },
@@ -28,7 +37,7 @@ export const listenersAllModule = {
     },
     actions: {
         async fetchListeners({ commit, state }) {
-            const { data: { data: { data: listeners, pagination } } } = await listenersAPI.fetchListeners({ page: state.currentPage, perPage: 10 })
+            const { data: { data: { data: listeners, pagination } } } = await listenersAPI.fetchListeners({ page: state.currentPage, perPage: 10, keyword: state.filters.keyword })
             commit("setListeners", listeners)
             commit("setPagination", pagination)
         },

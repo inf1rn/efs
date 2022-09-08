@@ -26,13 +26,17 @@
             </div>
           </div>
           <div class="reports_tabs-form__row row-bottom">
-            <div class="reports_tabs-form__line form__item">
+            <div
+              class="reports_tabs-form__line form__item"
+              v-if="role !== 'regional_minister'"
+            >
               <label for="reportsRegion" class="form__label">Регион</label>
               <select
                 @change="(e) => setFiltersRegionId(e.target.value)"
+                :value="filters.regionId"
                 class="form__select form__select_theme_white"
               >
-                <option value="" hidden>Выберите регион</option>
+                <option value="" >Вcе</option>
                 <option
                   v-for="region in regions"
                   :key="region.id"
@@ -101,7 +105,7 @@
               <li>
                 <a
                   @click.prevent="
-                    downloadItem({ url: csvUrl, label: 'reports.xlsx' })
+                    downloadItem({ url: xlsxUrl, label: 'reports.xlsx' })
                   "
                   href="#"
                   class="table_header-icon_download"
@@ -125,7 +129,6 @@
                 >
                   {{ field[0].title }}
                 </th>
-                <th class="table__header"></th>
               </tr>
               <tr class="table__row" v-for="report in reports" :key="report.id">
                 <td
@@ -134,11 +137,6 @@
                   :key="fieldResult.id"
                 >
                   {{ fieldResult.value }}
-                </td>
-                <td class="table__cell">
-                  <button class="table__cell-users_row-more">
-                    <img src="@/assets/images/more_dots.svg" alt="more" />
-                  </button>
                 </td>
               </tr>
             </tbody>
@@ -157,6 +155,7 @@ const { mapState: mapStateReportsAll, mapActions: mapActionsReportsAll } =
 const { mapState: mapStateLocation, mapGetters: mapGettersLocation } =
   createNamespacedHelpers("location");
 const { mapState: mapStateReports } = createNamespacedHelpers("forms/reports");
+const { mapState: mapStateAccount } = createNamespacedHelpers("account");
 
 export default {
   name: "cabinet-reports-all",
@@ -174,6 +173,13 @@ export default {
     ...mapStateLocation({
       regions: (state) => state.regions,
     }),
+    ...mapStateAccount({
+      userData: (state) => state.userData,
+    }),
+    role() {
+      console.log(this.userData?.roles[0].name);
+      return this.userData?.roles[0].name;
+    },
   },
   mixins: [loadFileMixin],
   methods: {

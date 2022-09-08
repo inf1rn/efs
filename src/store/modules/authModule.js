@@ -30,6 +30,13 @@ export const authModule = {
                 state.loginFormData.password,
             )
                 .then((res) => {
+                    if (!res.data.data.roles.length) {
+                        alert(
+                            "Ваша учётная запись на модерации, в ближайшее время Администратор рассмотрит Вашу заявку"
+                        );
+                        return
+                    }
+
                     const { data } = res.data
                     document.cookie = "jwt=" + data.token + ";max-age=" + 3600 * 24 * 30 + ";Path=/;";
                     document.cookie = "user_id=" + data.id + ";max-age=" + 3600 * 24 * 30 + ";Path=/;"

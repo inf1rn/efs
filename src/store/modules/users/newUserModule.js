@@ -98,11 +98,38 @@ export const newUserModule = {
                 ...state.newUser,
                 sendNotification
             }
+        },
+        clear(state) {
+            state.newUser = {
+                firstName: "",
+                secondName: "",
+                lastName: "",
+                image: null,
+                email: "",
+                role: "",
+                regionId: "",
+                cityId: "",
+                organizationId: "",
+                positionId: "",
+                password: "",
+                passwordConfirm: "",
+                sendNotification: false
+            }
         }
     },
     actions: {
-        async saveUser({ commit, state }) {
-            await authAPI.saveUser(state.newUser)
+      saveUser({ commit, state }) {
+          return new Promise((resolve, reject) => {
+            authAPI.saveUser(state.newUser).then(() => {
+              alert("Пользователь создан")
+              commit("clear")
+              resolve()
+            }).catch(e => {
+              console.log('************* error')
+              console.log(e)
+              alert("Пользователь с таким email уже зарегистрирован")
+            })
+          })
         }
     },
     namespaced: true

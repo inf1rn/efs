@@ -5,7 +5,8 @@ export const notificationsModule = {
         return {
             notifications: [],
             filters: {
-                date: "",
+                dateAt: "",
+                dateTo: "",
                 roleId: "",
                 regionId: ""
             },
@@ -30,15 +31,23 @@ export const notificationsModule = {
                 roleId
             }
         },
-        setFiltersDate(state, date) {
+
+        setFiltersDateAt(state, dateAt) {
             state.filters = {
                 ...state.filters,
-                date
+                dateAt
+            }
+        },
+        setFiltersDateTo(state, dateTo) {
+            state.filters = {
+                ...state.filters,
+                dateTo
             }
         },
         clearFilters(state) {
             state.filters = {
-                date: "",
+                dateAt: "",
+                dateTo: "",
                 roleId: "",
                 regionId: ""
             }
@@ -63,7 +72,8 @@ export const notificationsModule = {
                     mailingsType: 2,
                     roleId: state.filters.roleId,
                     regionId: state.filters.regionId,
-                    sendAt: state.filters.date
+                    dateAt: state.filters.dateAt,
+                    dateTo: state.filters.dateTo
                 },
                 state.currentPage)
             commit("setNotifications", notifications)
@@ -75,10 +85,6 @@ export const notificationsModule = {
         },
         setFiltersRoleId({ commit, dispatch }, roleId) {
             commit("setFiltersRoleId", roleId)
-            dispatch("fetchNotifications")
-        },
-        setFiltersDate({ commit, dispatch }, date) {
-            commit("setFiltersDate", date)
             dispatch("fetchNotifications")
         },
         clearFilters({ commit, dispatch }) {

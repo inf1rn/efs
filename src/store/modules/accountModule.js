@@ -1,5 +1,6 @@
 import { usersAPI } from "@/API/users";
 import { rolesAPI } from "@/API/roles"
+import { cloneDeep } from "lodash"
 
 export const accountModule = {
     state() {
@@ -9,7 +10,7 @@ export const accountModule = {
         }
     },
     getters: {
-        getRoleById: (roleId) => (state) => {
+        getRoleById: (state) => (roleId) => {
             return state.roles.find(role => role.id === roleId)
         },
         getUserRolesNames: (state) => {
@@ -30,7 +31,7 @@ export const accountModule = {
 
             commit("setUserData", userData)
 
-            commit("profile/setFormData", { ...userData }, { root: true })
+            commit("profile/setFormData", cloneDeep(userData), { root: true })
             commit("auth/setAuth", true, { root: true })
         },
         async fetchRoles({ commit }) {

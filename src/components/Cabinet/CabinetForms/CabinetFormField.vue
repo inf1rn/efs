@@ -13,20 +13,26 @@
               >Дублировать</a
             >
           </li>
+          <!--
           <li>
             <a @click.stop.prevent="$emit('toggle-enabled-field', field.id)" href="#">{{
               field.enabled ? "Выключить" : "Включить"
             }}</a>
           </li>
+          -->
           <li @click.stop.prevent="$emit('delete-field', field.id)">
             <a href="#">Удалить</a>
           </li>
+          <!--
           <li>
             <a href="#">Вверх</a>
           </li>
+          -->
+          <!--
           <li>
             <a href="#">Вниз</a>
           </li>
+          -->
         </ul>
       </div>
       <span>{{ fieldTitle }}</span>

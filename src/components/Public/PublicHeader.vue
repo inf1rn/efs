@@ -26,17 +26,17 @@
     <!-- открытое меню: .burger-menu.burger-menu_opened -->
     <div :class="burgerMenuObject" class="burger-menu">
       <div class="burger-menu__header">
-        <a href="/" class="logo logo_type_white"></a>
+        <a href="/" class="logo logo_type_white" @click="toggleBurgerMenu"></a>
         <button
           @click="toggleBurgerMenu"
           class="burger-menu__close-btn"
         ></button>
       </div>
       <nav class="burger-menu__links">
-        <router-link to="/subjects" class="burger-menu__link"
-          >Регионы</router-link
+        <router-link to="/subjects" class="burger-menu__link" @click="toggleBurgerMenu"
+          >Субъекты РФ</router-link
         >
-        <router-link to="/news" class="burger-menu__link">Новости</router-link>
+        <router-link to="/news" class="burger-menu__link" @click="toggleBurgerMenu">Новости</router-link>
         <a
           @click="toggleTechnicalSupportPopup"
           href="#"
@@ -47,11 +47,13 @@
       <div class="burger-menu__mobile-area">
         <a
           href="https://education.apkpro.ru/"
+          @click="toggleBurgerMenu"
           class="button button_theme_green-invert button_border_rounded"
           >Вход для педагогов</a
         >
         <router-link
           to="/auth"
+          @click="toggleBurgerMenu"
           class="button button_theme_white-invert button_border_rounded"
           >Служебный раздел</router-link
         >

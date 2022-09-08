@@ -175,11 +175,17 @@ export const newOrganizationModule = {
             try {
                 const { data: { data: { id: organizationId } } } = await organizationsAPI.createOrganization(state.newOrganization)
                 console.log(organizationId)
-                await Promise.all([
+                const promises = [
                     organizationsAPI.uploadPrograms(organizationId, state.newOrganization.education_programs),
                     organizationsAPI.uploadEmployees(organizationId, getters.getEmployeesBySort(2)),
-                    organizationsAPI.uploadEmployee(organizationId, getters.getEmployeesBySort(1)[0])
-                ])
+
+                ]
+                console.log(getters.getEmployeesBySort(1)[0].name)
+                if (getters.getEmployeesBySort(1)[0].name) {
+                    promises.push(organizationsAPI.uploadEmployee(organizationId, getters.getEmployeesBySort(1)[0]))
+                }
+                
+                await Promise.all(promises)
                 alert("Организация создана")
             } catch (e) {
                 alert("Ошибка")

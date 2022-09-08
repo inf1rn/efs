@@ -9,7 +9,8 @@ export const regionsListenersStatModule = {
             regionsListenersStat: [],
             regionsListenersStatInit: [],
             filters: {
-                regionId: ""
+                regionId: "",
+                cityId: ""
             },
             listenerCSV: null,
             csvUrl: null,
@@ -35,6 +36,12 @@ export const regionsListenersStatModule = {
             }
 
             state.regionsListenersStat = state.regionsListenersStat.filter((listenerStat) => listenerStat.region === region)
+        },
+        setFiltersCityId(state, cityId) {
+            state.filters = {
+                ...state.filters,
+                cityId
+            }
         },
         clearFilters(state) {
             state.filters = {
@@ -65,9 +72,11 @@ export const regionsListenersStatModule = {
             commit("setListenersStat", listeners)
         },
         async fetchRegionsListenersStat({ state, commit }) {
+            const filters = state.filters
+            
             const { data: { data: { data: listeners, pagination } } } = await listenersAPI.fetchListeners({})
-            const { data: { data: { url: csvUrl } } } = await listenersAPI.fetchListenersExport("csv")
-            const { data: { data: { url: xlsUrl } } } = await listenersAPI.fetchListenersExport("xls")
+            const { data: { data: { url: csvUrl } } } = await listenersAPI.fetchListenersExport({ type: "csv", regionId: filters.regionId })
+            const { data: { data: { url: xlsUrl } } } = await listenersAPI.fetchListenersExport({ type: "xls", regionId: filters.regionId })
 
             commit("setCSVUrl", csvUrl)
             commit("setXLSUrl", xlsUrl)
@@ -77,7 +86,7 @@ export const regionsListenersStatModule = {
             const regionStatListeners = []
 
             for (let region of regions) {
-                const regionListeners = listeners.filter((listener) => listener.region_name === region)
+                const regionListeners = listeners.filter((listener) => listener.region_name === region && (!state.filters.regionId || listener.region_name == state.filters.regionId))
                 const regionListenersOrganizations = regionListeners.map((listener) => listener.organization_name)
 
                 const listenersCount = _.countBy(regionListenersOrganizations)

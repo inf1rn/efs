@@ -109,10 +109,14 @@ export const organizationEditModule = {
     actions: {
         async updateOrganization({ state, rootState, dispatch, getters }) {
             try {
-                await Promise.all([
-                    organizationsAPI.updateOrganization(state.formOrganization, rootState.subjects.organization.organizationId),
-                    organizationsAPI.updateEmployee(rootState.subjects.organization.organizationId, getters.getEmployeesBySort(1)[0])
-                ])
+                const promises =
+                    [
+                        organizationsAPI.updateOrganization(state.formOrganization, rootState.subjects.organization.organizationId),
+                    ]
+                if (getters.getEmployeesBySort(1)?.[0]) {
+                    promises.push(organizationsAPI.updateEmployee(rootState.subjects.organization.organizationId, getters.getEmployeesBySort(1)[0]))
+                }
+                await Promise.all(promises)
                 alert("Обновлено")
                 dispatch("subjects/organization/fetchOrganization", {}, { root: true })
             } catch (e) {

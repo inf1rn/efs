@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Добавить новость</title>
+</head>
+<body class="page">
+  <header class="header">
+    <div class="header__inner header__inner_page_cabinet">
+      <div class="header__column header__column_direct_row">
+        <a href="/" class="logo logo_page_cabinet"></a>
+        <a href="" class="header__site-link">Перейти на сайт</a>
+      </div>
+      <div class="header__column header__column_direct_row-end">
+        <a href="" class="header__user-link">
+          <img src="upload/user-ava.png" class="header__avatar" alt="Аватар пользователя">
+          <span class="header__username">Рудковский А. М.</span>
+        </a>
+        <div class="header__controls">
+          <a href="#" class="header__control header__control_type_notification" title="Уведомления"></a>
+          <a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="page__content-wrapper">
+    <aside class="sidebar sidebar_opened">
+      <button class="sidebar__toggle"></button>
+      <nav class="sidebar__menu">
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_add-mailings"></i>
+          <span class="sidebar__menu-item-text">Пользователи</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+          <span class="sidebar__menu-item-text">Формы</span>
+        </a>
+        <a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+          <span class="sidebar__menu-item-text">Организации</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+          <span class="sidebar__menu-item-text">Отчеты</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+          <span class="sidebar__menu-item-text">Карта</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="content content_cabinet">
+      <section class="add-mailings page__section">
+        <ul class="breadcrumbs page__breadcrumbs">
+          <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">Уведомления и рассылки</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <span href="#" class="breadcrumbs__link breadcrumbs__link_current"> Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней</span>
+          </li>
+        </ul>
+        <div class="users__top">
+            <h1 class="section-title">Редактирование рассылки</h1>
+        </div>
+       
+        <div class="add-mailings__wrapper">
+            <div class="tabs form-detail__tabs _tabs">
+                <div class="admin_mailings__row add-row_inputs add-row">
+                    <div class="admin_mailings__inp inp-full">
+                        <label for="adminSubjectDate" class="form__label">Название</label>
+                        <input
+                        type="text"
+                        class="form__input-edit form__input-edit_width_full"
+                        id="reportsTabsSecondName"
+                        placeholder="Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней"
+                      >
+                    </div>
+                    <div class="admin_mailings__inp">
+                        <label for="adminSubjectDate" class="form__label">Тип события</label>
+                        <select name="form[]" class="two">
+                            <option value="1" selected>Уведомление  и рассылка</option>
+                            <option value="2">Пункт №2</option>
+                            <option value="3">Пункт №3</option>
+                            <option value="4">Пункт №4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="admin_mailings__row add-row_inputs add-row">
+                    <div class="admin_mailings__inp inp-full">
+                        <label for="adminSubjectDate" class="form__label">Тема</label>
+                        <input
+                        type="text"
+                        class="form__input-edit form__input-edit_width_full"
+                        id="reportsTabsSecondName"
+                        placeholder="Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней"
+                      >
+                    </div>
+                    <div class="admin_mailings__inp">
+                        <label for="adminSubjectDate" class="form__label">Роль</label>
+                        <select name="form[]" class="two">
+                            <option value="1" selected>региональный</option>
+                            <option value="2">Пункт №2</option>
+                            <option value="3">Пункт №3</option>
+                            <option value="4">Пункт №4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="admin_mailings__row add-row_inputs add-row">
+                    <div class="admin_mailings__inp">
+                        <label for="adminSubjectDate" class="form__label">Регион</label>
+                        <select name="form[]" class="two">
+                            <option value="1" selected>Алтайский край</option>
+                            <option value="2">Пункт №2</option>
+                            <option value="3">Пункт №3</option>
+                            <option value="4">Пункт №4</option>
+                        </select>
+                    </div>
+                    <div class="admin_mailings__inp">
+                        <label for="adminSubjectDate" class="form__label">Периодичность</label>
+                        <select name="form[]" class="two">
+                            <option value="1" selected>разовое</option>
+                            <option value="2">Пункт №2</option>
+                            <option value="3">Пункт №3</option>
+                            <option value="4">Пункт №4</option>
+                        </select>
+                    </div>
+                    <div class="admin_mailings__inp inp-date">
+                        <label for="adminSubjectDate" class="form__label">Дата отправки</label>
+                        <select name="form[]" class="two">
+                            <option value="1" selected>31.10.2020</option>
+                            <option value="2">Пункт №2</option>
+                            <option value="3">Пункт №3</option>
+                            <option value="4">Пункт №4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="admin_mailings__row add-row_textarea add-row">
+                   dasdfgdfsdfgsdfg
+                </div>
+                <div class="admin_mailings__row add-row_textarea add-row">
+            
+                    <div class="checkbox form-group">
+                        <input type="checkbox" id="chk">
+                        <label for="chk">Внести изменения в связанное уведомление №3456</label>
+                    </div>
+                 </div>
+                <div class="checkbox form-group">
+                  
+                </div>
+                <div class="admin_mailings__row add-row_btns add-row">
+                    <button type="submit" class="button button_theme_green--empty button_border_small form__submit">Сохранить</button>
+                    <button type="submit" class="button button_theme_green button_border_small form__submit">Сохранить и отправить</button>
+                 </div>
+            </div>
+           
+      </section>
+    </main>
+    
+  </div>
+  <script src="js/app.min.js"></script>
+<footer class="footer footer-no--bg">
+    <div class="footer__inner">
+        © Все права защищены
+    </div>
+  </footer>
+</body>
+</html>

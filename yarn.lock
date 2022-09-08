@@ -1925,15 +1925,15 @@
   integrity sha512-Iu8Tbg3f+emIIMmI2ycSI8QcEuAUgPTgHwesDU1eKMLE4YC/c/sFbGc70QgMq31ijRftV0R7vCm9co6rldCeOA==
 
 "@vuelidate/core@^2.0.0-alpha.39":
-  version "2.0.0-alpha.39"
-  resolved "https://registry.yarnpkg.com/@vuelidate/core/-/core-2.0.0-alpha.39.tgz#33a94225b1734b912ab4dd82dcd89da6088f0cf4"
-  integrity sha512-JLjP4phL3+/9TTQ9EOxEtEb1Yxg454FK71SKVAT06jI4FcmNWfBkZHSLciXshSXqe6FkRigF9y+PCJttzKKsEA==
+  version "2.0.0-alpha.40"
+  resolved "https://registry.npmjs.org/@vuelidate/core/-/core-2.0.0-alpha.40.tgz"
+  integrity sha512-f4Uo0yV2BHDi5+MXWDXRcqBv0u1Cqc/RudJLGqke3wLnIcH2r8sXEqRyuVoaN2KEPqbZiTFw/Uo50wx1J+ZDFQ==
   dependencies:
     vue-demi "^0.12.0"
 
 "@vuelidate/validators@^2.0.0-alpha.28":
   version "2.0.0-alpha.28"
-  resolved "https://registry.yarnpkg.com/@vuelidate/validators/-/validators-2.0.0-alpha.28.tgz#636f941f3c293bd13d93ae8ec0bdaa9e1366e8d4"
+  resolved "https://registry.npmjs.org/@vuelidate/validators/-/validators-2.0.0-alpha.28.tgz"
   integrity sha512-FLI4D6SfYas5gkRxc2Q8RU1Jv3mhO2wdNgYpnOEWdKB2S6vhy8ABFMXiyr4P764xY9zBmNg6OwceRfq8vYy6vA==
   dependencies:
     vue-demi "^0.12.0"
@@ -10234,11 +10234,6 @@ uuid@^8.0.0, uuid@^8.3.0, uuid@^8.3.2:
   resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
-v-mask@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/v-mask/-/v-mask-2.3.0.tgz"
-  integrity sha512-ap7pTtCTvj25CqX4VYXqudCBd0+XvYyhiiLbzWQQR7AMQosJ2+DPu0a94P9stk0EGmGcmYxJaPkFkfjD8hquWQ==
-
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz"
@@ -10303,9 +10298,9 @@ vue-codemod@^0.0.5:
     yargs "^16.2.0"
 
 vue-demi@^0.12.0:
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.4.tgz#420dd17628f95f1bbce1102ad3c51074713a8049"
-  integrity sha512-ztPDkFt0TSUdoq1ZI6oD730vgztBkiByhUW7L1cOTebiSBqSYfSQgnhYakYigBkyAybqCTH7h44yZuDJf2xILQ==
+  version "0.12.5"
+  resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.12.5.tgz"
+  integrity sha512-BREuTgTYlUr0zw0EZn3hnhC3I6gPWv+Kwh4MCih6QcAeaTlaIX0DwOVN0wHej7hSvDPecz4jygy/idsgKfW58Q==
 
 vue-eslint-parser@^7.0.0:
   version "7.11.0"
@@ -10405,11 +10400,6 @@ vueditor@^0.3.1:
     twemoji "^2.4.1"
     vue ">=2.0.5"
     vuex ">=2.0.0"
-
-vuelidate@^0.7.7:
-  version "0.7.7"
-  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.7.tgz#5df3930a63ddecf56fde7bdacea9dbaf0c9bf899"
-  integrity sha512-pT/U2lDI67wkIqI4tum7cMSIfGcAMfB+Phtqh2ttdXURwvHRBJEAQ0tVbUsW9Upg83Q5QH59bnCoXI7A9JDGnA==
 
 vuex@>=2.0.0, vuex@^4.0.2:
   version "4.0.2"

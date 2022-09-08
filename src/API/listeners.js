@@ -20,12 +20,13 @@ export const listenersAPI = {
 
         return baseAPI.post(`${baseURL}/upload`, formData)
     },
-    fetchListeners: ({ page, perPage = 1000, regionId = "" }) => {
-        return baseAPI.get(`${baseURL}?` + (page ? `page=${page}` : '') + `&per_page=${perPage}&filter[report_region_id]=${regionId}`)
+    fetchListeners: ({ page, perPage = 1000, regionId = "", keyword = "" }) => {
+        return baseAPI.get(`${baseURL}?` + (page ? `page=${page}` : '') + `&per_page=${perPage}&filter[report_region_id]=${regionId}&filter[query]=${keyword}`)
     },
     // type - csv || xls
-    fetchListenersExport: (type) => {
-        return baseAPI.get(`${baseURL}?export=${type}`)
+    fetchListenersExport: ({ type,  regionId = "" }) => {
+        console.log(regionId)
+        return baseAPI.get(`${baseURL}?export=${type}&filter[report_region_id]=${regionId}`)
     },
     fetchRegionsListenersStat: () => {
         return baseAPI.get(`${baseURL}/stats`)

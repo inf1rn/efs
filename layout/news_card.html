@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Новости-ЛК</title>
+</head>
+<body class="page">
+  <header class="header">
+    <div class="header__inner header__inner_page_cabinet">
+      <div class="header__column header__column_direct_row">
+        <a href="/" class="logo logo_page_cabinet"></a>
+        <a href="" class="header__site-link">Перейти на сайт</a>
+      </div>
+      <div class="header__column header__column_direct_row-end">
+        <a href="" class="header__user-link">
+          <img src="upload/user-ava.png" class="header__avatar" alt="Аватар пользователя">
+          <span class="header__username">Рудковский А. М.</span>
+        </a>
+        <div class="header__controls">
+          <a href="#" class="header__control header__control_type_notification" title="Уведомления"></a>
+          <a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="page__content-wrapper">
+    <aside class="sidebar sidebar_opened">
+      <button class="sidebar__toggle"></button>
+      <nav class="sidebar__menu">
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_users"></i>
+          <span class="sidebar__menu-item-text">Пользователи</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+          <span class="sidebar__menu-item-text">Формы</span>
+        </a>
+        <a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+          <span class="sidebar__menu-item-text">Организации</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+          <span class="sidebar__menu-item-text">Отчеты</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+          <span class="sidebar__menu-item-text">Карта</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="content content_cabinet">
+      <section class="users page__section">
+        <!-- <ul class="breadcrumbs page__breadcrumbs">
+          <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">Организации</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">Регионы</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <span href="#" class="breadcrumbs__link breadcrumbs__link_current">Республика Адыгея (Адыгея)</span>
+          </li>
+        </ul> -->
+        <div class="users__top">
+            <h1 class="section-title">Новости</h1>
+            <a href="#" class="users__add">+ добавить новость</a>
+        </div>
+       
+        <div class="users__wrapper wrapper-max_width-m">
+            <div class="users__row row-search">
+                <input type="text" name="search" class="form__input-edit form__input-edit_type_search" id="search">               
+            </div>
+            <div class="add-news__line add-news__line-flex form__item">
+              <div class="add-news__line_box">
+                <label for="addNewsDate" class="add-news__caption form__label">Дата публикации</label>
+                <input
+                  type="date"
+                  class="form__input-edit  add-news__form_date"
+                  id="addNewsDate"
+                  placeholder="31.10.2020"
+                >
+              </div>
+              <button class="add-news__line-btn">сбросить</button>
+          </div>
+            <div class="news-list news-page__news-list">
+              <div class="news-list__cards">
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover1.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">На чтениях-2021 пройдет обсуждение проектов смешанного обучения и управлению удаленной работой</a>
+                  <p class="news-card__text">
+                    На Пастуховских чтениях-2021 пройдет обсуждение проектов рекомендаций по организации смешанного обучения и управлению удаленной работой – по формированию системы мотивации научной деятельности
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover2.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">Академия Пастухова получила статус Федеральной инновационной площадки</a>
+                  <p class="news-card__text">
+                    Член Союза ДПО ФГБОУ «Государственная академия промышленного менеджмента имени Н.П. Пастухова» приказом Министерства науки и высшего образования Российской Федерации от 25 декабря 2020 г. № 1580 признана федеральной инновационной
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover3.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">Об изменениях правил заполнения шаблонов ФИС ФРДО</a>
+                  <p class="news-card__text">
+                    Рособрнадзор России опубликовал важную информацию: Уважаемые пользователи федеральной информационной системы «Федеральный реестр сведений о документах об образовании и (или) о квалификации, документах
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover1.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">На чтениях-2021 пройдет обсуждение проектов смешанного обучения и управлению удаленной работой</a>
+                  <p class="news-card__text">
+                    На Пастуховских чтениях-2021 пройдет обсуждение проектов рекомендаций по организации смешанного обучения и управлению удаленной работой – по формированию системы мотивации научной деятельности
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover2.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">Академия Пастухова получила статус Федеральной инновационной площадки</a>
+                  <p class="news-card__text">
+                    Член Союза ДПО ФГБОУ «Государственная академия промышленного менеджмента имени Н.П. Пастухова» приказом Министерства науки и высшего образования Российской Федерации от 25 декабря 2020 г. № 1580 признана федеральной инновационной
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover3.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">Об изменениях правил заполнения шаблонов ФИС ФРДО</a>
+                  <p class="news-card__text">
+                    Рособрнадзор России опубликовал важную информацию: Уважаемые пользователи федеральной информационной системы «Федеральный реестр сведений о документах об образовании и (или) о квалификации, документах
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover1.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">На чтениях-2021 пройдет обсуждение проектов смешанного обучения и управлению удаленной работой</a>
+                  <p class="news-card__text">
+                    На Пастуховских чтениях-2021 пройдет обсуждение проектов рекомендаций по организации смешанного обучения и управлению удаленной работой – по формированию системы мотивации научной деятельности
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover2.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">Академия Пастухова получила статус Федеральной инновационной площадки</a>
+                  <p class="news-card__text">
+                    Член Союза ДПО ФГБОУ «Государственная академия промышленного менеджмента имени Н.П. Пастухова» приказом Министерства науки и высшего образования Российской Федерации от 25 декабря 2020 г. № 1580 признана федеральной инновационной
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+                <article class="news-card news-card_padding">
+                  <img src="./upload/news-preview__cover3.jpg" alt="Чтения-2021" class="news-card__cover news-card__cover_border">
+                  <p class="news-card__date">20.10.2021</p>
+                  <a href="#" class="card-title news-card__card-title">Об изменениях правил заполнения шаблонов ФИС ФРДО</a>
+                  <p class="news-card__text">
+                    Рособрнадзор России опубликовал важную информацию: Уважаемые пользователи федеральной информационной системы «Федеральный реестр сведений о документах об образовании и (или) о квалификации, документах
+                  </p>
+                  <div class="new-card-btn__box">
+                    <button type="submit" class="button button_theme_green button_border_small form__submit button_news">Редактировать</button>
+                    <a href="#" class="new-card-btn__link">Перейти</a>
+                  </div>
+                </article>
+              </div>
+              <button class="news-list__loadmore">Показать еще новости</button>
+            </div>   
+        
+      </section>
+    </main>
+    
+  </div>
+  <script src="js/app.min.js"></script>
+<footer class="footer footer-no--bg">
+    <div class="footer__inner">
+        © Все права защищены
+    </div>
+  </footer>
+</body>
+</html>

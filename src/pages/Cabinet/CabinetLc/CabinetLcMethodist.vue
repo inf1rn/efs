@@ -17,7 +17,7 @@
         <div class="profile__wrapper wrapper-max_width-m">
             <div class="profile__row profile__top top-profile">                
                 <div class="top-profile__images">
-                    <img src="upload/avatar_t.jpg" alt="user-ava">
+                    <img :src="imageSrc" alt="user-ava">
                 </div>
                 <div class="top-profile__name">Иванова Светлана Геннадьевна</div>                
             </div>
@@ -601,3 +601,14 @@
     
 </template>
 
+<script>
+import avatar from "@/assets/images/avatar.jpg"
+export default {
+  computed: {
+    imageSrc: function () {
+      const image = this.userData?.image;
+      return image && image !== 'null' ? image : avatar;
+    },
+  }
+}
+</script>

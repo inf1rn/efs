@@ -84,14 +84,16 @@ export const profileModule = {
                 position_id: formUserData.positionId,
                 organization_id: formUserData.organizationId
             }
-            const { data: { data: userData } } = await usersAPI.updateCurrentUser(editableUserData, rootState.account.userData.id)
+            const { status, data: { data: userData } } = await usersAPI.updateCurrentUser(editableUserData, rootState.account.userData.id, true)
             dispatch("account/getUser", {}, { root: true })
-
+            if (status == 200) {
+                alert("Данные изменены")
+            }
         },
         async saveUserImage({ commit, dispatch, rootState }, image) {
             const editableUserData = { image }
 
-            const { data: { data: updatedUserData } } = await usersAPI.updateCurrentUser(editableUserData, rootState.account.userData.id)
+            const { data: { data: updatedUserData } } = await usersAPI.updateCurrentUser(editableUserData, rootState.account.userData.id, true)
             dispatch("account/getUser", {}, { root: true })
         },
         async changePassword({ state }) {
@@ -110,7 +112,13 @@ export const profileModule = {
                 alert("Длина пароля должна быть больше шести символов")
             }
 
-            await usersAPI.updateCurrentUserPassword({ newPassword, oldPassword, passwordConfirm })
+            try {
+                await usersAPI.updateCurrentUserPassword({ newPassword, oldPassword, passwordConfirm }, true)
+                alert("Пароль изменен")
+            } catch (e) {
+                console.log(e)
+                alert("Ошибка")
+            }
         }
     },
     namespaced: true

@@ -19,12 +19,7 @@
           <th class="table__header">Пользователь</th>
           <th class="table__header">Роль</th>
           <th class="table__header">Действие</th>
-          <th class="table__header">Название формы</th>
-          <td class="table__cell">
-            <div class="table__cell-users_row-more">
-              <img src="@/assets/images/more_dots.svg" alt="more" />
-            </div>
-          </td>
+          <th class="table__header">Параметры</th>
         </tr>
         <tr
           class="table__row"
@@ -32,30 +27,24 @@
           :key="statisticsLog.id"
         >
           <td class="table__cell">
-            {{new Date(statisticsLog.created_at).toLocaleString("ru-RU").slice(0, 10)}} <br />
-            {{new Date(statisticsLog.created_at).toLocaleString("ru-RU").slice(11, 17)}}
+            {{ formateDate(statisticsLog.created_at, true) }}
           </td>
           <td class="table__cell">
             {{ statisticsLog.user.second_name }}
             {{ statisticsLog.user.first_name }}
             {{ statisticsLog.user.last_name }}
           </td>
-          <td class="table__cell">{{statisticsLog.user.roles[0]?.title}}</td>
+          <td class="table__cell">{{ statisticsLog.user.roles[0]?.title }}</td>
           <td class="table__cell">
             {{ statisticsLog.event }} {{ statisticsLog.entity }}
           </td>
-          <td class="table__cell">
-            Редактирование данные в поле программы ДПО у такого-то субъекта
-          </td>
-          <td class="table__cell">
-            <div class="table__cell-users_row-more">
-              <img src="@/assets/images/more_dots.svg" alt="more" />
-            </div>
-          </td>
+          <td class="table__cell"></td>
         </tr>
       </table>
       <div class="table-pagination">
-        <div class="table-pagination__count">{{firstItemNumber}}-{{lastItemNumber}} из {{pagination?.total}}</div>
+        <div class="table-pagination__count">
+          {{ firstItemNumber }}-{{ lastItemNumber }} из {{ pagination?.total }}
+        </div>
         <div class="table-pagination__bullets">
           <button @click="setPrevPage()" class="bullets-left _disabled">
             <img src="@/assets/images/table-pagination/left.svg" alt="left" />
@@ -81,7 +70,7 @@ export default {
   computed: {
     ...mapState({
       statisticsLogs: (state) => state.statisticsLogs,
-      pagination: state => state.pagination
+      pagination: (state) => state.pagination,
     }),
     firstItemNumber() {
       if (!this.pagination) {

@@ -4,8 +4,11 @@ export const formApprovalModule = {
     state() {
         return {
             form: null,
+            fields: [],
             formId: null,
-            declineMessage: ""
+            resultId: null,
+            declineMessage: "",
+            cancel: false
         }
     },
     mutations: {
@@ -17,21 +20,33 @@ export const formApprovalModule = {
         },
         setDeclineMessage(state, declineMessage) {
             state.declineMessage = declineMessage
+        },
+        setResultId(state, resultId) {
+            state.resultId = resultId
+        },
+        setFields(state, fields) {
+            state.fields = fields
+        },
+        setCancel(state, cancel) {
+            state.cancel = cancel
         }
     },
     actions: {
         async fetchFormApproval({ state, commit }) {
-            const { data: { data: form } } = await formsAPI.fetchForm(state.formId)
+            const { data: { data: { result: form, fields } } } = await formsAPI.fetchFormResult(state.formId, state.resultId)
             commit("setForm", form)
+            commit("setFields", fields)
         },
-        async acceptFormApproval({ state }) {
-            await formsAPI.acceptFormResults(state.formId)
+        async acceptFormApproval({ state, commit }) {
+            await formsAPI.acceptFormResults(state.formId, state.resultId)
             alert("Согласовано")
+            commit("setCancel", true)
         },
-        async declineFormApproval({ state }) {
+        async declineFormApproval({ state, commit }) {
             console.log(state.declineMessage);
-            await formsAPI.declineFormResults(state.formId, 2, { message: state.declineMessage })
+            await formsAPI.declineFormResults(state.formId, state.resultId, { message: state.declineMessage })
             alert("Отправлено на доработку")
+            commit("setCancel", true)
         }
     },
     namespaced: true

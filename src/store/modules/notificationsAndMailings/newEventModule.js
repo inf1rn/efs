@@ -77,12 +77,32 @@ export const newEventModule = {
                 ...state.event,
                 statusId
             }
+        },
+        clearEvent(state, event) {
+            state.event = {
+                title: "",
+                theme: "",
+                sendAt: "",
+                regionId: "",
+                periodId: "",
+                formId: "",
+                roleId: "",
+                body: "",
+                eventTypeId: "",
+                statusId: 1
+            }
         }
     },
     actions: {
-        async saveEvent({ state }) {
-            await mailingsAPI.saveMailing(state.event)
-            alert("Создано")
+        async saveEvent({ state, commit }) {
+            try {
+                await mailingsAPI.saveMailing(state.event)
+                alert("Создано")
+                commit("clearEvent")
+            } catch (e) {
+                console.log(e);
+                alert("Ошибка")
+            }
         }
     },
     namespaced: true

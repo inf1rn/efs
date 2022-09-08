@@ -73,6 +73,10 @@ export const adminNewsAllModule = {
             commit("setPosts", posts)
             commit("setNewsTotalCount", pagination.total)
             commit("setNewsCurrentCount", pagination.count)
+            return {
+              total: pagination.total,
+              count: pagination.count
+            }
         },
         setDate({ commit, dispatch }, date) {
             commit("setDate", date)

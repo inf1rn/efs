@@ -87,8 +87,14 @@ export const currentMailingModule = {
             commit("setCurrentMailingForm", convertMailingToForm(mailing))
         },
         async updateMailing({ state }) {
-            await mailingsAPI.updateMailing(state.currentMailingForm)
-            alert("Обновлено")
+
+            try {
+                await mailingsAPI.updateMailing(state.currentMailingForm)
+                alert("Обновлено")
+            } catch (e) {
+                console.log(e)
+                alert("Ошибка")
+            }
         }
     },
     namespaced: true

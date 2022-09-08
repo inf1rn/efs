@@ -7,6 +7,20 @@
             <div
               class="slider__slide swiper-slide"
               :style="{
+                'background-image': `url(${require('@/assets/upload/main-slider__slide1.1.jpg')})`,
+              }"
+            >
+              <a class="slider__title" href="https://education.apkpro.ru/"
+                >Единая федеральная система</a
+              >
+              <p class="slider__text">
+                НАУЧНО-МЕТОДИЧЕСКОГО СОПРОВОЖДЕНИЯ УПРАВЛЕНЧЕСКИХ И
+                ПЕДАГОГИЧЕСКИХ КАДРОВ
+              </p>
+            </div>
+            <div
+              class="slider__slide swiper-slide"
+              :style="{
                 'background-image': `url(${require('@/assets/upload/main-slider__slide1.jpg')})`,
               }"
             >
@@ -59,8 +73,8 @@
       </h2>
       <form class="form">
         <search-input
-          inputClasses="form__input-edit form__input-edit_type_search map-regions__select"
-          inputPlaceholder="Введите"
+          inputClasses="form__input-edit form__input-edit_type_search map-regions__select bg-img-n"
+          inputPlaceholder="Введите регион"
           :inputValue="mapFilters.regionName"
           @search="setMapFiltersRegionName($event)"
         />

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Добавить новость</title>
+</head>
+<body class="page">
+  <header class="header">
+    <div class="header__inner header__inner_page_cabinet">
+      <div class="header__column header__column_direct_row">
+        <a href="/" class="logo logo_page_cabinet"></a>
+        <a href="" class="header-link header__add_news-link">Добавить новость</a>
+        <a href="" class="header-link header__site-link">Перейти на сайт</a>
+        <a href="" class="header-link header__log-link">Логирование</a>
+      </div>
+      <div class="header__column header__column_direct_row-end">
+        <a href="" class="header__user-link">
+          <img src="upload/user-ava.png" class="header__avatar" alt="Аватар пользователя">
+          <span class="header__username">Рудковский А. М.</span>
+        </a>
+        <div class="header__controls">
+          <a href="#" class="header__control header__control_type_notification" title="Уведомления"></a>
+          <a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="page__content-wrapper">
+    <aside class="sidebar sidebar_opened">
+      <button class="sidebar__toggle"></button>
+      <nav class="sidebar__menu">
+        <a href="#" class="sidebar__menu-item">
+            <i class="sidebar__menu-item-icon sidebar__menu-item_icon_listener"></i>
+            <span class="sidebar__menu-item-text">Добавить <br>
+                слушателя</span>
+          </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_users"></i>
+          <span class="sidebar__menu-item-text">Пользователи</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+          <span class="sidebar__menu-item-text">Формы</span>
+        </a>
+        <a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+          <span class="sidebar__menu-item-text">Организации</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+          <span class="sidebar__menu-item-text">Отчеты</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+          <span class="sidebar__menu-item-text">Карта</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+            <i class="sidebar__menu-item-icon sidebar__menu-item_icon_notification"></i>
+            <span class="sidebar__menu-item-text">Уведомления <br>
+                и рассылки</span>
+          </a>
+      </nav>
+    </aside>
+    <main class="admin_subject-edit content content_cabinet">
+      <section class="form-detail page__section">
+        <ul class="breadcrumbs page__breadcrumbs">
+          <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">Организации</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">Регионы</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <span href="#" class="breadcrumbs__link breadcrumbs__link_current">Республика Адыгея (Адыгея)</span>
+          </li>
+        </ul>
+        <div class="form-detail__top">
+            <h1 class="section-title">Иро Сахалинской области</h1>
+        </div>
+       
+        <div class="form-detail__wrapper wrapper-max_width-m">
+            <div class="tabs form-detail__tabs _tabs">
+                <nav class="tabs__navigation">
+                    <button type="submit" class="tabs__title _tabs-item _active">Описание</button>
+                    <button type="submit" class="tabs__title _tabs-item ">Руководство</button>
+                    <button type="submit" class="tabs__title _tabs-item ">Программы</button>
+                </nav>
+                <div class="tabs__content">
+                    <div class="tabs__body _tabs-block">
+                       <form class="admin_subject-edit__body width_m from">
+                            <div class="admin_subject-edit__block block_white">
+                              <div class="admin_subject-edit_tabs-form__line form__item">
+                                <label for="adminSubjectEditName" class="form__label">Название организации ДПО</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditName"
+                                placeholder="ИРО Сахалинской области"
+                              >
+                              </div>
+                            </div>
+                            <div class="admin_subject-edit__block block_white">
+                              <div class="admin_subject-edit_tabs-form__line form__item">
+                                <label for="adminSubjectEditFullname" class="form__label">Полное наименование организации ДПО (по Уставу)</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditFullname"
+                                placeholder="Институт развития образования Сахалинской области"
+                              >
+                              </div>
+                            </div>
+                            <div class="admin_subject-edit__block block_white">
+                              <div class="admin_subject-edit_tabs-form__line form__item">
+                                <label for="adminSubjectEditFullname" class="form__label">Телефон</label>
+                                <div class="form__item-phone">
+                                  <span>+7</span>
+                                  <input
+                                  type="text"
+                                  class="spollers-body__input form-input__border _phone"
+                                  id="adminSubjectEditFullname"
+                                  placeholder="424 245-41-00"
+                                >
+                                </div>
+                               
+                              </div>
+                            </div>
+                            <div class="admin_subject-edit__block block_white">
+                              <div class="admin_subject-edit_tabs-form__line form__item">
+                                <label for="adminSubjectEditAddress" class="form__label">Юридический адрес</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditAddress"
+                                placeholder="Пограничная ул., 42, Южно-Сахалинск, Сахалинская обл."
+                              >
+                              </div>
+                            </div>
+                            <div class="admin_subject-edit__block block_white">
+                              <div class="admin_subject-edit_tabs-form__line form__item">
+                                <label for="adminSubjectEditEmail" class="form__label">Email</label>
+                                <input
+                                type="mail"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditEmail"
+                                placeholder="sahalineducation@gmail.com"
+                              >
+                              </div>
+                            </div>
+                            <div class="admin_subject-edit__block block_white">
+                              <div class="admin_subject-edit_tabs-form__line form__item">
+                                <label for="adminSubjectEditDesc" class="form__label">Описание</label>
+                                <textarea autocomplete="off"  type="text"
+                                class="spollers-body__input form-input__border form-input__textarea"
+                                id="adminSubjectEditDesc"
+                                placeholder="Федеральный научно-исследовательский центр «Кристаллография и фотоника» Российской академии наук создан в апреле 2016 года на базе Института кристаллографии им. А.В. Шубникова РАН. 
+                                В настоящее время в состав ФНИЦ «Кристаллография и фотоника» РАН входят три структурных подразделения: «Институт кристаллографии им. А.В. Шубникова» РАН», «Центр фотохимии РАН» и «Институт фотонных технологий РАН»; а также три филиала: «Институт проблем лазерных и информационных технологий РАН», «Институт систем обработки изображений РАН» и «Лаборатория космического материаловедения ИК РАН»."></textarea>
+                               
+                              </div>
+                            </div>
+                         </form>
+                         <div class="admin_subject-edit__btn">
+                          <button type="submit" class="button button_theme_green button_border_small form__submit">Сохранить</button>
+                         </div>
+                       </div>
+                    
+                    </div>
+                    <div class="tabs__body _tabs-block ">
+                      <div class="admin_subject-edit__body row-spollers width_m">
+                        <div data-spollers class="spollers">
+                          <div class="spollers__item">
+                            <button type="button" data-spoller class="spollers__title">
+                          
+                               <span> Директор</span>
+                             </button>
+                            <div class="spollers__body">
+                                <div class="spollers__body-wrap">
+                                    <div class="spollers__body-line">
+                                        <div class="spollers__body-caption form__label-two">
+                                          ФИО
+                                        </div>
+                                        <div class="spollers__body-info">
+                                         <input autocomplete="off" type="text" name="form[]"placeholder="Константипольский Константин Константинович." class="spollers__body-input form-input__border">
+                                        </div>
+                                    </div>
+                                    <div class="spollers__body-line">
+                                      <div class="spollers__body-caption form__label-two">
+                                        Описание
+                                      </div>
+                                      <div class="spollers__body-info">
+                                       <input autocomplete="off" type="text" name="form[]"placeholder="Стаж руководящей должности 15 лет, Кандидат педагогических наук." class="spollers__body-input form-input__border">
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="spollers__item">
+                                <button type="button" data-spoller class="spollers__title">
+                              
+                                   <span> №3456 Сведения о организацях ДПО</span>
+                                 </button>
+                                <div class="spollers__body">
+                                    <div class="spollers__body-wrap">
+                                        <div class="spollers__body-line">
+                                            <div class="spollers__body-caption form__label-two">
+                                              ФОРМА
+                                            </div>
+                                            <div class="spollers__body-info">
+                                             <input autocomplete="off" type="text" name="form[]"placeholder="№3456  Сведения о организации дополнительного профессионального..." class="spollers__body-input form-input__border">
+                                            </div>
+                                            <div class="spollers__body-caption_small">
+                                              Форма для формирования отчета
+                                            </div>
+                                        </div>
+                                        <div class="spollers__body-line">
+                                             <div class="spollers__body-caption form__label-two">
+                                              Регион
+                                             </div>
+                                             <div class="spollers__body-info">
+                                                 <select name="form[]" class="select_three">
+                                                   <option value="1" selected>Все</option>
+                                                   <option value="2">Пункт №2</option>
+                                                   <option value="3">Пункт №3</option>
+                                                   <option value="4">Пункт №4</option>
+                                                 </select>
+
+                                             </div>
+                                             <div class="spollers__body-caption_small">
+                                              Регион для формирования отчета
+                                            </div>
+                                         </div>
+                                         <div class="spollers__body-line">
+                                          <div class="spollers__body-caption form__label-two">
+                                            период
+                                          </div>
+                                          <div class="spollers__body-info">
+                                              <div class="spollers__body-date">
+                                                <div class="spollers__body-inp">
+                                                  <div class="spollers__body-sel">
+                                                    <select name="form[]" class="select_three">
+                                                      <option value="1" selected>21.11.2020</option>
+                                                      <option value="2">Пункт №2</option>
+                                                      <option value="3">Пункт №3</option>
+                                                      <option value="4">Пункт №4</option>
+                                                    </select>
+                                                  </div>
+                                                
+                                                  <div class="spollers__body-caption_small">
+                                                    Дата с 
+                                                  </div>
+                                                </div>
+                                                <div class="spollers__body-inp">
+                                                  <div class="spollers__body-sel">
+                                                    <select name="form[]" class="select_three">
+                                                      <option value="1" selected>21.11.2020</option>
+                                                      <option value="2">Пункт №2</option>
+                                                      <option value="3">Пункт №3</option>
+                                                      <option value="4">Пункт №4</option>
+                                                    </select>
+                                                  </div>
+                                                  <div class="spollers__body-caption_small">
+                                                    Дата по
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                                          </div>
+                                       
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                     </div>
+                     <div class="admin_subject-edit__btn">
+                      <button type="submit" class="button button_theme_green button_border_small form__submit">Сохранить</button>
+                     </div>
+                    </div>
+                    <div class="tabs__body _tabs-block _active">
+                      <form class="admin_subject-edit__body row-spollers width_m form">
+                        <div class="admin_subject-edit__btn  admin_subject-edit_add-btn">
+                          <button type="submit" class="button button_theme_green--empty button_border_small form__submit">Добавить программу</button>
+                         </div>
+                         <div class="admin_subject-edit__block block_white">
+                           
+                          <div class="spollers__title-edit">
+                            <ul>
+                                <li>
+                                    <a href="#">Дублировать</a>
+                                </li>
+                                <li>
+                                    <a href="#">Выключить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Удалить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вверх</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вниз</a>
+                                </li>
+                            </ul>
+                          </div>
+                          <div class="admin_subject-edit_tabs-form__line form__item">
+                            
+                            <div class="admin_subject-edit_tabs-form__content">
+                              <div class="form__item-row">
+                                <label for="adminSubjectNameProgramm" class="form__label-two">Название программы</label>
+                                <select name="adminSubjectNameProgramm" class="select_three">
+                                  <option value="1" selected>Программа по повышению квалификации</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                                </select>
+                              </div>
+                              <div class="form__item-row">
+                                <label for="adminSubjectEditName" class="form__label-two">Ссылка на программу</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditName"
+                                placeholder="https://www.google.com/webhp?hl=ru&sa=X&ved"
+                              >
+                              </div>
+                              </div>
+                          </div>
+                          
+                        </div>
+                        <div class="admin_subject-edit__block block_white">
+                           
+                          <div class="spollers__title-edit">
+                            <ul>
+                                <li>
+                                    <a href="#">Дублировать</a>
+                                </li>
+                                <li>
+                                    <a href="#">Выключить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Удалить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вверх</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вниз</a>
+                                </li>
+                            </ul>
+                          </div>
+                          <div class="admin_subject-edit_tabs-form__line form__item">
+                            
+                            <div class="admin_subject-edit_tabs-form__content">
+                              <div class="form__item-row">
+                                <label for="adminSubjectNameProgramm" class="form__label-two">Название программы</label>
+                                <select name="adminSubjectNameProgramm" class="select_three">
+                                  <option value="1" selected>Программа по повышению квалификации</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                                </select>
+                              </div>
+                              <div class="form__item-row">
+                                <label for="adminSubjectEditName" class="form__label-two">Ссылка на программу</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditName"
+                                placeholder="https://www.google.com/webhp?hl=ru&sa=X&ved"
+                              >
+                              </div>
+                              </div>
+                          </div>
+                          
+                        </div>
+                        <div class="admin_subject-edit__block block_white">
+                           
+                          <div class="spollers__title-edit">
+                            <ul>
+                                <li>
+                                    <a href="#">Дублировать</a>
+                                </li>
+                                <li>
+                                    <a href="#">Выключить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Удалить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вверх</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вниз</a>
+                                </li>
+                            </ul>
+                          </div>
+                          <div class="admin_subject-edit_tabs-form__line form__item">
+                            
+                            <div class="admin_subject-edit_tabs-form__content">
+                              <div class="form__item-row">
+                                <label for="adminSubjectNameProgramm" class="form__label-two">Название программы</label>
+                                <select name="adminSubjectNameProgramm" class="select_three">
+                                  <option value="1" selected>Программа по повышению квалификации</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                                </select>
+                              </div>
+                              <div class="form__item-row">
+                                <label for="adminSubjectEditName" class="form__label-two">Ссылка на программу</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditName"
+                                placeholder="https://www.google.com/webhp?hl=ru&sa=X&ved"
+                              >
+                              </div>
+                              </div>
+                          </div>
+                          
+                        </div>
+                        <div class="admin_subject-edit__block block_white">
+                           
+                          <div class="spollers__title-edit">
+                            <ul>
+                                <li>
+                                    <a href="#">Дублировать</a>
+                                </li>
+                                <li>
+                                    <a href="#">Выключить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Удалить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вверх</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вниз</a>
+                                </li>
+                            </ul>
+                          </div>
+                          <div class="admin_subject-edit_tabs-form__line form__item">
+                            
+                            <div class="admin_subject-edit_tabs-form__content">
+                              <div class="form__item-row">
+                                <label for="adminSubjectNameProgramm" class="form__label-two">Название программы</label>
+                                <select name="adminSubjectNameProgramm" class="select_three">
+                                  <option value="1" selected>Программа по повышению квалификации</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                                </select>
+                              </div>
+                              <div class="form__item-row">
+                                <label for="adminSubjectEditName" class="form__label-two">Ссылка на программу</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditName"
+                                placeholder="https://www.google.com/webhp?hl=ru&sa=X&ved"
+                              >
+                              </div>
+                              </div>
+                          </div>
+                          
+                        </div>
+                        <div class="admin_subject-edit__block block_white">
+                           
+                          <div class="spollers__title-edit">
+                            <ul>
+                                <li>
+                                    <a href="#">Дублировать</a>
+                                </li>
+                                <li>
+                                    <a href="#">Выключить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Удалить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вверх</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вниз</a>
+                                </li>
+                            </ul>
+                          </div>
+                          <div class="admin_subject-edit_tabs-form__line form__item">
+                            
+                            <div class="admin_subject-edit_tabs-form__content">
+                              <div class="form__item-row">
+                                <label for="adminSubjectNameProgramm" class="form__label-two">Название программы</label>
+                                <select name="adminSubjectNameProgramm" class="select_three">
+                                  <option value="1" selected>Программа по повышению квалификации</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                                </select>
+                              </div>
+                              <div class="form__item-row">
+                                <label for="adminSubjectEditName" class="form__label-two">Ссылка на программу</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditName"
+                                placeholder="https://www.google.com/webhp?hl=ru&sa=X&ved"
+                              >
+                              </div>
+                              </div>
+                          </div>
+                          
+                        </div>
+                        <div class="admin_subject-edit__block block_white">
+                           
+                          <div class="spollers__title-edit">
+                            <ul>
+                                <li>
+                                    <a href="#">Дублировать</a>
+                                </li>
+                                <li>
+                                    <a href="#">Выключить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Удалить</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вверх</a>
+                                </li>
+                                <li>
+                                    <a href="#">Вниз</a>
+                                </li>
+                            </ul>
+                          </div>
+                          <div class="admin_subject-edit_tabs-form__line form__item">
+                            
+                            <div class="admin_subject-edit_tabs-form__content">
+                              <div class="form__item-row">
+                                <label for="adminSubjectNameProgramm" class="form__label-two">Название программы</label>
+                                <select name="adminSubjectNameProgramm" class="select_three">
+                                  <option value="1" selected>Программа по повышению квалификации</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                                </select>
+                              </div>
+                              <div class="form__item-row">
+                                <label for="adminSubjectEditName" class="form__label-two">Ссылка на программу</label>
+                                <input
+                                type="text"
+                                class="spollers-body__input form-input__border"
+                                id="adminSubjectEditName"
+                                placeholder="https://www.google.com/webhp?hl=ru&sa=X&ved"
+                              >
+                              </div>
+                              </div>
+                          </div>
+                          
+                        </div>
+                        
+                     </form>
+                     <div class="admin_subject-edit__btn">
+                      <button type="submit" class="button button_theme_green button_border_small form__submit">Сохранить</button>
+                     </div>
+                    </div>
+                  
+                 
+                </div>
+            </div>
+        </form>
+      </section>
+    </main>
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.6/dist/inputmask.min.js"></script>
+
+  <script src="js/app.min.js"></script>
+  <footer class="footer footer-no--bg">
+    <div class="footer__inner">
+        © Все права защищены
+    </div>
+  </footer>
+
+  <div class="popup-new popup_form-detail_info">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__close">
+				
+			</div>
+            <div class="popup__body-wrap body-wrap">
+                <div class="body-wrap__top">
+                    <div class="body-wrap__image">
+                        <img src="upload/user-ava.png" alt="user-ava">
+                    </div>
+                    <a href="#" class="filter__edit-link body-wrap__edit_link">Редактировать</a>
+                </div>
+               <div class="body-wrap__content">
+                   <div class="body-wrap__line">
+                       <div class="body-wrap__label">
+                        ФИО
+                       </div>
+                       <div class="body-wrap__info">
+                        Ситников Касьян Витальевич
+                       </div>
+                   </div>
+                   <div class="body-wrap__line">
+                    <div class="body-wrap__label">
+                        Email
+                    </div>
+                    <div class="body-wrap__info">
+                        sitnikov@gmail.com
+                    </div>
+                    </div>
+                    <div class="body-wrap__line">
+                        <div class="body-wrap__label">
+                            Роль
+                        </div>
+                        <div class="body-wrap__info">
+                            Руководитель
+                        </div>
+                    </div>
+                    <div class="body-wrap__line">
+                        <div class="body-wrap__label">
+                            Место работы
+                        </div>
+                        <div class="body-wrap__info">
+                            Мирнинский политехнический институт
+                        </div>
+                    </div>
+                    <div class="body-wrap__line">
+                        <div class="body-wrap__label">
+                            Должность
+                        </div>
+                        <div class="body-wrap__info">
+                            Методист
+                        </div>
+                    </div>
+                    <div class="body-wrap__line">
+                        <div class="body-wrap__label">
+                            Регион
+                        </div>
+                        <div class="body-wrap__info">
+                            Республика Саха (Якутия)
+                        </div>
+                    </div>
+                    <div class="body-wrap__line">
+                        <div class="body-wrap__label">
+                            Город
+                        </div>
+                        <div class="body-wrap__info">
+                            Мирный
+                        </div>
+                    </div>
+               </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

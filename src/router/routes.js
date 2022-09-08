@@ -6,7 +6,8 @@ import PublicNewsHome from "@/views/Public/PublicNewsHome"
 import PublicSubjectsHome from "@/views/Public/PublicSubjectsHome"
 
 import CabinetHome from "@/views/Cabinet/CabinetHome"
-import CabinetReportsHome from "@/views/Cabinet/CabinetReportsHome"
+import CabinetReportsHome from "@/views/Cabinet/CabinetReports/CabinetReportsHome"
+import CabinetReportsFormsHome from "@/views/Cabinet/CabinetReports/CabinetReportsFormsHome"
 import CabinetLoggingHome from "@/views/Cabinet/CabinetLoggingHome"
 import CabinetNotificationsAndMailingsHome from "@/views/Cabinet/CabinetNotificationsAndMailings/CabinetNotificationsAndMailingsHome"
 import CabinetNotificationsAndMailings from "@/views/Cabinet/CabinetNotificationsAndMailings/CabinetNotificationsAndMailings"
@@ -68,6 +69,7 @@ import CabinetNewOrganizationEmployees from "@/pages/Cabinet/CabinetSubjects/Cab
 import CabinetNewOrganizationPrograms from "@/pages/Cabinet/CabinetSubjects/CabinetNewOrganization/CabinetNewOrganizationPrograms"
 import CabinetFormsApproval from "@/pages/Cabinet/CabinetForms/CabinetFormsApproval/CabinetFormsApproval"
 import CabinetFormApproval from "@/pages/Cabinet/CabinetForms/CabinetFormsApproval/CabinetFormApproval"
+import CabinetYandexAuth from "@/pages/Cabinet/CabinetYandexAuth"
 
 export default [
     {
@@ -134,6 +136,10 @@ export default [
                 ]
             }
         ]
+    },
+    {
+        path: "/cabinet/auth",
+        component: CabinetYandexAuth
     },
     {
         path: "/cabinet",
@@ -214,7 +220,7 @@ export default [
                                 path: ":regionId/new-organization",
                                 component: CabinetNewOrganizationHome,
                                 redirect: { name: "cabinet-new-organization-description" },
-                                meta: { requiredPermissions: ["edit_organizations"] },
+                                meta: { requiredPermissions: ["create_organizations"] },
                                 children: [
                                     {
                                         path: "description",
@@ -274,7 +280,7 @@ export default [
                                 component: CabinetFormsApproval
                             },
                             {
-                                path: "approval-form-:formId",
+                                path: "approval-form-:formId-:resultId",
                                 component: CabinetFormApproval
                             }
                         ]
@@ -292,12 +298,6 @@ export default [
                         component: CabinetListeners,
                         name: "cabinet-listeners",
                         path: ""
-                    },
-                    {
-                        component: CabinetListenersStat,
-                        name: "cabinet-listeners-stat",
-                        meta: { requiredPermissions: ["view_reports_listeners"] },
-                        path: "stat"
                     },
                     {
                         component: CabinetRegionListeners,
@@ -415,20 +415,33 @@ export default [
                 children: [
                     {
                         path: "",
-                        redirect: "/cabinet/reports/reports-all",
+                        component: CabinetReportsFormsHome,
+                        children: [
+                            {
+                                path: "",
+                                redirect: "/cabinet/reports/reports-all",
+                            },
+                            {
+                                path: "reports-all",
+                                component: CabinetReportsAll
+                            },
+                            {
+                                path: "templates",
+                                component: CabinetTemplates
+                            },
+                            {
+                                path: "history-requests",
+                                component: CabinetHistoryRequests
+                            }
+                        ]
                     },
                     {
-                        path: "reports-all",
-                        component: CabinetReportsAll
+                        component: CabinetListenersStat,
+                        name: "cabinet-listeners-stat",
+                        meta: { requiredPermissions: ["view_reports_listeners"] },
+                        path: "listeners-stat"
                     },
-                    {
-                        path: "templates",
-                        component: CabinetTemplates
-                    },
-                    {
-                        path: "history-requests",
-                        component: CabinetHistoryRequests
-                    }
+
                 ]
             },
             {

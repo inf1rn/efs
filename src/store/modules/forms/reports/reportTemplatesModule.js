@@ -16,6 +16,10 @@ export const reportTemplatesModule = {
         async fetchReportTemplates({ commit }) {
             const { data: { data: { results: templates } } } = await reportsAPI.fetchReportTemplates({})
             commit("setTemplates", templates)
+        },
+        async deleteTemplate({ dispatch }, templateId) {
+            await reportsAPI.deleteReportTemplate(templateId)
+            dispatch("fetchReportTemplates")
         }
     },
     namespaced: true

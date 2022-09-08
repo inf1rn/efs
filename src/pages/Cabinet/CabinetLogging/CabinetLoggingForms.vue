@@ -31,7 +31,7 @@
           {{ formLog.user.last_name }}
         </td>
         <td class="table__cell">{{ formLog.user.roles[0]?.title }}</td>
-        <td class="table__cell">{{ formLog.new_values.form_id }}</td>
+        <td class="table__cell">{{ formLog.id }}</td>
         <td class="table__cell">
           Сведения о организации дополнительного профессионального образования
         </td>

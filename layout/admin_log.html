@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>ЛК МИНИСТЕР - РЕГИОН ПОДРОБНО</title>
+</head>
+<body class="page">
+  <header class="header">
+    <div class="header__inner header__inner_page_cabinet">
+      <div class="header__column header__column_direct_row">
+        <a href="/" class="logo logo_page_cabinet"></a>
+        <a href="" class="header-link header__add_news-link">Добавить новость</a>
+        <a href="" class="header-link header__site-link">Перейти на сайт</a>
+        <a href="" class="header-link header__log-link active">Логирование</a>
+      </div>
+      <div class="header__column header__column_direct_row-end">
+        <a href="" class="header__user-link">
+          <img src="upload/user-ava.png" class="header__avatar" alt="Аватар пользователя">
+          <span class="header__username">Рудковский А. М.</span>
+        </a>
+        <div class="header__controls">
+          <a href="#" class="header__control header__control_type_notification" title="Уведомления"></a>
+          <a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="page__content-wrapper">
+    <aside class="sidebar sidebar_opened">
+      <button class="sidebar__toggle"></button>
+      <nav class="sidebar__menu">
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_users"></i>
+          <span class="sidebar__menu-item-text">Пользователи</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+          <span class="sidebar__menu-item-text">Формы</span>
+        </a>
+        <a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+          <span class="sidebar__menu-item-text">Организации</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+          <span class="sidebar__menu-item-text">Отчеты</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+          <span class="sidebar__menu-item-text">Карта</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="content content_cabinet">
+      <section class="admin-log page__section">
+      
+      
+        <h1 class="section-title mb-50">логирование</h1>
+        <div class="tabs reports__tabs _tabs">
+            <nav class="tabs__navigation">
+                <button type="submit" class="tabs__title _tabs-item _active">Формы</button>
+                <button type="submit" class="tabs__title _tabs-item">Вход в систему</button>
+                <button type="submit" class="tabs__title _tabs-item">Статистические данные</button>
+            </nav>
+            <div class="tabs__content">
+                <div class="tabs__body _tabs-block _active">
+                    <form class="form admin-log__search form-width-m mb-50">
+                        <input
+                            type="text"
+                            name="search"
+                            class="form__input-edit form__input-edit_type_search form__input-edit_width_full"
+                            id="search"
+                          >
+                      </form>
+                      <table class="table admin-log__table-orgs">
+                        <tr class="table__row table__row_head">
+                          <th class="table__header">Дата</th>
+                          <th class="table__header">Действие</th>
+                          <th class="table__header">Пользователь</th>
+                          <th class="table__header">Роль</th>
+                          <th class="table__header">№ формы</th>
+                          <th class="table__header">Название формы</th>
+                        </tr>
+                        <tr class="table__row">
+                          <td class="table__cell">20.10.2021
+                            10:32</td>
+                          <td class="table__cell">Редактирование поля Юридический адрес</td>
+                          <td class="table__cell">Чернов Ростислав Иосифович</td>
+                          <td class="table__cell">региональный</td>
+                          <td class="table__cell">5678</td>
+                          <td class="table__cell">Сведения о организации дополнительного профессионального образования</td>
+                        </tr>
+                        <tr class="table__row">
+                            <td class="table__cell">20.10.2021
+                              10:32</td>
+                            <td class="table__cell">Редактирование поля Юридический адрес</td>
+                            <td class="table__cell">Чернов Ростислав Иосифович</td>
+                            <td class="table__cell">региональный</td>
+                            <td class="table__cell">5678</td>
+                            <td class="table__cell">Сведения о организации дополнительного профессионального образования</td>
+                          </tr>
+                          <tr class="table__row">
+                            <td class="table__cell">20.10.2021
+                              10:32</td>
+                            <td class="table__cell">Редактирование поля Юридический адрес</td>
+                            <td class="table__cell">Чернов Ростислав Иосифович</td>
+                            <td class="table__cell">региональный</td>
+                            <td class="table__cell">5678</td>
+                            <td class="table__cell">Сведения о организации дополнительного профессионального образования</td>
+                          </tr>
+                      </table>
+                      <div class="table-pagination">
+                        <div class="table-pagination__count">
+                            1-10 из 1240
+                        </div>
+                        <div class="table-pagination__bullets">
+                            <button class="bullets-left _disabled">
+                                <img src="images/table-pagination/left.svg" alt="left">
+                            </button>
+                            <button class="bullets-right">
+                                <img src="images/table-pagination/right.svg" alt="right">
+                            </button>
+                        </div>
+                      </div>
+                </div>
+                <div class="tabs__body _tabs-block ">
+                    <div class="admin-log__body width_l">
+                        <form class="form admin-log__search form-width-m mb-50">
+                            <input
+                                type="text"
+                                name="search"
+                                class="form__input-edit form__input-edit_type_search form__input-edit_width_full"
+                                id="search"
+                              >
+                          </form>
+                          <table class="table admin-log__table-orgs">
+                            <tr class="table__row table__row_head">
+                              <th class="table__header">Дата</th>
+                              <th class="table__header">Пользователь</th>
+                              <th class="table__header">Роль</th>
+                              <th class="table__header">Действие</th>
+                              <th class="table__header"></th>
+                            </tr>
+                            <tr class="table__row">
+                              <td class="table__cell">20.10.2021
+                                10:32</td>
+                              <td class="table__cell">Редактирование поля Юридический адрес</td>
+                              <td class="table__cell">региональный</td>
+                              <td class="table__cell">5678</td>
+                              <td class="table__cell">
+                                <div class="table__cell-users_row-more">
+                                    <img src="images/more_dots.svg" alt="more">
+                                </div>
+                            </td>
+                            </tr>
+                            <tr class="table__row">
+                                <td class="table__cell">20.10.2021
+                                  10:32</td>
+                                <td class="table__cell">Редактирование поля Юридический адрес</td>
+                                <td class="table__cell">региональный</td>
+                                <td class="table__cell">5678</td>
+                                <td class="table__cell">
+                                    <div class="table__cell-users_row-more">
+                                        <img src="images/more_dots.svg" alt="more">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr class="table__row">
+                                <td class="table__cell">20.10.2021
+                                  10:32</td>
+                                <td class="table__cell">Редактирование поля Юридический адрес</td>
+                                <td class="table__cell">региональный</td>
+                                <td class="table__cell">5678</td>
+                                <td class="table__cell">
+                                    <div class="table__cell-users_row-more">
+                                        <img src="images/more_dots.svg" alt="more">
+                                    </div>
+                                </td>
+                              </tr>
+                          </table>
+                          <div class="table-pagination">
+                            <div class="table-pagination__count">
+                                1-10 из 1240
+                            </div>
+                            <div class="table-pagination__bullets">
+                                <button class="bullets-left _disabled">
+                                    <img src="images/table-pagination/left.svg" alt="left">
+                                </button>
+                                <button class="bullets-right">
+                                    <img src="images/table-pagination/right.svg" alt="right">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="tabs__body _tabs-block">
+                    <div class="admin-log__body">
+                        <form class="form admin-log__search form-width-m mb-50">
+                            <input
+                                type="text"
+                                name="search"
+                                class="form__input-edit form__input-edit_type_search form__input-edit_width_full"
+                                id="search"
+                              >
+                          </form>
+                          <table class="table admin-log__table-orgs">
+                            <tr class="table__row table__row_head">
+                              <th class="table__header">Дата</th>
+                              <th class="table__header">Пользователь</th>
+                              <th class="table__header">Роль</th>
+                              <th class="table__header">Действие</th>
+                              <th class="table__header">Название формы</th>
+                              <td class="table__cell">
+                                <div class="table__cell-users_row-more">
+                                    <img src="images/more_dots.svg" alt="more">
+                                </div>
+                            </td>
+                            </tr>
+                            <tr class="table__row">
+                              <td class="table__cell">20.10.2021 <br>
+                                10:32</td>
+                              <td class="table__cell">Чернов Ростислав Иосифович</td>
+                              <td class="table__cell">региональный</td>
+                              <td class="table__cell">Редактирование поля Юридический адрес</td>
+                              <td class="table__cell">Редактирование данные в поле программы ДПО у такого-то субъекта</td>
+                              <td class="table__cell">
+                                <div class="table__cell-users_row-more">
+                                    <img src="images/more_dots.svg" alt="more">
+                                </div>
+                            </td>
+                            </tr>
+                            <tr class="table__row">
+                                <td class="table__cell">20.10.2021 <br>
+                                    10:32</td>
+                                  <td class="table__cell">Чернов Ростислав Иосифович</td>
+                                  <td class="table__cell">региональный</td>
+                                  <td class="table__cell">Редактирование поля Юридический адрес</td>
+                                  <td class="table__cell">Редактирование данные в поле программы ДПО у такого-то субъекта</td>
+                                  <td class="table__cell">
+                                    <div class="table__cell-users_row-more">
+                                        <img src="images/more_dots.svg" alt="more">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr class="table__row">
+                                <td class="table__cell">20.10.2021 <br>
+                                    10:32</td>
+                                  <td class="table__cell">Чернов Ростислав Иосифович</td>
+                                  <td class="table__cell">региональный</td>
+                                  <td class="table__cell">Редактирование поля Юридический адрес</td>
+                                  <td class="table__cell">Редактирование данные в поле программы ДПО у такого-то субъекта</td>
+                                  <td class="table__cell">
+                                    <div class="table__cell-users_row-more">
+                                        <img src="images/more_dots.svg" alt="more">
+                                    </div>
+                                </td>
+                              </tr>
+                          </table>
+                          <div class="table-pagination">
+                            <div class="table-pagination__count">
+                                1-10 из 1240
+                            </div>
+                            <div class="table-pagination__bullets">
+                                <button class="bullets-left _disabled">
+                                    <img src="images/table-pagination/left.svg" alt="left">
+                                </button>
+                                <button class="bullets-right">
+                                    <img src="images/table-pagination/right.svg" alt="right">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+    
+  </div>
+  <script src="js/app.min.js"></script>
+<footer class="footer footer-no--bg">
+    <div class="footer__inner">
+        © Все права защищены
+    </div>
+  </footer>
+</body>
+</html>

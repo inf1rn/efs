@@ -62,6 +62,17 @@
           </li>
         </ul>
       </div>
+      <ul class="map-color-legend interactive-map__map-color-legend">
+        <li class="map-color-legend__item">
+          <span class="map-color-legend__text">Показатели ниже нормы</span>
+        </li>
+        <li class="map-color-legend__item">
+          <span class="map-color-legend__text">Просрочена отчетность</span>
+        </li>
+        <li class="map-color-legend__item">
+          <span class="map-color-legend__text">Показатели в норме</span>
+        </li>
+      </ul>
       <Map
         baseUrl="/cabinet"
         @handler-click-map="handlerGetRegionStat($event)"

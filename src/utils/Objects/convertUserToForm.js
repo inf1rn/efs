@@ -13,6 +13,6 @@ export const convertUserToForm = userData => {
         positionId: userData.position?.id,
         positionName: userData.position?.title,
         image: userData.image,
-        roles: userData.roles?.[0]
+        roles: userData.roles
     }
 }

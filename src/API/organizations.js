@@ -3,7 +3,7 @@ import { baseAPI } from "./axios";
 const baseURL = "/organizations"
 
 export const organizationsAPI = {
-    fetchOrganizations: () => baseAPI.get(baseURL),
+    fetchOrganizations: ({ regionId = "", title = "" }) => baseAPI.get(`${baseURL}?include=employees,educationPrograms,educationProgramsCount&filter[region_id]=${regionId}&filter[title]=${title}`),
     fetchOrganizationById: organizationId => baseAPI.get(`${baseURL}/${organizationId}?include=employees,educationPrograms`),
     fetchOrganizationEmployees: organizationId => baseAPI.get(`${baseURL}/${organizationId}/employees`),
     updateOrganization(organization, organizationId) {

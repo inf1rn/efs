@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>календарь методист</title>
+</head>
+<body class="page">
+  <header class="header">
+    <div class="header__inner header__inner_page_cabinet">
+      <div class="header__column header__column_direct_row">
+        <a href="/" class="logo logo_page_cabinet"></a>
+        <a href="" class="header__site-link">Перейти на сайт</a>
+      </div>
+      <div class="header__column header__column_direct_row-end">
+        <a href="" class="header__user-link">
+          <img src="upload/avatar_m.jpg" class="header__avatar" alt="Аватар пользователя">
+          <span class="header__username">Иванова С.Г.</span>
+        </a>
+        <div class="header__controls">
+          <a href="#" class="header__control header__control_type_notification" title="Уведомления"></a>
+          <a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="page__content-wrapper">
+    <aside class="sidebar sidebar_opened">
+      <button class="sidebar__toggle"></button>
+      <nav class="sidebar__menu">
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_users"></i>
+          <span class="sidebar__menu-item-text">Пользователи</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+          <span class="sidebar__menu-item-text">Формы</span>
+        </a>
+        <a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+          <span class="sidebar__menu-item-text">Организации</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+          <span class="sidebar__menu-item-text">Отчеты</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+          <span class="sidebar__menu-item-text">Карта</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="content content_cabinet">
+		<section class="users page__section">
+			<!-- <ul class="breadcrumbs page__breadcrumbs">
+			<li class="breadcrumbs__item">
+				<a href="#" class="breadcrumbs__link">Организации</a>
+			</li>
+			<li class="breadcrumbs__item">
+				<a href="#" class="breadcrumbs__link">Регионы</a>
+			</li>
+			<li class="breadcrumbs__item">
+				<span href="#" class="breadcrumbs__link breadcrumbs__link_current">Республика Адыгея (Адыгея)</span>
+			</li>
+			</ul> -->
+			<div class="users__top">
+				<h1 class="section-title">календарь</h1>            
+			</div>
+       
+        
+           
+			<div class="calendar">
+				<div class="calendar-choice choice">
+					<div class="choice-item">
+						<div class="choice-item__checkbox checkbox form-group form-group--dark-blue">
+							<input type="checkbox" id="chk-dark-blue">
+							<label for="chk-dark-blue">
+								<span class="choice-item__text">Запись на урок очная</span>
+							</label>
+						</div>						
+					</div>
+					<div class="choice-item">
+						<div class="choice-item__checkbox checkbox form-group form-group--purple">
+							<input type="checkbox" id="chk-purple">
+							<label for="chk-purple">
+								<span class="choice-item__text">Запись на урок дистанционная</span>
+							</label>
+						</div>						
+					</div>
+					<div class="choice-item">
+						<div class="choice-item__checkbox checkbox form-group form-group--blue">
+							<input type="checkbox" id="chk-blue">
+							<label for="chk-blue">
+								<span class="choice-item__text">Консультация</span>
+							</label>
+						</div>						
+					</div>
+					<div class="choice-item">
+						<div class="choice-item__checkbox checkbox form-group form-group--orange">
+							<input type="checkbox" id="chk-orange">
+							<label for="chk-orange">
+								<span class="choice-item__text">Приглашения на урок</span>
+							</label>
+						</div>						
+					</div>
+					<div class="choice-item">
+						<div class="choice-item__checkbox checkbox form-group form-group--green">
+							<input type="checkbox" id="chk-green">
+							<label for="chk-green">
+								<span class="choice-item__text">Мероприятия</span>
+							</label>
+						</div>						
+					</div>
+				</div>				
+				<div class="schedule-row schedule-row--center">
+					<div class="schedule-row__month schedule-row__month--calendar month-item">
+						<div class="month-item__arrow month-item__arrow-left"><img loading='lazy' width='12' height='30' src='./images/month_arrow_left.svg' alt='стелка'></div>
+						<div class="month-item__row">
+							<div class="month-item__row-day row-day">
+								<div class="row-day__text row-day__text--mrnone">Январь</div>												
+							</div>
+							<div class="month-itme__row-year">2022</div>
+						</div>
+						<div class="month-item__arrow month-item__arrow-right"><img loading='lazy' width='12' height='30' src='./images/month_arrow_right.svg' alt='стелка'></div>
+					</div>
+				</div>
+				<table class="table table--border">
+					<tbody>
+						<tr class="tab__row">
+							<th class="tab__header">Понедельник</th>
+							<th class="tab__header">Вторник</th>
+							<th class="tab__header">Среда</th>
+							<th class="tab__header">Четверг</th>
+							<th class="tab__header">Пятница</th>
+							<th class="tab__header">Суббота</th>
+							<th class="tab__header">Воскресенье</th>
+						</tr>
+						<tr class="tab__row">
+							<td class="tab__cell tab__cell--grey">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data">27</div>
+									<div class="tab-box__marker tab-box__marker--blue">Встреча 1</div>
+									<div class="tab-box__marker tab-box__marker--green">Встреча с длинным названием</div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >28</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >29</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >30</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >31</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >1</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >2</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>							
+						</tr>
+						<tr class="tab__row">
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >3</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >4</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >5</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >6</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >7</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >8</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >9</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>							
+						</tr>
+						<tr class="tab__row">
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >10</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data tab-box__data--green" >11</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >12</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data">13</div>
+									<div class="tab-box__marker tab-box__marker--orange">Встреча 1</div>
+									<div class="tab-box__marker">Более 2-х учеников</div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >14</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >15</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >16</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>							
+						</tr>
+						<tr class="tab__row">
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >17</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >18</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >19</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >20</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >21</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >22</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >23</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>							
+						</tr>
+						<tr class="tab__row">
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >24</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >25</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >26</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >27</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >28</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >29</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >30</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>							
+						</tr>
+						<tr class="tab__row">
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >31</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >2</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data">3</div>
+									<div class="tab-box__marker tab-box__marker--orange">Встреча 1</div>
+									<div class="tab-box__marker tab-box__marker--green">Более 2-х учеников</div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >4</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >5</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >6</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>
+							<td class="tab__cell tab__cell--grey ">
+								<div class="tab__cell-box tab-box">
+									<div class="tab-box__data" >7</div>
+									<div class="tab-box__marker"></div>
+									<div class="tab-box__marker"></div>
+								</div>
+							</td>							
+						</tr>					
+					</tbody>
+				</table>				
+			</div>        
+		</section>
+	</main>    
+</div>
+<script src="js/app.min.js"></script>
+<footer class="footer footer-no--bg">
+    <div class="footer__inner">
+        © Все права защищены
+    </div>
+  </footer>
+</body>
+</html>

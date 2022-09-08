@@ -6,7 +6,7 @@
         <div class="popup__body-wrap body-wrap">
           <div class="body-wrap__top">
             <div class="body-wrap__image">
-              <img src="upload/user-ava.png" alt="user-ava" />
+              <img :src="imageSrc" alt="user-ava" />
             </div>
             <a href="#" class="filter__edit-link body-wrap__edit_link"
               >Редактировать</a
@@ -49,4 +49,16 @@
     </div>
   </div>
 </template>
+
+<script>
+import avatar from "@/assets/images/avatar.jpg"
+export default {
+  computed: {
+    imageSrc: function () {
+      const image = this.userData?.image;
+      return image && image !== 'null' ? image : avatar;
+    },
+  }
+}
+</script>
 

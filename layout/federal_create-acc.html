@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>создать пользователя</title>
+</head>
+<body class="page">
+    <header class="header">
+        <div class="header__inner header__inner_page_cabinet">
+          <div class="header__column header__column_direct_row">
+            <a href="/" class="logo logo_page_cabinet"></a>
+            <a href="" class="header-link header__site-link">Перейти на сайт</a>
+            <a href="" class="header-link header__log-link">Техническая поддержка</a>
+          </div>
+          <div class="header__column header__column_direct_row-end">
+            <a href="" class="header__user-link">
+              <img src="upload/user-ava.png" class="header__avatar" alt="Аватар пользователя">
+              <span class="header__username">Рудковский А. М.</span>
+            </a>
+            <div class="header__controls">
+              <a href="#" class="header__control header__control_type_notification" title="Уведомления">
+                <span class="notification-count">2</span>
+              </a>
+              <a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+            </div>
+          </div>
+        </div>
+      </header>
+  <div class="page__content-wrapper">
+    <aside class="sidebar sidebar_opened">
+      <button class="sidebar__toggle"></button>
+      <nav class="sidebar__menu">
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_users"></i>
+          <span class="sidebar__menu-item-text">Пользователи</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+          <span class="sidebar__menu-item-text">Формы</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+          <span class="sidebar__menu-item-text">Организации</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+          <span class="sidebar__menu-item-text">Отчеты</span>
+        </a>
+        <a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+          <span class="sidebar__menu-item-text">Карта</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="content content_federal">
+      <section class="interactive-map page__section page__section_margin-top-s">
+        <h1 class="section-title">создать пользователя</h1>
+        <div class="filter interactive-map__filter">
+            <form class="tabs__body-form form account-form account-form--one">
+                <div class="account-form-wrap">
+    
+                    <div class="account-form__row">
+                        
+                        <div class="account-form__line">
+                            <div class="form__item">
+                            <label for="accountMail" class="form__label">Email</label>
+                            <input
+                            type="mail"
+                            class="form__input-edit form__input-edit_width_full"
+                            id="accountMail"
+                            placeholder="Введите email"
+                            >
+                            </div>
+                            <div class="form__item">
+                                <label for="accountRole" class="form__label">Роль</label>
+                                <select name="form[]" class="two">
+                                    <option value="1" selected>Выберите роль</option>
+                                    <option value="2">Пункт №2</option>
+                                    <option value="3">Пункт №3</option>
+                                    <option value="4">Пункт №4</option>
+                                </select>
+                            </div>
+                            <div class=" form__item form-add_photo">
+                                <a href="#" class="filter__add-link">добавить фото</a>
+                            </div>
+                        </div>
+                        <div class="account-form__line">
+                            <div class="form__item">
+                                <label for="accountSecondName" class="form__label">Фамилия</label>
+                                <input
+                                type="text"
+                                class="form__input-edit form__input-edit_width_full"
+                                id="accountSecondName"
+                                placeholder="Введите фамилию"
+                                >
+                               
+                            </div>
+                            <div class=" form__item">
+                                <label for="accountFirstName" class="form__label">Имя</label>
+                                <input
+                                type="text"
+                                class="form__input-edit form__input-edit_width_full"
+                                id="accountFirstName"
+                                placeholder="Введите имя"
+                            >
+                            </div>
+                            <div class=" form__item">
+                                <label for="accountLastName" class="form__label">Отчество</label>
+                                <input
+                                type="text"
+                                class="form__input-edit form__input-edit_width_full"
+                                id="accountLastName"
+                                placeholder="Введите отчество"
+                            >
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="account-form__row row-d-flex">
+                        <div class="account-form__line">
+                            <div class="form__item">
+                              <label for="accountRegion" class="form__label">Регион</label>
+                              <select name="accountRegion" class="two">
+                                  <option value="1" selected>Все регионы</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                              </select>
+                            </div>
+                            
+                        </div>
+                        <div class="account-form__line">
+                            <div class="form__item">
+                                <label for="accountCity" class="form__label">Город</label>
+                                <select name="accountCity" class="two">
+                                  <option value="1" selected>Все регионы</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                              </select>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="account-form__row row-d-flex">
+                        <div class="account-form__line">
+                            <div class="form__item">
+                            <label for="accountJob" class="form__label">Место работы</label>
+                            <select name="accountJob" class="two">
+                              <option value="1" selected>Все регионы</option>
+                              <option value="2">Пункт №2</option>
+                              <option value="3">Пункт №3</option>
+                              <option value="4">Пункт №4</option>
+                          </select>
+                            </div>
+                            
+                        </div>
+                        <div class="account-form__line">
+                            <div class="form__item">
+                                <label for="accountPosition" class="form__label">Должность</label>
+                                <select name="accountPosition" class="two">
+                                  <option value="1" selected>Все регионы</option>
+                                  <option value="2">Пункт №2</option>
+                                  <option value="3">Пункт №3</option>
+                                  <option value="4">Пункт №4</option>
+                              </select>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="account-form__row row-d-flex">
+                        <div class="account-form__line">
+                            <div class="form__item">
+                            <label for="accountPassword" class="form__label">Пароль</label>
+                            <input
+                            type="password"
+                            class="form__input-edit form__input-edit_width_full"
+                            id="accountPassword"
+                            placeholder="Введите пароль"
+                            >
+                            </div>
+                            
+                        </div>
+                        <div class="account-form__line">
+                            <div class="form__item">
+                                <label for="accountPasswordRepeat" class="form__label">Повторите пароль</label>
+                                <input
+                                type="password"
+                                class="form__input-edit form__input-edit_width_full"
+                                id="accountPasswordRepeat"
+                                placeholder="Повторите пароль"
+                                >
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="account-form__footer">
+                    <div class="checkbox form-group">
+                        <input type="checkbox" id="chk">
+                        <label for="chk">Отправить уведомлениена email пользователя</label>
+                    </div>
+                    <div class="account-form__btn">
+                        <button type="submit" class="button button_theme_green button_border_small form__submit">Сохранить изменения</button>
+                    </div>
+                </div>
+             
+            </form> 
+        </div>
+      </section>
+    </main>
+  </div>
+<footer class="footer footer-no--bg">
+    <div class="footer__inner">
+        © Все права защищены
+    </div>
+  </footer>
+  <script src="js/app.min.js"></script>
+</body>
+</html>

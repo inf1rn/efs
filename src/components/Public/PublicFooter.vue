@@ -55,7 +55,7 @@
             </li> -->
             <li class="social__item">
               <a
-                href="javascript;"
+                href="https://vk.com/minacademy"
                 class="social__link social__link_icon_vk"
                 target="_blank"
               ></a>

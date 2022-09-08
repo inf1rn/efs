@@ -70,7 +70,7 @@
         <span class="sidebar__menu-item-text">Отчеты</span>
       </router-link>
       <div
-        style="position: relative"
+        style="position: relative; z-index: 1"
         v-if="isVisibleSeparatly"
         @mouseleave="
           (e) => {
@@ -98,7 +98,7 @@
           </div>
           <div class="sidebar__menu-item-container">
             <router-link
-              to="/cabinet/listeners/stat"
+              to="/cabinet/reports/listeners-stat"
               class="sidebar__menu-item sidebar__menu-item_separatly"
             >
               <i

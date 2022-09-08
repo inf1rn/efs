@@ -46,6 +46,7 @@
               <component
                 :is="component"
                 :fields="fields"
+                :formEditableData="formEditableData"
                 :form="form"
                 @save-fields="saveFields()"
               ></component>
@@ -81,6 +82,7 @@ export default {
       form: (state) => state.form,
       fields: (state) => state.fields,
       formId: (state) => state.formId,
+      formEditableData: (state) => state.formEditableData,
       rusFrequency() {
         switch (this.form.frequency) {
           case "daily":
@@ -97,7 +99,6 @@ export default {
       },
     }),
     title() {
-      
       return this.form?.title;
     },
   },

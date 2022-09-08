@@ -11,7 +11,15 @@ export const formDetailModule = {
             statResults: [],
             formStatFilters: {
                 isPublished: "",
-                createdAt: ""
+                statusId: "",
+                dateAt: "",
+                dateTo: ""
+            },
+            formEditableData: {
+                frequency: "",
+                activeStart: "",
+                activeEnd: "",
+                statusId: ""
             }
         }
     },
@@ -49,10 +57,16 @@ export const formDetailModule = {
                 isPublished
             }
         },
-        setFormStatFiltersCreatedAt(state, createdAt) {
+        setFormStatFiltersDateAt(state, dateAt) {
             state.formStatFilters = {
                 ...state.formStatFilters,
-                createdAt
+                dateAt
+            }
+        },
+        setFormStatFiltersDateTo(state, dateTo) {
+            state.formStatFilters = {
+                ...state.formStatFilters,
+                dateTo
             }
         },
         clearFormStatFilters(state) {
@@ -60,13 +74,49 @@ export const formDetailModule = {
                 isPublished: "",
                 createdAt: ""
             }
+        },
+        setFrequency(state, frequency) {
+            state.formEditableData = {
+                ...state.formEditableData,
+                frequency,
+            }
+        },
+        setActiveStart(state, activeStart) {
+            state.formEditableData = {
+                ...state.formEditableData,
+                activeStart
+            }
+        },
+        setActiveEnd(state, activeEnd) {
+            state.formEditableData = {
+                ...state.formEditableData,
+                activeEnd
+            }
+        },
+        setStatusId(state, statusId) {
+            state.formEditableData = {
+                ...state.formEditableData,
+                statusId
+            }
+        },
+        setFiltersStatusId(state, statusId) {
+            state.formStatFilters = {
+                ...state.formStatFilters,
+                statusId
+            }
         }
     },
     actions: {
         async fetchForm({ commit, state }) {
-            const { data: { data: form } } = await formsAPI.fetchForm(state.formId)
+            const { data: { data: form } } = await formsAPI.fetchForm(
+                state.formId,
+            )
             commit("setForm", form)
             commit("setFields", form.fields)
+            commit("setFrequency", form.frequency)
+            commit("setStatusId", form.status.id)
+            commit("setActiveStart", new Date(form.active_start).toISOString().slice(0, 10))
+            commit("setActiveEnd", new Date(form.active_end).toISOString().slice(0, 10))
         },
         async saveFields({ state, dispatch }) {
             await formsAPI.updateForm(state.formId, {
@@ -79,29 +129,47 @@ export const formDetailModule = {
                     sort: field.sort,
                     enabled: field.enabled,
                     id: field.id
-                }))
+                })),
+                frequency: state.formEditableData.frequency,
+                active_start: state.formEditableData.activeStart,
+                active_end: state.formEditableData.activeEnd,
+                status_id: state.formEditableData.status_id
             }
             )
+            alert("Сохранено")
             dispatch("fetchForm")
 
         },
         async createField({ state, dispatch }, field) {
             await formsAPI.createField(state.formId, field)
+            alert("Поле создано")
             dispatch("fetchForm")
         },
         async deleteField({ state, dispatch }, fieldId) {
-            await formsAPI.deleteField(state.formId, fieldId)
-            dispatch("fetchForm")
+            try {
+                await formsAPI.deleteField(state.formId, fieldId)
+                dispatch("fetchForm")
+                alert("Поле удалено")
+            } catch (e) {
+                console.log('************* error')
+                console.log(e)
+                alert('Невозможно удалить заполненное ранее поле')
+            }
         },
         async toggleEnabledField({ state, dispatch }, fieldId) {
             const field = { ...state.fields.find(field => field.id = fieldId) }
             field.enabled = !field.enabled
             await formsAPI.changeField(state.formId, field)
+            if (field.enabled) {
+                alert("Поле включено")
+            } else {
+                alert("Поле выключено")
+            }
             dispatch("fetchForm")
         },
         async fetchFormStatResults({ state, commit }) {
-            const { createdAt, isPublished } = state.formStatFilters
-            let filters = { createdAt, isPublished: "", isAccepted: "" }
+            const { dateAt, dateTo, isPublished, statusId } = state.formStatFilters
+            let filters = { dateAt, dateTo, isPublished: "", isAccepted: "", statusId }
             if (isPublished === "draft") {
                 filters.isPublished = false
             } else if (isPublished) {

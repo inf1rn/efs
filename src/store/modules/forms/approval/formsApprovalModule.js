@@ -4,7 +4,8 @@ export const formsApprovalModule = {
     state() {
         return {
             forms: [],
-            pagination: [],
+            pagination: null,
+            currentPage: 1,
             filters: {
                 keyword: ""
             }
@@ -25,13 +26,38 @@ export const formsApprovalModule = {
                 ...state.filters,
                 keyword
             }
-        }
+        },
+        setNextPage(state) {
+            state.currentPage += 1
+        },
+        setPrevPage(state) {
+            state.currentPage -= 1
+        },
     },
     actions: {
         async fetchFormsApproval({ state, commit }) {
-            const { data: { data: { data: forms, pagination } } } = await formsAPI.fetchForms({ isAccepted: "True", keyword: state.filters.keyword })
+            const { data: { data: { results: forms, pagination } } } = await formsAPI.fetchNotApprovedForms({ keyword: state.filters.keyword, page: state.currentPage })
             commit("setForms", forms)
-        }
+            commit("setPagination", pagination)
+        },
+        setNextPage({ commit, dispatch, state }) {
+            if (!state.pagination) {
+                return
+            }
+            const { total, count, per_page, current_page } = state.pagination
+            if (total == per_page * (current_page - 1) + count) {
+                return
+            }
+            commit("setNextPage")
+            dispatch("fetchFormsApproval")
+        },
+        setPrevPage({ commit, dispatch, state }) {
+            if (state.currentPage == 1) {
+                return
+            }
+            commit("setPrevPage")
+            dispatch("fetchFormsApproval")
+        },
     },
     namespaced: true
 }

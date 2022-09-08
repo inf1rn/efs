@@ -16,9 +16,10 @@
             :key="result.id"
           >
             <div class="new-listeners_tabs-form__line form__item">
-              <label for="newListenersFio" class="form__label">{{
-                fields[index][0].title
-              }}</label>
+              <label for="newListenersFio" class="form__label"
+                >{{ fields[index][0].title }}
+                {{ fields[index][0].required ? "*" : "" }}</label
+              >
               <input
                 :type="getInputType(fields[index][0].type)"
                 class="spollers-body__input form-input__border"
@@ -44,13 +45,13 @@
                 button_border_small
                 form__submit
               "
-              @click="sendFormResults()"
             >
               Сохранить
             </button>
             <button
               type="submit"
               class="button button_theme_green button_border_small form__submit"
+              @click.prevent="sendFormResults()"
             >
               Сохранить и отправить
             </button>

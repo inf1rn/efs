@@ -41,6 +41,7 @@
               <div class="new-listeners_tabs-form__line form__item">
                 <label for="newListenersSnils" class="form__label">СНИЛС</label>
                 <input
+                  v-maska="{ mask: '###-###-### ##' }"
                   type="text"
                   class="spollers-body__input form-input__border"
                   id="newListenersSnils"
@@ -180,6 +181,7 @@
                 button_border_small
                 form__submit
               "
+              @click="$router.push('/cabinet/listeners')"
             >
               Закрыть
             </button>

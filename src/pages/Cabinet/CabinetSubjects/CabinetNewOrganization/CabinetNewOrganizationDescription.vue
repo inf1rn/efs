@@ -66,7 +66,7 @@
         <div class="admin_subject-edit_tabs-form__line form__item">
           <label for="adminSubjectEditEmail" class="form__label">Email</label>
           <input
-            type="mail"
+            type="email"
             class="spollers-body__input form-input__border"
             id="adminSubjectEditEmail"
             placeholder="sahalineducation@gmail.com"
@@ -97,7 +97,7 @@
         type="submit"
         class="button button_theme_green button_border_small form__submit"
         @click="createOrganization()"
-        :class="{disabled: getIsDisabled}"
+        :class="{ disabled: getIsDisabled }"
         :disabled="getIsDisabled"
       >
         Сохранить
@@ -106,7 +106,6 @@
   </div>
 </template>
 <script>
-import { maska } from "maska";
 import { createNamespacedHelpers } from "vuex";
 const {
   mapState: mapStateNewOrganization,

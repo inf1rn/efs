@@ -6,17 +6,14 @@
       :class="{ '_spoller-active': isFieldActive }"
       @click="isFieldActive = !isFieldActive"
     >
-      <span>{{ getFormByFormId()(templateData.form_id)?.title }}</span>
+      <span>{{ getFormByFormId(templateData.form_id)?.title }}</span>
     </button>
     <div class="spollers__body" :hidden="!isFieldActive">
       <div class="spollers__body-wrap">
         <div class="spollers__body-line">
           <div class="spollers__body-caption form__label-two">ФОРМА</div>
           <div class="spollers__body-info">
-            <select
-              :value="getFormByFormId()(templateData.form_id)?.id"
-              class="form-input__border"
-            >
+            <select v-model="formId" class="form-input__border">
               <option v-for="form in forms" :value="form.id" :key="form.id">
                 {{ form.title }}
               </option>
@@ -29,10 +26,7 @@
         <div class="spollers__body-line">
           <div class="spollers__body-caption form__label-two">Регион</div>
           <div class="spollers__body-info">
-            <select
-              :value="getRegionByRegionId()(templateData.region_id)?.id"
-              class="form-input__border"
-            >
+            <select v-model="regionId" class="form-input__border">
               <option
                 v-for="region in regions"
                 :key="region.id"
@@ -57,11 +51,7 @@
                     name="reportsDateFrom"
                     class="form__input-edit form__input-edit_el_date-to"
                     id="dateFrom"
-                    :value="
-                      new Date(templateData.date_start)
-                        .toISOString()
-                        .slice(0, 10)
-                    "
+                    v-model="dateStart"
                   />
                 </div>
 
@@ -74,9 +64,7 @@
                     name="reportsDateTo"
                     class="form__input-edit form__input-edit_el_date-to"
                     id="dateTo"
-                    :value="
-                      new Date(templateData.date_end).toISOString().slice(0, 10)
-                    "
+                    v-model="dateEnd"
                   />
                   <div class="reports__dates-inputs__line"></div>
                 </div>
@@ -87,9 +75,24 @@
           <div class="spollers__body-btn">
             <button
               type="submit"
+              @click.prevent="
+                $emit('create', {
+                  formId,
+                  regionId,
+                  dateStart,
+                  dateEnd,
+                })
+              "
               class="button button_theme_green button_border_small form__submit"
             >
               Создать отчет
+            </button>
+            <button
+              type="submit"
+              @click.prevent="$emit('delete', reportId)"
+              class="button button_theme_red button_border_small form__submit"
+            >
+              Удалить шаблон
             </button>
           </div>
         </div>
@@ -110,14 +113,31 @@ export default {
     regions: Array,
     forms: Array,
   },
-  methods: {
+  computed: {
     ...mapGettersLocation(["getRegionByRegionId"]),
     ...mapGettersReports(["getFormByFormId"]),
   },
   data() {
     return {
       isFieldActive: false,
+      formId: "",
+      regionId: "",
+      dateStart: "",
+      dateEnd: "",
+      reportId: "",
     };
+  },
+  created() {
+    this.formId = this.templateData.form_id;
+    this.reportId = this.templateData.id;
+    console.log(this.reportId);
+    this.regionId = this.templateData.region_id;
+    this.dateStart = new Date(this.templateData.date_start)
+      .toISOString()
+      .slice(0, 10);
+    this.dateEnd = new Date(this.templateData.date_end)
+      .toISOString()
+      .slice(0, 10);
   },
 };
 </script>

@@ -29,8 +29,10 @@
                 class="form__input-edit form__input-edit_width_full"
                 id="reportsTabsSecondName"
                 placeholder="Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней"
-                :value="currentMailingForm?.title"
-                @input="(e) => setTitle(e.target.value)"
+                :class="{
+                  invalid: v$.title.$error,
+                }"
+                v-model="title"
               />
             </div>
             <div class="admin_mailings__inp">
@@ -38,8 +40,10 @@
                 >Тип события</label
               >
               <select
-                :value="currentMailingForm?.eventTypeId"
-                @change="(e) => setEventTypeId(e.target.value)"
+                :class="{
+                  invalid: v$.title.$error,
+                }"
+                v-model="sendAt"
                 class="form__select form__select_theme_white"
               >
                 <option
@@ -60,16 +64,20 @@
                 class="form__input-edit form__input-edit_width_full"
                 id="reportsTabsSecondName"
                 placeholder="Подходит срок заполнения формы №3456 за 30 (тридцать) календарных дней"
-                :value="currentMailingForm?.theme"
-                @input="(e) => setTheme(e.target.value)"
+                :class="{
+                  invalid: v$.theme.$error,
+                }"
+                v-model="theme"
               />
             </div>
             <div class="admin_mailings__inp">
               <label for="adminSubjectDate" class="form__label">Роль</label>
               <select
-                :value="currentMailingForm?.roleId"
                 class="form__select form__select_theme_white"
-                @change="(e) => setRoleId(e.target.value)"
+                :class="{
+                  invalid: v$.roleId.$error,
+                }"
+                v-model="roleId"
               >
                 <option v-for="role in roles" :key="role.id" :value="role.id">
                   {{ role.title }}
@@ -81,10 +89,13 @@
             <div class="admin_mailings__inp">
               <label for="adminSubjectDate" class="form__label">Регион</label>
               <select
-                :value="currentMailingForm?.regionId"
                 class="form__select form__select_theme_white"
-                @change="(e) => setRegionId(e.target.value)"
+                :class="{
+                  invalid: v$.regionId.$error,
+                }"
+                v-model="regionId"
               >
+                <option value="">Все</option>
                 <option
                   v-for="region in regions"
                   :key="region.id"
@@ -99,8 +110,10 @@
                 >Периодичность</label
               >
               <select
-                :value="currentMailingForm?.periodId"
-                @change="(e) => setPeriodId(e.target.value)"
+                :class="{
+                  invalid: v$.periodId.$error,
+                }"
+                v-model="periodId"
                 class="form__select form__select_theme_white"
               >
                 <option
@@ -117,12 +130,14 @@
                 >Дата отправки</label
               >
               <input
-                @change="(e) => setSendAt(e.target.value)"
+                :class="{
+                  invalid: v$.sendAt.$error,
+                }"
+                v-model="sendAt"
                 type="date"
                 name="date-from"
                 class="form__input-edit form__input-edit_el_date-from"
                 id="date-from"
-                :value="currentMailingForm?.sendAt"
               />
             </div>
           </div>
@@ -132,16 +147,19 @@
             v-if="this.currentMailingForm"
           >
             <QuilEditor
-              :content="this.currentMailingForm?.body"
+              :content="body"
               contentType="html"
               @textChange="
                 () => {
-                  setBody($refs.editor.getHTML());
+                  body = $refs.editor.getHTML();
                 }
               "
               ref="editor"
               theme="snow"
             />
+            <small v-if="v$.body.$error" style="color: red"
+              >Заполните тело рассылки</small
+            >
           </div>
           <div class="checkbox form-group"></div>
           <div class="admin_mailings__row add-row_btns add-row">
@@ -153,7 +171,7 @@
                 button_border_small
                 form__submit
               "
-              @click="updateMailing()"
+              @click="updateMailingHandler()"
             >
               Сохранить
             </button>
@@ -163,7 +181,7 @@
               @click="
                 () => {
                   setStatusId(3);
-                  updateMailing();
+                  updateMailingHandler();
                 }
               "
             >
@@ -177,6 +195,9 @@
 </template>
 <script>
 import { createNamespacedHelpers } from "vuex";
+import { mailingEditorMixin } from "@/mixins/components/mailingEditorMixin";
+import useVuelidate from "@vuelidate/core";
+
 const {
   mapState: mapStateCurrentMailing,
   mapActions: mapActionsCurrentMailing,
@@ -190,6 +211,8 @@ const { mapState: mapStateLocation } = createNamespacedHelpers("location");
 
 export default {
   name: "cabinet-current-mailing",
+  mixins: [mailingEditorMixin],
+
   computed: {
     ...mapStateCurrentMailing({
       currentMailing: (state) => state.currentMailing,
@@ -205,8 +228,87 @@ export default {
     ...mapStateLocation({
       regions: (state) => state.regions,
     }),
-    title() {
-      return this.currentMailing?.title;
+    title: {
+      get() {
+        return this.currentMailingForm?.title;
+      },
+      set(value) {
+        this.setTitle(value);
+        this.v$.title.$touch();
+      },
+    },
+    sendAt: {
+      get() {
+        return this.currentMailingForm?.sendAt;
+      },
+      set(value) {
+        this.setSendAt(value);
+        this.v$.sendAt.$touch();
+      },
+    },
+    theme: {
+      get() {
+        return this.currentMailingForm?.theme;
+      },
+
+      set(value) {
+        this.setTheme(value);
+        this.v$.theme.$touch();
+      },
+    },
+    typeId: {
+      get() {
+        return this.currentMailingForm?.typeId;
+      },
+      set(value) {
+        this.setEventTypeId(value);
+        this.v$.typeId.$touch();
+      },
+    },
+    roleId: {
+      get() {
+        return this.currentMailingForm?.roleId;
+      },
+      set(value) {
+        this.setRoleId(value);
+        this.v$.roleId.$touch();
+      },
+    },
+    regionId: {
+      get() {
+        return this.currentMailingForm?.regionId;
+      },
+      set(value) {
+        this.setRegionId(value);
+        this.v$.regionId.$touch();
+      },
+    },
+    periodId: {
+      get() {
+        return this.currentMailingForm?.periodId;
+      },
+      set(value) {
+        this.setPeriodId(value);
+        this.v$.periodId.$touch();
+      },
+    },
+    eventTypeId: {
+      get() {
+        return this.currentMailingForm?.eventTypeId;
+      },
+      set(value) {
+        this.setEventTypeId(value);
+        this.v$.eventTypeId.$touch();
+      },
+    },
+    body: {
+      get() {
+        return this.currentMailingForm?.body;
+      },
+      set(value) {
+        this.setBody(value);
+        this.v$.body.$touch();
+      },
     },
   },
   methods: {
@@ -224,6 +326,21 @@ export default {
       "setBody",
       "setRoleId",
     ]),
+    async updateMailingHandler() {
+      const isCorrect = await this.v$.$validate();
+
+      if (!isCorrect) {
+        return;
+      }
+      this.updateMailing();
+      this.v$.$reset();
+    },
+  },
+  setup() {
+    return { v$: useVuelidate() };
+  },
+  validations: function () {
+    return this.getValidations();
   },
   created() {
     this.setCurrentMailingId(this.$route.params.mailingId);

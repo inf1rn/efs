@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>новый слушатель 1</title>
+</head>
+<body class="page">
+    <header class="header">
+        <div class="header__inner header__inner_page_cabinet">
+          <div class="header__column header__column_direct_row">
+            <a href="/" class="logo logo_page_cabinet"></a>
+            <a href="" class="header-link header__site-link">Перейти на сайт</a>
+            <a href="" class="header-link header__log-link">Техническая поддержка</a>
+          </div>
+          <div class="header__column header__column_direct_row-end">
+            <a href="" class="header__user-link">
+              <img src="upload/user-ava.png" class="header__avatar" alt="Аватар пользователя">
+              <span class="header__username">Рудковский А. М.</span>
+            </a>
+            <div class="header__controls">
+              <a href="#" class="header__control header__control_type_notification" title="Уведомления">
+                <span class="notification-count">2</span>
+              </a>
+              <a href="#" class="header__control header__control_type_logout" title="Выйти"></a>
+            </div>
+          </div>
+        </div>
+      </header>
+  <div class="page__content-wrapper">
+    <aside class="sidebar sidebar_opened">
+      <button class="sidebar__toggle"></button>
+      <nav class="sidebar__menu">
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_users"></i>
+          <span class="sidebar__menu-item-text">Пользователи</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_forms"></i>
+          <span class="sidebar__menu-item-text">Формы</span>
+        </a>
+        <a href="#" class="sidebar__menu-item sidebar__menu-item_active">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_organizations"></i>
+          <span class="sidebar__menu-item-text">Организации</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_reports"></i>
+          <span class="sidebar__menu-item-text">Отчеты</span>
+        </a>
+        <a href="#" class="sidebar__menu-item">
+          <i class="sidebar__menu-item-icon sidebar__menu-item_icon_map"></i>
+          <span class="sidebar__menu-item-text">Карта</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="regional__new-listeners content content_cabinet">
+        <section class="form-detail page__section">
+          <!-- <ul class="breadcrumbs page__breadcrumbs">
+            <li class="breadcrumbs__item">
+              <a href="#" class="breadcrumbs__link">Формы</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <span href="#" class="breadcrumbs__link breadcrumbs__link_current">добавить слушателя</span>
+            </li>
+          </ul> -->
+          <div class="form-detail__top">
+              <h1 class="section-title">№3456 <br>
+                Сведения об организации дополнительного профессионального образования</h1>
+          </div>
+          <div class="form-detail__info">
+            <div class="form-detail__info-item">
+              <label class="form-detail__info-item-label">
+                <div class="form-detail__info-item-name">Организация</div>
+                <input type="text" class="form-detail__info-item-input" placeholder="Заполните поле:">
+              </label>
+            </div>
+            <div class="form-detail__info-item">
+              <label class="form-detail__info-item-label">
+                <div class="form-detail__info-item-name">Заполнитель</div>
+                <input type="text" class="form-detail__info-item-input" placeholder="Заполните поле:">
+              </label>
+            </div>
+            <div class="form-detail__info-item">
+              <label class="form-detail__info-item-label">
+                <div class="form-detail__info-item-name">Дата заполнения</div>
+                <input type="date" class="form-detail__info-item-input" placeholder="Заполните поле:">
+              </label>
+            </div>
+          </div>
+          <div class="form-detail__wrapper wrapper-max_width-m">
+            <form class="new-listeners__body width_m from">
+                <div class="new-listeners__block block_white">
+                  <div class="new-listeners_tabs-form__line form__item">
+                    <label for="newListenersFio" class="form__label">Полное наименование организации ДПО (по Уставу)</label>
+                    <input
+                    type="text"
+                    class="spollers-body__input form-input__border"
+                    id="newListenersFio"
+                    placeholder=""
+                  >
+                  <span class="form__label-three">Наименование организации ДПО по Уставу</span>
+                  </div>
+                </div>
+                <div class="new-listeners__block block_white">
+                  <div class="new-listeners_tabs-form__line form__item">
+                      <div class="form__item-block">
+                        <label for="newListenersEditFullname" class="form__label">ФИО руководителя организации ДПО</label>
+                        <input
+                        type="text"
+                        class="spollers-body__input form-input__border"
+                        id="newListenersEditFullname"
+                        placeholder=""
+                      >
+                      </div>
+                   
+                  <span class="form__label-three">Например: Тихонов Валерий Анатольевич</span>
+                  </div>
+                </div>
+                <div class="new-listeners__block block_white">
+                    <div class="new-listeners_tabs-form__line form__item">
+                        <div class="form__item-block">
+                          <label for="newListenersAddress" class="form__label">Юридический адрес</label>
+                          <input
+                          type="text"
+                          class="spollers-body__input form-input__border"
+                          id="newListenersAddress"
+                          placeholder=""
+                        >
+                        </div>
+                     
+                    <span class="form__label-three">Например: Москва, Тимирязевская улица, 36</span>
+                    </div>
+                </div>
+                <div class="new-listeners__block block_white">
+                    <div class="new-listeners_tabs-form__line form__item">
+                        <div class="form__item-block">
+                          <label for="newListenersOKPO" class="form__label">ОКПО</label>
+                          <input
+                          type="text"
+                          class="spollers-body__input form-input__border"
+                          id="newListenersOKPO"
+                          placeholder=""
+                        >
+                        </div>
+                     
+                    <span class="form__label-three">Общероссийский классификатор предприятий и организаций</span>
+                    </div>
+                </div>
+                <div class="new-listeners__block block_white">
+                    <div class="new-listeners_tabs-form__line form__item">
+                        <div class="form__item-block">
+                          <label for="newListenersIIN" class="form__label">ИНН</label>
+                          <input
+                          type="text"
+                          class="spollers-body__input form-input__border"
+                          id="newListenersIIN"
+                          placeholder=""
+                        >
+                        </div>
+                     
+                    <span class="form__label-three">Идентификационный номер налогоплательщика</span>
+                    </div>
+                </div>
+                <div class="new-listeners__block block_white">
+                    <div class="new-listeners_tabs-form__line form__item">
+                        <div class="form__item-block">
+                          <label for="newListenersKPP" class="form__label">КПП</label>
+                          <input
+                          type="text"
+                          class="spollers-body__input form-input__border"
+                          id="newListenersKPP"
+                          placeholder=""
+                        >
+                        </div>
+                     
+                    <span class="form__label-three">Код причины постановки на учет</span>
+                    </div>
+                </div>
+                <div class="new-listeners__block block_white">
+                    <div class="new-listeners_tabs-form__line form__item">
+                        <div class="form__item-block">
+                          <label for="newListenersOGHN" class="form__label">ОГРН</label>
+                          <input
+                          type="text"
+                          class="spollers-body__input form-input__border"
+                          id="newListenersOGHN"
+                          placeholder=""
+                        >
+                        </div>
+                     
+                    <span class="form__label-three">Основной государственный регистрационный номер</span>
+                    </div>
+                </div>
+                <div class="new-listeners__block block_white">
+                    <div class="new-listeners_tabs-form__line form__item">
+                        <div class="form__item-block">
+                          <label for="newListenersOKTPO" class="form__label">ОКТМО</label>
+                          <input
+                          type="text"
+                          class="spollers-body__input form-input__border"
+                          id="newListenersOKTPO"
+                          placeholder=""
+                        >
+                        </div>
+                     
+                    <span class="form__label-three">Общероссийский классификатор территорий муниципальных образований</span>
+                    </div>
+                </div>
+             </form>
+             <div class="new-listeners__btn">
+                <button type="submit" class="button button_theme_green--empty button_border_small form__submit">Отправить на доработку</button>
+              <button type="submit" class="button button_theme_green button_border_small form__submit">Согласовать</button>
+             </div>
+        </div>
+        </section>
+      </main>
+    
+  </div>
+  <script src="js/app.min.js"></script>
+<footer class="footer footer-no--bg">
+  <div class="footer__inner">
+      © Все права защищены
+  </div>
+</footer>
+<div class="popup-new popup_users_info--edit _active">
+	<div class="popup__content">
+		<div class="popup__body">			
+        <div class="popup__body-wrap body-wrap">
+            <label class="body-wrap__comment">
+              <div class="body-wrap__text">Добавить комментарий</div>
+              <textarea class="body-wrap__error"></textarea>
+            </label>
+            <div class="user_tabs-form__btn">
+              <button type="submit" class="button button_theme_green button_border_small form__submit">Сохранить изменения</button>
+            </div>
+        </div>        
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -21,7 +21,7 @@ export const reportsModule = {
     },
     actions: {
         async fetchForms({ commit }) {
-            const { data: { data: forms } } = await formsAPI.fetchForms({})
+            const { data: { data: { data: forms } } } = await formsAPI.fetchForms({ perPage: 10000 })
             commit("setForms", forms)
         }
     },

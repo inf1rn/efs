@@ -74,15 +74,45 @@
                 name="listenersRegion"
                 class="form__select form__select_theme_white"
                 :value="filters.regionId"
-                @change="setFiltersRegionId($event.target.value)"
+                @change="
+                  (e) => {
+                    setFiltersRegionId(e.target.value);
+                    fetchRegionsListenersStat();
+                  }
+                "
               >
-                <option value="" hidden>Выберите регион</option>
+                <option value="">Вcе</option>
                 <option
                   v-for="region of regions"
                   :value="region.title"
                   :key="region.id"
                 >
                   {{ region.title }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="listeners__region">
+            <div class="listeners__region-block">
+              <label for="listenersRegion" class="form__label">Город</label>
+              <select
+                name="listenersRegion"
+                class="form__select form__select_theme_white"
+                :value="filters.cityId"
+                @change="
+                  (e) => {
+                    setFiltersCityId(e.target.value);
+                    fetchRegionsListenersStat();
+                  }
+                "
+              >
+                <option value="">Вcе</option>
+                <option
+                  v-for="city of cities"
+                  :value="city.title"
+                  :key="city.id"
+                >
+                  {{ city.title }}
                 </option>
               </select>
             </div>
@@ -101,7 +131,15 @@
               class="form__select form__select_theme_white"
             ></select>
           </div>
-          <div class="listeners__link" @click.prevent="clearFilters()">
+          <div
+            class="listeners__link"
+            @click.prevent="
+              () => {
+                clearFilters();
+                fetchRegionsListenersStat();
+              }
+            "
+          >
             <a href="#" class="filter__reset-link reports-search__reset-link"
               >Сбросить</a
             >
@@ -234,6 +272,7 @@ export default {
     ]),
     ...mapMutationsRegionsListenersStat([
       "setFiltersRegionId",
+      "setFiltersCityId",
       "clearFilters",
       "setListenerCSV",
     ]),
@@ -253,6 +292,7 @@ export default {
     }),
     ...mapStateLocation({
       regions: (state) => state.regions,
+      cities: state => state.cities
     }),
   },
   created() {

@@ -31,6 +31,12 @@
                 placeholder="Ваша фамилия"
                 :value="userData.secondName"
                 @input="(e) => setCurrentUserSecondName(e.target.value)"
+                v-maska="{
+                  mask: 'К*',
+                  tokens: {
+                    К: { pattern: /[а-яА-Я]/ },
+                  },
+                }"
               />
             </div>
             <div class="user_tabs-form__line form__item">
@@ -42,6 +48,12 @@
                 placeholder="Ваше имя"
                 :value="userData.firstName"
                 @input="(e) => setCurrentUserFirstName(e.target.value)"
+                v-maska="{
+                  mask: 'К*',
+                  tokens: {
+                    К: { pattern: /[а-яА-Я]/ },
+                  },
+                }"
               />
             </div>
             <div class="user_tabs-form__line form__item">
@@ -55,6 +67,12 @@
                 placeholder="Ваше отчество"
                 :value="userData.lastName"
                 @input="(e) => setCurrentUserLastName(e.target.value)"
+                v-maska="{
+                  mask: 'К*',
+                  tokens: {
+                    К: { pattern: /[а-яА-Я]/ },
+                  },
+                }"
               />
             </div>
           </div>
@@ -62,7 +80,7 @@
             <div class="user_tabs-form__line form__item">
               <label for="userTabsMail" class="form__label">Email</label>
               <input
-                type="mail"
+                type="email"
                 class="form__input-edit form__input-edit_width_full"
                 id="userTabsMail"
                 placeholder="Email пользователя"
@@ -76,14 +94,12 @@
                 class="form__input-edit form__input-edit_width_full"
                 id="userTabsRole"
                 placeholder="Выберите роль"
-                @change="e => setCurrentUserRoles(e.target.value)"
-                :value="userData.roles?.name"
+                @change="
+                  (e) => setCurrentUserRoles([getRoleById(+e.target.value)])
+                "
+                :value="userData.roles[0]?.id"
               >
-                <option
-                  :value="role.name"
-                  v-for="role in roles"
-                  :key="role.id"
-                >
+                <option :value="role.id" v-for="role in roles" :key="role.id">
                   {{ role.title }}
                 </option>
               </select>
@@ -202,6 +218,7 @@
 </template>
 <script>
 import { createNamespacedHelpers } from "vuex";
+import avatar from "@/assets/images/avatar.jpg"
 
 const {
   mapState: mapStateUsers,
@@ -210,7 +227,8 @@ const {
 } = createNamespacedHelpers("users/currentUser");
 
 const { mapState: mapStateLocation } = createNamespacedHelpers("location");
-const { mapState: mapStateAccount } = createNamespacedHelpers("account");
+const { mapState: mapStateAccount, mapGetters: mapGettersAccount } =
+  createNamespacedHelpers("account");
 const { mapState: mapStateOrganizations } =
   createNamespacedHelpers("organizations");
 
@@ -232,16 +250,15 @@ export default {
     ...mapStateAccount({
       roles: (state) => state.roles,
     }),
+    ...mapGettersAccount(["getRoleById"]),
     imageSrc: function () {
       const image = this.userData?.image;
 
-      if (typeof image === "object" && image) {
+      if (typeof image === "object" && image && image !== 'null') {
         return URL.createObjectURL(new Blob([image], { type: "image/*" }));
       }
 
-      return image
-        ? image
-        : require("@/assets/images/user_avatar.png");
+      return image && image !== 'null' ? image : avatar;
     },
   },
   methods: {

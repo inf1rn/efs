@@ -6,7 +6,8 @@ export const mailingsModule = {
         return {
             mailings: [],
             filters: {
-                date: "",
+                dateAt: "",
+                dateTo: "",
                 roleId: "",
                 regionId: ""
             },
@@ -31,15 +32,22 @@ export const mailingsModule = {
                 roleId
             }
         },
-        setFiltersDate(state, date) {
+        setFiltersDateAt(state, dateAt) {
             state.filters = {
                 ...state.filters,
-                date
+                dateAt
+            }
+        },
+        setFiltersDateTo(state, dateTo) {
+            state.filters = {
+                ...state.filters,
+                dateTo
             }
         },
         clearFilters(state) {
             state.filters = {
-                date: "",
+                dateAt: "",
+                dateTo: "",
                 roleId: "",
                 regionId: ""
             }
@@ -64,7 +72,8 @@ export const mailingsModule = {
                     mailingsType: 3,
                     roleId: state.filters.roleId,
                     regionId: state.filters.regionId,
-                    sendAt: state.filters.date
+                    dateAt: state.filters.dateAt,
+                    dateTo: state.filters.dateTo
                 },
                 state.currentPage)
             commit("setMailings", mailings)
@@ -76,10 +85,6 @@ export const mailingsModule = {
         },
         setFiltersRoleId({ commit, dispatch }, roleId) {
             commit("setFiltersRoleId", roleId)
-            dispatch("fetchMailings")
-        },
-        setFiltersDate({ commit, dispatch }, date) {
-            commit("setFiltersDate", date)
             dispatch("fetchMailings")
         },
         clearFilters({ commit, dispatch }) {

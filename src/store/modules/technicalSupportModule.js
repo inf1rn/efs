@@ -8,7 +8,8 @@ export const technicalSupportModule = {
                 lastName: "",
                 thirdName: "",
                 email: "",
-                question: ""
+                question: "",
+                agreeProcessing: false
             },
             isOpened: false
         }
@@ -51,6 +52,12 @@ export const technicalSupportModule = {
         setIsOpened(state, isOpened) {
             state.isOpened = isOpened
         },
+        setAgreeProcessing(state, agreeProcessing) {
+            state.technicalSupportFormData = {
+                ...state.technicalSupportFormData,
+                agreeProcessing
+            }
+        },
         clearTechnicalSupportFormData(state) {
             state.technicalSupportFormData = {
                 ...state.technicalSupportFormData,
@@ -65,18 +72,22 @@ export const technicalSupportModule = {
     actions: {
         async sendQuestion({ commit, state }) {
             const { firstName, lastName, thirdName, email, question } = state.technicalSupportFormData
-            supportAPI.sendTechnicalSupportMessage({
-                first_name: firstName,
-                second_name: lastName,
-                last_name: thirdName,
-                email: email,
-                question: question
-            }).then(() => {
+            try {
+                await supportAPI.sendTechnicalSupportMessage({
+                    first_name: firstName,
+                    second_name: lastName,
+                    last_name: thirdName,
+                    email: email,
+                    question: question
+                })
                 alert("Сообщение отправлено в тех. поддержку")
-            }).finally(() => {
                 commit("clearTechnicalSupportFormData")
                 commit("setIsOpened", false)
-            })
+            } catch (e) {
+                console.log(e.message)
+                alert("Ошибка")
+            }
+
         }
     },
     namespaced: true
